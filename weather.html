@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kedarnath Weather — Yatra</title>
+  <meta name="description" content="Live weather forecast for Kedarnath — plan your trek with confidence" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/weather.css" />
+</head>
+<body>
+  <div class="yatra">
+
+    <!-- NAV -->
+    <nav id="y-nav" class="nav scrolled">
+      <div class="container nav-inner">
+        <a href="index.html" class="brand">
+          <span class="brand-mark"></span>
+          Yatra
+        </a>
+         <div class="nav-links" id="navLinks">
+          <a href="index.html#plans">Plans</a>
+          <a href="index.html#destinations">Destinations</a>
+          <a href="index.html#safety">Safety</a>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a href="index.html" class="nav-cta">← Back</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="weather-hero">
+      <div class="container">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Live Weather
+        </div>
+        <h1 class="serif weather-hero-title">
+          Kedarnath <em>Weather</em>
+        </h1>
+        <p class="weather-hero-sub">
+          Real-time forecast to help you plan your trek and pack right.
+        </p>
+      </div>
+    </section>
+
+    <!-- CURRENT WEATHER -->
+    <section class="current-section">
+      <div class="container">
+        <div class="current-grid">
+          <!-- Main Current Card -->
+          <div class="current-main-card" id="currentCard">
+            <div class="current-location">📍 Kedarnath, Uttarakhand</div>
+            <div class="current-temp-row">
+              <span class="current-icon" id="currentIcon">☁️</span>
+              <span class="current-temp" id="currentTemp">--°C</span>
+            </div>
+            <div class="current-condition" id="currentCondition">Loading...</div>
+            <div class="current-details">
+              <div class="detail-item">
+                <span class="detail-label">💧 Humidity</span>
+                <span class="detail-value" id="currentHumidity">--%</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">💨 Wind</span>
+                <span class="detail-value" id="currentWind">-- km/h</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">🌧️ Rain</span>
+                <span class="detail-value" id="currentRain">-- mm</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">👁️ Visibility</span>
+                <span class="detail-value" id="currentVis">-- km</span>
+              </div>
+            </div>
+            <div class="current-updated" id="lastUpdated">Updating...</div>
+          </div>
+
+          <!-- Trek Advisory Card -->
+          <div class="trek-advisory-card" id="trekAdvisory">
+            <h3 class="advisory-title">🥾 Trek Advisory</h3>
+            <div class="advisory-status" id="advisoryStatus">
+              <span class="status-dot"></span>
+              <span class="status-text">Checking conditions...</span>
+            </div>
+            <div class="advisory-tips" id="advisoryTips">
+              Loading recommendations...
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10-DAY FORECAST -->
+    <section class="forecast-section">
+      <div class="container">
+        <h2 class="serif forecast-title">10-Day <em>Forecast</em></h2>
+        <div class="forecast-grid" id="forecastGrid">
+          <!-- Filled by JS -->
+          <div class="forecast-card skeleton">
+            <div class="fc-day">---</div>
+            <div class="fc-icon">--</div>
+            <div class="fc-temp">--°</div>
+            <div class="fc-low">--°</div>
+            <div class="fc-rain">💧 --%</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PACKING GUIDE -->
+    <section class="packing-section">
+      <div class="container">
+        <h2 class="serif packing-title">🎒 <em>Packing</em> Recommendations</h2>
+        <p class="packing-sub">Based on current forecast — updated daily.</p>
+        <div class="packing-grid" id="packingGrid">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ALERTS -->
+    <section class="alerts-section" id="alertsSection" style="display:none;">
+      <div class="container">
+        <h2 class="serif alerts-title">⚠️ <em>Weather Alerts</em></h2>
+        <div class="alerts-list" id="alertsList">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="brand" style="justify-content: center; margin-bottom: 14px;">
+          <span class="brand-mark"></span>
+          Yatra
+        </div>
+        <div>Weather data from Open-Meteo · Updated every 30 minutes · © <span id="year"></span></div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="js/weather.js"></script>
+  <script src="js/mobile-menu.js"></script>
+</body>
+</html>

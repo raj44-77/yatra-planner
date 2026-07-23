@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Yatra</title>
+  <meta name="description" content="Contact Kumar Raj, creator of Yatra — India's free Kedarnath travel budget planner" />
+  <meta name="robots" content="index, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕉️</text></svg>" />
+  <style>
+    .contact-page { padding: 140px 0 80px; }
+    .contact-page .container { max-width: 650px; }
+    .contact-page h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 5vw, 48px); color: var(--snow); margin-bottom: 8px; text-align: center; }
+    .contact-page h1 em { font-style: italic; color: var(--gold); }
+    .contact-page .contact-sub { text-align: center; color: var(--ice); opacity: 0.7; font-size: 15px; margin-bottom: 40px; }
+    .contact-card { padding: 32px; border-radius: 20px; background: linear-gradient(180deg, rgba(11,35,69,0.5), rgba(8,27,51,0.3)); border: 1px solid var(--line); margin-bottom: 24px; text-align: center; }
+    .contact-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--snow); margin-bottom: 8px; }
+    .contact-card p { color: var(--ice); opacity: 0.75; font-size: 14px; line-height: 1.7; margin-bottom: 4px; }
+    .contact-card a { color: var(--gold); text-decoration: none; font-weight: 500; }
+    .contact-card a:hover { text-decoration: underline; }
+    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 30px; }
+    @media (max-width: 600px) { .contact-grid { grid-template-columns: 1fr; } }
+    .social-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+    .social-link { padding: 10px 20px; border-radius: 12px; border: 1px solid var(--line); color: var(--ice); text-decoration: none; font-size: 13px; transition: all 0.3s; }
+    .social-link:hover { border-color: var(--gold); color: var(--gold); }
+  </style>
+</head>
+<body>
+  <div class="yatra">
+    <nav id="y-nav" class="nav scrolled">
+      <div class="container nav-inner">
+        <a href="index.html" class="brand"><span class="brand-mark"></span>Yatra</a>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html#plans">Plans</a>
+          <a href="places.html">🏔️ Places</a>
+          <a href="weather.html">🌤️ Weather</a>
+          <a href="map.html">🗺️ Map</a>
+          <a href="about.html">About</a>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+        <a href="index.html" class="nav-cta">← Back</a>
+      </div>
+    </nav>
+
+    <section class="contact-page">
+      <div class="container">
+        <h1 class="serif">Get in <em>Touch</em></h1>
+        <p class="contact-sub">Have a question, suggestion, or want to contribute? I'd love to hear from you.</p>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div style="font-size: 32px; margin-bottom: 10px;">📧</div>
+            <h3>Email</h3>
+            <p>For queries, feedback, or collaboration:</p>
+            <a href="mailto:hello@yatraplanner.com">hello@yatraplanner.com</a>
+          </div>
+          <div class="contact-card">
+            <div style="font-size: 32px; margin-bottom: 10px;">🐦</div>
+            <h3>Twitter / X</h3>
+            <p>Follow for updates and travel tips:</p>
+            <a href="https://twitter.com/yatraplanner" target="_blank" rel="noopener">@yatraplanner</a>
+          </div>
+          <div class="contact-card">
+            <div style="font-size: 32px; margin-bottom: 10px;">💬</div>
+            <h3>Response Time</h3>
+            <p>I personally read every message.</p>
+            <p>Usually reply within 24-48 hours.</p>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <h3>📢 Report an Issue</h3>
+          <p>Found incorrect pricing? Outdated information? A bug on the website?</p>
+          <p>Please email <a href="mailto:hello@yatraplanner.com">hello@yatraplanner.com</a> with details. I update prices and information regularly based on traveler feedback.</p>
+        </div>
+
+        <div class="contact-card">
+          <h3>🤝 Contribute</h3>
+          <p>If you've recently completed the Kedarnath Yatra and want to share updated prices, photos, or tips — I welcome contributions. Your real experience helps keep Yatra accurate for everyone.</p>
+          <p>Email me at <a href="mailto:hello@yatraplanner.com">hello@yatraplanner.com</a></p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="brand" style="justify-content: center; margin-bottom: 14px;"><span class="brand-mark"></span>Yatra</div>
+        <div style="margin-bottom: 10px;">
+          <a href="privacy.html" style="color: var(--ice); opacity: 0.7; margin: 0 10px; font-size: 12px;">Privacy Policy</a>
+          <a href="terms.html" style="color: var(--ice); opacity: 0.7; margin: 0 10px; font-size: 12px;">Terms</a>
+          <a href="contact.html" style="color: var(--ice); opacity: 0.7; margin: 0 10px; font-size: 12px;">Contact</a>
+        </div>
+        <div>Crafted for families who travel the Himalayas with heart · © <span id="year"></span></div>
+      </div>
+    </footer>
+  </div>
+  <script src="js/mobile-menu.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

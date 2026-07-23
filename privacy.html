@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Yatra</title>
+  <meta name="description" content="Privacy Policy for Yatra — India's free travel budget planner for Kedarnath" />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕉️</text></svg>" />
+  <style>
+    .legal-page { padding: 140px 0 80px; }
+    .legal-page .container { max-width: 800px; }
+    .legal-page h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 5vw, 48px); color: var(--snow); margin-bottom: 8px; }
+    .legal-page h1 em { font-style: italic; color: var(--gold); }
+    .legal-page .last-updated { color: var(--ice); opacity: 0.6; font-size: 13px; margin-bottom: 40px; }
+    .legal-page h2 { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--gold); margin: 32px 0 12px; }
+    .legal-page p, .legal-page li { color: var(--ice); opacity: 0.8; font-size: 14px; line-height: 1.8; margin-bottom: 12px; }
+    .legal-page ul { padding-left: 20px; margin-bottom: 16px; }
+    .legal-page a { color: var(--gold); text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="yatra">
+    <nav id="y-nav" class="nav scrolled">
+      <div class="container nav-inner">
+        <a href="index.html" class="brand"><span class="brand-mark"></span>Yatra</a>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html#plans">Plans</a>
+          <a href="places.html">🏔️ Places</a>
+          <a href="weather.html">🌤️ Weather</a>
+          <a href="map.html">🗺️ Map</a>
+          <a href="about.html">About</a>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+        <a href="index.html" class="nav-cta">← Back</a>
+      </div>
+    </nav>
+
+    <section class="legal-page">
+      <div class="container">
+        <h1 class="serif">Privacy <em>Policy</em></h1>
+        <p class="last-updated">Last updated: July 23, 2026</p>
+
+        <p>At <strong>Yatra</strong>, your privacy is extremely important to us. This Privacy Policy explains how we handle your information when you use our website.</p>
+
+        <h2>1. We Collect NO Personal Data</h2>
+        <p>Yatra is a completely static website. We do <strong>not</strong> collect, store, or process any personal information. There is:</p>
+        <ul>
+          <li>No sign-up or registration</li>
+          <li>No cookies (except essential browser defaults)</li>
+          <li>No tracking scripts or analytics</li>
+          <li>No data sent to any server</li>
+          <li>No forms that store data</li>
+        </ul>
+
+        <h2>2. Weather Data</h2>
+        <p>Our weather page fetches data from <strong>Open-Meteo API</strong> — a free, open-source weather service. We do not send any user data to this API. Only the coordinates of Kedarnath are requested to fetch weather information.</p>
+
+        <h2>3. Third-Party Services</h2>
+        <p>We use the following third-party services that may have their own privacy policies:</p>
+        <ul>
+          <li><strong>Google Fonts</strong> — for displaying beautiful typography</li>
+          <li><strong>Open-Meteo</strong> — for weather data (no API key, no tracking)</li>
+        </ul>
+
+        <h2>4. Local Storage</h2>
+        <p>The Plan page may temporarily store your selected plan preferences (city, tier, number of travelers) in your browser's local storage. This data never leaves your device and is automatically cleared when you close your browser.</p>
+
+        <h2>5. Children's Privacy</h2>
+        <p>Yatra is safe for all ages. We do not knowingly collect any information from children under 13.</p>
+
+        <h2>6. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated date.</p>
+
+                <h2>8. Cookies</h2>
+        <p>Yatra itself does not use cookies. However, Google Fonts (used for displaying text) may set technical cookies required for font delivery. These cookies do not track you personally. You can disable cookies in your browser settings, though fonts may not display correctly.</p>
+
+        <h2>7. Contact</h2>
+        <p>If you have any questions about this Privacy Policy, please visit our <a href="contact.html">Contact Page</a>.</p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="brand" style="justify-content: center; margin-bottom: 14px;"><span class="brand-mark"></span>Yatra</div>
+        <div style="margin-bottom: 10px;">
+          <a href="privacy.html" style="color: var(--ice); opacity: 0.7; margin: 0 10px; font-size: 12px;">Privacy Policy</a>
+          <a href="terms.html" style="color: var(--ice); opacity: 0.7; margin: 0 10px; font-size: 12px;">Terms</a>
+          <a href="contact.html" style="color: var(--ice); opacity: 0.7; margin: 0 10px; font-size: 12px;">Contact</a>
+        </div>
+        <div>Crafted for families who travel the Himalayas with heart · © <span id="year"></span></div>
+      </div>
+    </footer>
+  </div>
+  <script src="js/mobile-menu.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Primary Meta Tags -->
+  <title>Yatra — India Travel Budget Planner for Kedarnath | Free, Honest, Detailed</title>
+  <meta name="title" content="Yatra — India Travel Budget Planner for Kedarnath | Free, Honest, Detailed" />
+  <meta name="description" content="Plan your Kedarnath Yatra from 8 Indian cities. Step-by-step guide with real train names, bus stops, dhaba prices, and trek details. Basic, Comfort & Premium plans. 100% free, no hidden charges." />
+  <meta name="keywords" content="Kedarnath yatra, Kedarnath budget, Kedarnath travel planner, Bhagalpur to Kedarnath, Delhi to Kedarnath, Kedarnath trek guide, Kedarnath weather, Kedarnath places, Char Dham yatra, Kedarnath trip cost, Haridwar to Kedarnath, Kedarnath route map" />
+  <meta name="author" content="Kumar Raj" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="English, Hindi" />
+  <link rel="canonical" href="https://yatraplanner.com/" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yatraplanner.com/" />
+  <meta property="og:title" content="Yatra — India Travel Budget Planner for Kedarnath" />
+  <meta property="og:description" content="Plan your Kedarnath Yatra from 8 Indian cities. Step-by-step guide with real costs. 100% free, no hidden charges." />
+  <meta property="og:image" content="https://yatraplanner.com/assets/images/himalaya-hero.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Yatra Planner" />
+  <meta property="og:locale" content="en_IN" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://yatraplanner.com/" />
+  <meta property="twitter:title" content="Yatra — India Travel Budget Planner for Kedarnath" />
+  <meta property="twitter:description" content="Plan your Kedarnath Yatra from 8 Indian cities. Step-by-step guide with real costs. 100% free." />
+  <meta property="twitter:image" content="https://yatraplanner.com/assets/images/himalaya-hero.jpg" />
+  
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Yatra Planner",
+    "url": "https://yatraplanner.com",
+    "description": "Free, honest travel budget planner for Kedarnath Yatra from Indian cities.",
+    "author": {
+      "@type": "Person",
+      "name": "Kumar Raj"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://yatraplanner.com/?search={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    "name": "Yatra Planner",
+    "url": "https://yatraplanner.com",
+    "description": "Free Kedarnath Yatra budget planner — no packages, no commissions, just honest information.",
+    "areaServed": "India",
+    "priceRange": "Free"
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕉️</text></svg>" />
+</head>
+<body>
+  <div class="yatra">
+    <!-- NAV -->
+    <nav id="y-nav" class="nav">
+      <div class="container nav-inner">
+        <a href="#" class="brand">
+          <span class="brand-mark"></span>
+          Yatra
+        </a>
+        <div class="nav-links" id="navLinks">
+          <a href="#plans">Plans</a>
+          <a href="#destinations">Destinations</a>
+          <a href="#safety">Safety</a>
+           <a href="about.html">About</a>
+            <a href="weather.html">🌤️ Weather</a>
+            <a href="map.html">🗺️ Map</a>
+             <a href="places.html"> places</a>
+                    
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a href="#planner" class="nav-cta">Plan a Trip</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+      <div id="y-hero-bg" class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="mist"></div>
+      <canvas id="snow"></canvas>
+      <div class="hero-glow"></div>
+      <div class="container hero-content">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          India's Himalayan Travel Planner
+        </div>
+        <h1 class="serif hero-title">
+          Journey through the Himalayas,
+          <em>perfectly<br />within budget.</em>
+        </h1>
+        <p class="hero-sub">
+          Realistic, family-first travel budgets for Kedarnath, Manali, Shimla, Darjeeling and
+          Ladakh — with transparent transport, stay and food costs, plus local scam-prevention
+          wisdom.
+        </p>
+        <form id="planner" class="planner">
+          <div class="planner-head">
+            <div class="planner-title">Plan your family journey</div>
+            <div class="planner-hint">Free · Instant estimate</div>
+          </div>
+          <div class="planner-grid">
+                          <div class="field">
+                <label for="origin">Origin City</label>
+                <select id="origin">
+                  <option value="Bhagalpur">Bhagalpur (Bihar)</option>
+                  <option value="Patna">Patna (Bihar)</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Varanasi">Varanasi (UP)</option>
+                  <option value="Kolkata">Kolkata (WB)</option>
+                  <option value="Mumbai">Mumbai (Maharashtra)</option>
+                  <option value="Lucknow">Lucknow (UP)</option>
+                  <option value="Jaipur">Jaipur (Rajasthan)</option>
+                </select>
+              </div>
+                          <div class="field">
+                <label for="dest">Destination</label>
+                <select id="dest">
+                  <option value="Kedarnath">Kedarnath (Uttarakhand) ✅</option>
+                  <option value="Manali" disabled>Manali — Coming Soon</option>
+                  <option value="Shimla" disabled>Shimla — Coming Soon</option>
+                  <option value="Darjeeling" disabled>Darjeeling — Coming Soon</option>
+                  <option value="Ladakh" disabled>Ladakh — Coming Soon</option>
+                </select>
+              </div>
+            <div class="field">
+              <label for="family">Family Members</label>
+              <input id="family" type="number" min="1" max="12" value="4" />
+            </div>
+            <div class="field">
+              <label for="days">Trip Duration</label>
+              <select id="days">
+                <option>3 days</option>
+                <option>5 days</option>
+                <option selected>6 days</option>
+                <option>7 days</option>
+                <option>10 days</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="plan-btn">Plan My Budget</button>
+        </form>
+      </div>
+    </header>
+
+    <!-- PLANS SECTION -->
+    <section id="plans" class="block">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-eyebrow">Three tiers · One journey</div>
+          <h2 class="serif section-title">
+            Choose the trip that fits <em>your family</em>
+          </h2>
+          <p class="section-desc">
+            Every plan includes transport, stay, meals, local travel and a curated safety brief.
+            Prices are per family of four for a 6-day itinerary.
+          </p>
+        </div>
+        <div class="plans">
+                    <!-- Basic Plan -->
+          <div class="plan reveal">
+            <div class="plan-name serif">Basic</div>
+            <div class="plan-tag">Budget · Train Journey</div>
+            <div class="plan-price">
+              <span class="amount">₹6,480</span>
+              <span class="unit">onwards</span>
+            </div>
+            <div class="plan-per">Per person · 4 days · Round trip</div>
+            <ul class="plan-list">
+              <li>General class train (Bhagalpur ↔ Haridwar)</li>
+              <li>Public bus & shared jeep transfers</li>
+              <li>Trek to Kedarnath (16 km, free)</li>
+              <li>Dhaba thali meals · 2 times/day</li>
+              <li>Lodge/Tent stay at Kedarnath</li>
+            </ul>
+            <button class="plan-btn-sm" type="button">Build Basic Plan →</button>
+          </div>
+
+          <!-- Comfort Plan (Featured) -->
+          <div class="plan featured reveal">
+            <div class="plan-name serif">Comfort</div>
+            <div class="plan-tag">Most Chosen · Sleeper/3AC</div>
+            <div class="plan-price">
+              <span class="amount">₹12,080</span>
+              <span class="unit">onwards</span>
+            </div>
+            <div class="plan-per">Per person · 4 days · Round trip</div>
+            <ul class="plan-list">
+              <li>Sleeper/3AC train (Bhagalpur ↔ Haridwar)</li>
+              <li>Shared taxi for mountain transfers</li>
+              <li>Trek with snacks & water stops</li>
+              <li>Quality thali meals · 2 times/day</li>
+              <li>Private room stay at Kedarnath</li>
+            </ul>
+            <button class="plan-btn-sm" type="button">Build Comfort Plan →</button>
+          </div>
+
+          <!-- Premium Plan -->
+          <div class="plan reveal">
+            <div class="plan-name serif">Premium</div>
+            <div class="plan-tag">Fastest · Flight + Cab</div>
+            <div class="plan-price">
+              <span class="amount">₹38,375</span>
+              <span class="unit">onwards</span>
+            </div>
+            <div class="plan-per">Per person · 2 days · Round trip</div>
+            <ul class="plan-list">
+              <li>AC train + Flight (Patna ↔ Dehradun)</li>
+              <li>Private SUV with dedicated driver</li>
+              <li>Trek with premium refreshments</li>
+              <li>Multi-cuisine dining · 2 times/day</li>
+              <li>Premium resort stay at Kedarnath</li>
+            </ul>
+            <button class="plan-btn-sm" type="button">Build Premium Plan →</button>
+          </div>
+
+        <!-- DESTINATIONS -->
+        <div id="destinations" class="destinations reveal">
+          <div class="dest-chip">Kedarnath</div>
+          <div class="dest-chip">Manali</div>
+          <div class="dest-chip">Shimla</div>
+          <div class="dest-chip">Darjeeling</div>
+          <div class="dest-chip">Ladakh</div>
+          <div class="dest-chip">Rishikesh</div>
+          <div class="dest-chip">Auli</div>
+          <div class="dest-chip">Spiti</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAFETY SECTION -->
+    <section id="safety" class="block" style="padding-top: 40px;">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-eyebrow">Travel with confidence</div>
+          <h2 class="serif section-title">
+            Safety & <em>scam-alerts</em>, built in
+          </h2>
+          <p class="section-desc">
+            Every itinerary ships with local wisdom from verified travellers — so your family
+            spends more time on the ridgeline and less time on regret.
+          </p>
+        </div>
+        <div class="safety-grid">
+          <div class="safety-card reveal">
+            <div class="safety-icon">◆</div>
+            <div class="safety-title serif">Verified fare guides</div>
+            <div class="safety-desc">
+              Real cab, pony and porter rates from Rishikesh to Leh — so you never overpay at the trailhead.
+            </div>
+          </div>
+          <div class="safety-card reveal">
+            <div class="safety-icon">❋</div>
+            <div class="safety-title serif">Weather & altitude briefs</div>
+            <div class="safety-desc">
+              Kedarnath, Rohtang and Khardung La conditions with acclimatisation windows for kids and elders.
+            </div>
+          </div>
+          <div class="safety-card reveal">
+            <div class="safety-icon">◈</div>
+            <div class="safety-title serif">Trusted stay network</div>
+            <div class="safety-desc">
+              Only family-friendly, verified stays — no dark alleys, no bait-and-switch tariffs, ever.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      <!--footer -->
+
+            <!-- Footer injected by js/mobile-menu.js -->
+    <footer>
+      <div class="container">
+        <div class="brand" style="justify-content: center; margin-bottom: 14px;">
+          <span class="brand-mark"></span>
+          Yatra
+        </div>
+        <div style="margin-bottom: 10px;">
+          <a href="privacy.html" style="color: var(--ice); opacity: 0.7; margin: 0 10px; font-size: 12px; text-decoration: none;">Privacy Policy</a>
+          <a href="terms.html" style="color: var(--ice); opacity: 0.7; margin: 0 10px; font-size: 12px; text-decoration: none;">Terms</a>
+          <a href="contact.html" style="color: var(--ice); opacity: 0.7; margin: 0 10px; font-size: 12px; text-decoration: none;">Contact</a>
+        </div>
+        <div>Crafted for families who travel the Himalayas with heart · © <span id="year"></span></div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="js/mobile-menu.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

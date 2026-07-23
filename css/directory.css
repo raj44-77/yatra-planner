@@ -1,0 +1,361 @@
+/* ========================================
+   KEDARNATH DIRECTORY PAGE
+   ======================================== */
+
+/* Hero */
+.directory-hero {
+  padding: 160px 0 80px;
+  background: linear-gradient(180deg, #0a1f3d 0%, var(--navy) 100%);
+  text-align: center;
+}
+
+.directory-hero-title {
+  font-size: clamp(36px, 5vw, 60px);
+  line-height: 1.1;
+  font-weight: 400;
+  color: var(--snow);
+  margin-bottom: 16px;
+}
+
+.directory-hero-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.directory-hero-sub {
+  max-width: 560px;
+  margin: 0 auto 32px;
+  color: var(--ice);
+  opacity: 0.8;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Directory Quick Nav */
+.directory-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.dir-nav-chip {
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(11, 35, 69, 0.5);
+  color: var(--ice);
+  font-size: 13px;
+  text-decoration: none;
+  transition: all 0.3s;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.dir-nav-chip:hover {
+  border-color: var(--gold);
+  color: var(--snow);
+  background: rgba(212, 160, 23, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Directory Content */
+.directory-content {
+  padding: 60px 0 80px;
+}
+
+.dir-section {
+  margin-bottom: 70px;
+  scroll-margin-top: 120px;
+}
+
+.dir-section:last-child {
+  margin-bottom: 0;
+}
+
+.dir-section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.dir-section-icon {
+  font-size: 36px;
+  flex-shrink: 0;
+}
+
+.dir-section-title {
+  font-size: 28px;
+  color: var(--snow);
+  margin-bottom: 4px;
+}
+
+.dir-section-desc {
+  font-size: 13px;
+  color: var(--ice);
+  opacity: 0.7;
+}
+
+/* Cards Grid */
+.dir-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+@media (max-width: 700px) {
+  .dir-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+/* Individual Card */
+.dir-card {
+  background: linear-gradient(180deg, rgba(11, 35, 69, 0.55), rgba(8, 27, 51, 0.35));
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.dir-card:hover {
+  border-color: rgba(184, 216, 248, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px -16px rgba(0, 0, 0, 0.5);
+}
+
+.dir-card.emergency {
+  border-color: rgba(255, 107, 107, 0.3);
+  background: linear-gradient(180deg, rgba(30, 10, 10, 0.5), rgba(8, 27, 51, 0.35));
+}
+
+.dir-card.emergency:hover {
+  border-color: rgba(255, 107, 107, 0.5);
+}
+
+/* Card Header */
+.dir-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.dir-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(212, 160, 23, 0.15);
+  border: 1px solid rgba(212, 160, 23, 0.3);
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold);
+  flex-shrink: 0;
+  letter-spacing: 0.04em;
+}
+
+.dir-avatar.gold {
+  background: rgba(212, 160, 23, 0.2);
+  border-color: rgba(212, 160, 23, 0.4);
+}
+
+.dir-avatar.red {
+  background: rgba(255, 107, 107, 0.15);
+  border-color: rgba(255, 107, 107, 0.3);
+  color: #ff6b6b;
+}
+
+.dir-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--snow);
+  margin-bottom: 2px;
+}
+
+.dir-route {
+  font-size: 12px;
+  color: var(--ice);
+  opacity: 0.65;
+}
+
+.dir-rating {
+  margin-left: auto;
+  font-size: 13px;
+  color: var(--gold);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.dir-badge {
+  margin-left: auto;
+  font-size: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(11, 35, 69, 0.6);
+  border: 1px solid var(--line);
+  color: var(--ice);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.dir-badge.veg {
+  color: #4ade80;
+  border-color: rgba(74, 222, 128, 0.3);
+  background: rgba(74, 222, 128, 0.08);
+}
+
+.dir-badge.emergency-badge {
+  color: #ff6b6b;
+  border-color: rgba(255, 107, 107, 0.3);
+  background: rgba(255, 107, 107, 0.1);
+}
+
+/* Card Details */
+.dir-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.dir-detail {
+  font-size: 12px;
+  color: var(--ice);
+  opacity: 0.75;
+  line-height: 1.5;
+}
+
+.dir-detail span {
+  color: var(--snow);
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+/* Call Button */
+.dir-call-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(11, 35, 69, 0.5);
+  color: var(--snow);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s;
+  letter-spacing: 0.04em;
+}
+
+.dir-call-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(212, 160, 23, 0.08);
+}
+
+.dir-call-btn.emergency-call {
+  border-color: rgba(255, 107, 107, 0.3);
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.05);
+  font-weight: 600;
+}
+
+.dir-call-btn.emergency-call:hover {
+  border-color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.12);
+}
+
+/* Footer */
+footer {
+  padding: 60px 0 40px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  color: var(--ice);
+  opacity: 0.7;
+  font-size: 13px;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+/* ========================================
+   MOBILE RESPONSIVE — DIRECTORY PAGE
+   ======================================== */
+
+@media (max-width: 750px) {
+  .directory-hero {
+    padding: 130px 0 50px;
+  }
+
+  .directory-hero-title {
+    font-size: 32px;
+  }
+
+  .dir-grid {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+
+  .dir-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .dir-section-icon {
+    font-size: 28px;
+  }
+
+  .dir-section-title {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 450px) {
+  .directory-hero-title {
+    font-size: 24px;
+  }
+
+  .directory-nav {
+    gap: 6px;
+  }
+
+  .dir-nav-chip {
+    padding: 8px 14px;
+    font-size: 11px;
+  }
+
+  .dir-card {
+    padding: 16px;
+  }
+
+  .dir-card-header {
+    flex-wrap: wrap;
+  }
+
+  .dir-avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 12px;
+  }
+
+  .dir-name {
+    font-size: 13px;
+  }
+
+  .dir-call-btn {
+    padding: 10px;
+    font-size: 12px;
+  }
+}

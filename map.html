@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kedarnath Route Map — Yatra</title>
+  <meta name="description" content="Offline route map for Kedarnath Yatra — from Haridwar to Kedarnath Temple with all landmarks" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/map.css" />
+</head>
+<body>
+  <div class="yatra">
+
+    <!-- NAV -->
+    <nav id="y-nav" class="nav scrolled">
+      <div class="container nav-inner">
+        <a href="index.html" class="brand">
+          <span class="brand-mark"></span>
+          Yatra
+        </a>
+         <div class="nav-links" id="navLinks">
+          <a href="index.html#plans">Plans</a>
+          <a href="index.html#destinations">Destinations</a>
+          <a href="index.html#safety">Safety</a>
+          <a href="weather.html">🌤️ Weather</a>
+          <a href="map.html">🗺️ Map</a>
+          <a href="about.html">About</a>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a href="index.html" class="nav-cta">← Back</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="map-hero">
+      <div class="container">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Route Map
+        </div>
+        <h1 class="serif map-hero-title">
+          Kedarnath <em>Yatra Map</em>
+        </h1>
+        <p class="map-hero-sub">
+          Complete route from Haridwar to Kedarnath Temple with every landmark. Save offline — no internet needed on the mountain.
+        </p>
+      </div>
+    </section>
+
+    <!-- ROUTE OVERVIEW -->
+    <section class="route-overview">
+      <div class="container">
+        <div class="route-timeline">
+          <div class="timeline-header">
+            <h2 class="serif">📍 Complete Route: <em>Haridwar → Kedarnath</em></h2>
+            <p>~270 km · 2 days (one way) · Click any stop to mark your location</p>
+          </div>
+          
+          <div class="timeline-stop">
+            <div class="stop-marker">1</div>
+            <div class="stop-content">
+              <div class="stop-name">🚂 Haridwar (HW)</div>
+              <div class="stop-detail">Railway Station · Altitude: 314m<br>Starting point. Buses and shared taxis to Rishikesh available outside Platform 1.</div>
+              <div class="stop-distance">0 km · Starting Point</div>
+            </div>
+          </div>
+
+          <div class="timeline-stop">
+            <div class="stop-marker">2</div>
+            <div class="stop-content">
+              <div class="stop-name">🚌 Rishikesh</div>
+              <div class="stop-detail">Yatra Bus Stand (Tehri Bus Stand) · Altitude: 372m<br>Gateway to the mountains. UTC and private buses to Sonprayag depart 5 AM-9 AM. Shared taxis also available.</div>
+              <div class="stop-distance">20 km · 45 min</div>
+            </div>
+          </div>
+
+          <div class="timeline-stop">
+            <div class="stop-marker">3</div>
+            <div class="stop-content">
+              <div class="stop-name">🛕 Devprayag</div>
+              <div class="stop-detail">Bhagirathi + Alaknanda Sangam · Altitude: 472m<br>Holy confluence forming the Ganga. Temple at the sangam. Buses stop 15-20 min for photos and tea.</div>
+              <div class="stop-distance">70 km · ~2 hrs</div>
+            </div>
+          </div>
+
+          <div class="timeline-stop">
+            <div class="stop-marker">4</div>
+            <div class="stop-content">
+              <div class="stop-name">🏘️ Srinagar</div>
+              <div class="stop-detail">Largest town on route · Altitude: 579m<br>Lunch stop (20-30 min). Good dhabas: "Srinagar Dhaba", "Garhwal Bhojanalaya". <strong>Last reliable ATMs before Kedarnath</strong> — withdraw cash here.</div>
+              <div class="stop-distance">140 km · ~4.5 hrs</div>
+            </div>
+          </div>
+
+          <div class="timeline-stop">
+            <div class="stop-marker">5</div>
+            <div class="stop-content">
+              <div class="stop-name">🛕 Rudraprayag</div>
+              <div class="stop-detail">Alaknanda + Mandakini Sangam · Altitude: 610m<br>Second holy confluence. Roads become narrower and more winding after this point. Beautiful valley views.</div>
+              <div class="stop-distance">180 km · ~6 hrs</div>
+            </div>
+          </div>
+
+          <div class="timeline-stop">
+            <div class="stop-marker">6</div>
+            <div class="stop-content">
+              <div class="stop-name">🏘️ Guptkashi</div>
+              <div class="stop-detail">Last major town · Altitude: 1,319m<br>Hotels, dhabas, medical stores, petrol pump. <strong>Helicopter booking counter</strong> for Kedarnath. Many pilgrims stay overnight here to break the journey.</div>
+              <div class="stop-distance">210 km · ~7.5 hrs</div>
+            </div>
+          </div>
+
+          <div class="timeline-stop">
+            <div class="stop-marker">7</div>
+            <div class="stop-content">
+              <div class="stop-name">🚙 Sonprayag</div>
+              <div class="stop-detail">Vehicle Terminus · Altitude: 1,829m<br>All private vehicles must stop here. Shared jeeps to Gaurikund (₹60-80). Lodges available if arriving late (₹500-800). Parking available if you brought your own vehicle.</div>
+              <div class="stop-distance">220 km · 8-10 hrs</div>
+            </div>
+          </div>
+
+          <div class="timeline-stop">
+            <div class="stop-marker">8</div>
+            <div class="stop-content">
+              <div class="stop-name">🚙 Gaurikund</div>
+              <div class="stop-detail"><strong>🚨 Registration Check Post</strong> · Altitude: 1,982m<br>Show e-pass here (printed or mobile). Shops for trekking sticks (₹50-100), raincoats, water, snacks. Pony (₹2,000-3,000) and Palki (₹4,000-5,000) booking counters. Gauri Kund hot spring — many take a holy dip here.</div>
+              <div class="stop-distance">225 km · 20 min from Sonprayag</div>
+            </div>
+          </div>
+
+          <!-- TREK SECTION -->
+          <div class="timeline-stop trek">
+            <div class="stop-marker trek-marker">T1</div>
+            <div class="stop-content">
+              <div class="stop-name">🥾 Jungle Chatti</div>
+              <div class="stop-detail"><strong>First rest stop on trek</strong> · Altitude: 2,300m<br>4-5 small dhabas — hot tea (₹20), Maggi (₹50-80), biscuits, water. Basic toilets (₹5-10). Shaded area with stone benches. Rest 10-15 min.</div>
+              <div class="stop-distance">4 km trek · ~1.5 hrs</div>
+            </div>
+          </div>
+
+          <div class="timeline-stop trek">
+            <div class="stop-marker trek-marker">T2</div>
+            <div class="stop-content">
+              <div class="stop-name">🥾 Bheembali</div>
+              <div class="stop-detail"><strong>Larger resting point</strong> · Altitude: 2,600m<br>Proper dhabas with seating. Aloo paratha (₹60-80), tea, light meals. Toilets available. Climb gets noticeably steeper after this. Rest 20-30 min.</div>
+              <div class="stop-distance">7 km trek · ~3 hrs</div>
+            </div>
+          </div>
+
+          <div class="timeline-stop trek">
+            <div class="stop-marker trek-marker">T3</div>
+            <div class="stop-content">
+              <div class="stop-name">🥾 Rambara</div>
+              <div class="stop-detail"><strong>Halfway Point — Best Lunch Stop</strong> · Altitude: 2,900m<br>Multiple dhabas: "Shiva Dhaba" and "Himalayan Cafe" most popular. Thali ₹150-200. Small temple. <strong>Last reliable water refill point.</strong> Rest 30-40 min. Mobile network (BSNL only) available here.</div>
+              <div class="stop-distance">10 km trek · ~4.5 hrs</div>
+            </div>
+          </div>
+
+          <div class="timeline-stop trek">
+            <div class="stop-marker trek-marker">T4</div>
+            <div class="stop-content">
+              <div class="stop-name">🥾 Lincholi</div>
+              <div class="stop-detail"><strong>Final stop before temple</strong> · Altitude: 3,200m<br>Few dhabas, water point. <strong>Steepest section of the trek starts here</strong> — the last 3 km are the hardest. Kedarnath temple becomes visible from here — huge morale boost! Rest 10 min, drink water, push for the final climb.</div>
+              <div class="stop-distance">13 km trek · ~6 hrs</div>
+            </div>
+          </div>
+
+          <div class="timeline-stop destination">
+            <div class="stop-marker dest-marker">🕉️</div>
+            <div class="stop-content">
+              <div class="stop-name">🛕 Kedarnath Temple — YOU MADE IT!</div>
+              <div class="stop-detail"><strong>Sacred Jyotirlinga</strong> · Altitude: 3,583m<br>One of the 12 Jyotirlingas of Lord Shiva. Surrounded by snow-capped peaks — Kedarnath Peak (6,940m), Kedar Dome (6,831m). Temple, lodges, dhabas all within 300m radius. Bhairavnath Temple 500m behind. <strong>You completed the pilgrimage!</strong> 🕉️</div>
+              <div class="stop-distance">16 km trek · 7-8 hrs total</div>
+            </div>
+          </div>
+
+          <!-- LEGEND -->
+          <div class="map-legend">
+            <div class="legend-title">📍 Map Legend</div>
+            <div class="legend-grid">
+              <div class="legend-item"><span class="legend-dot road"></span> Road Route</div>
+              <div class="legend-item"><span class="legend-dot trek"></span> Trek Path</div>
+              <div class="legend-item"><span class="legend-dot temple"></span> Temple / Destination</div>
+              <div class="legend-item"><span class="legend-icon">🚌</span> Bus Stop</div>
+              <div class="legend-item"><span class="legend-icon">🍽️</span> Food / Dhaba</div>
+              <div class="legend-item"><span class="legend-icon">🏥</span> Medical Aid</div>
+              <div class="legend-item"><span class="legend-icon">💧</span> Water Point</div>
+              <div class="legend-item"><span class="legend-icon">🚁</span> Helipad</div>
+              <div class="legend-item"><span class="legend-icon">⚠️</span> Emergency Access</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TREK SECTION MAP -->
+    <section class="trek-map-section">
+      <div class="container">
+        <h2 class="serif section-title" style="text-align:center; margin-bottom:8px;">
+          🥾 <em>Trek Route</em> Detail
+        </h2>
+        <p class="section-desc" style="text-align:center; margin-bottom: 28px;">
+          The 16 km sacred trek from Gaurikund to Kedarnath Temple. Well-paved stone path throughout.
+        </p>
+        
+        <div class="trek-visual">
+          <div class="trek-profile">
+            <div class="profile-header">📈 Altitude Profile: Gaurikund (1,982m) → Kedarnath (3,583m)</div>
+            <div class="profile-graph">
+              <div class="profile-bar" style="height: 40%; left: 0%;"><span>Gaurikund<br>1,982m</span></div>
+              <div class="profile-bar" style="height: 46%; left: 18%;"><span>Jungle Chatti<br>2,300m</span></div>
+              <div class="profile-bar" style="height: 52%; left: 36%;"><span>Bheembali<br>2,600m</span></div>
+              <div class="profile-bar" style="height: 58%; left: 54%;"><span>Rambara<br>2,900m</span></div>
+              <div class="profile-bar" style="height: 65%; left: 72%;"><span>Lincholi<br>3,200m</span></div>
+              <div class="profile-bar" style="height: 72%; left: 90%;"><span>Kedarnath<br>3,583m</span></div>
+              <svg class="profile-line" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <polyline points="0,60 18,54 36,48 54,42 72,35 90,28" fill="none" stroke="#4ade80" stroke-width="2.5" vector-effect="non-scaling-stroke"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- CHECKPOINT CARDS -->
+          <div class="trek-checkpoints">
+            <div class="checkpoint-card">
+              <div class="checkpoint-km">4 km</div>
+              <div class="checkpoint-name">Jungle Chatti</div>
+              <div class="checkpoint-alt">2,300m · 1.5 hrs</div>
+            </div>
+            <div class="checkpoint-card">
+              <div class="checkpoint-km">7 km</div>
+              <div class="checkpoint-name">Bheembali</div>
+              <div class="checkpoint-alt">2,600m · 3 hrs</div>
+            </div>
+            <div class="checkpoint-card">
+              <div class="checkpoint-km">10 km</div>
+              <div class="checkpoint-name">Rambara</div>
+              <div class="checkpoint-alt">2,900m · 4.5 hrs</div>
+            </div>
+            <div class="checkpoint-card">
+              <div class="checkpoint-km">13 km</div>
+              <div class="checkpoint-name">Lincholi</div>
+              <div class="checkpoint-alt">3,200m · 6 hrs</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPORTANT LOCATIONS GRID -->
+    <section class="locations-section">
+      <div class="container">
+        <h2 class="serif section-title" style="text-align:center; margin-bottom:28px;">
+          📍 <em>Important Locations</em> at Kedarnath
+        </h2>
+        <div class="locations-grid">
+          <div class="location-card">
+            <div class="loc-icon">🛕</div>
+            <div class="loc-name">Kedarnath Temple</div>
+            <div class="loc-detail">Main shrine. Morning aarti 4:30 AM. Darshan 6 AM-3 PM & 5 PM-9 PM.</div>
+          </div>
+          <div class="location-card">
+            <div class="loc-icon">🗿</div>
+            <div class="loc-name">Bhairavnath Temple</div>
+            <div class="loc-detail">500m behind main temple. Guardian deity. Best mountain photos from here at sunrise.</div>
+          </div>
+          <div class="location-card">
+            <div class="loc-icon">🏨</div>
+            <div class="loc-name">GMVN Guest House</div>
+            <div class="loc-detail">Government-run stay. Clean rooms ₹800-2,500/night. 200m from temple. Hot water available.</div>
+          </div>
+          <div class="location-card">
+            <div class="loc-icon">🏥</div>
+            <div class="loc-name">Medical Aid Post</div>
+            <div class="loc-detail">Near temple entrance. Basic medical help, oxygen cylinders, first aid. Open 24 hrs during season.</div>
+          </div>
+          <div class="location-card">
+            <div class="loc-icon">🚁</div>
+            <div class="loc-name">Helipad</div>
+            <div class="loc-detail">1 km from temple. Helicopter services to Guptkashi/Phata. Book via IRCTC or heliyatra.com.</div>
+          </div>
+          <div class="location-card">
+            <div class="loc-icon">💧</div>
+            <div class="loc-name">Water Point</div>
+            <div class="loc-detail">Free drinking water near temple entrance. Carry bottles to refill before trekking down.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EMERGENCY ROUTE -->
+    <section class="emergency-route">
+      <div class="container">
+        <div class="emergency-card">
+          <h2 class="serif">🚨 <em>Emergency</em> Route Information</h2>
+          <div class="emergency-grid">
+            <div class="em-item">
+              <strong>🚁 Helicopter Evacuation</strong>
+              <p>Helipad: 1 km from temple. Book via IRCTC or at Guptkashi counter. In emergency, contact Kedarnath Helpline immediately.</p>
+            </div>
+            <div class="em-item">
+              <strong>🏥 Nearest Hospital</strong>
+              <p>Primary Health Centre at Sonprayag (20 km from Gaurikund). For serious emergencies: Rudraprayag District Hospital (180 km) or AIIMS Rishikesh (250 km).</p>
+            </div>
+            <div class="em-item">
+              <strong>📞 Emergency Numbers</strong>
+              <p>Disaster Management: 0135-2710334<br>Police Sonprayag: 01364-234567<br>Ambulance: 108<br>Kedarnath Helpline: 0135-255989</p>
+            </div>
+            <div class="em-item">
+              <strong>🗺️ Alternate Route (Landslide Backup)</strong>
+              <p>If main path blocked: Gaurikund → Rambara bypass → Kedarnath (longer but safer during landslides). Always ask locals at Gaurikund for current conditions before starting.</p>
+            </div>
+          </div>
+
+          <!-- EMERGENCY CONTACT CHIPS -->
+          <div class="emergency-strip">
+            <a href="tel:108" class="emergency-chip">🚑 108 Ambulance</a>
+            <a href="tel:+911352255989" class="emergency-chip">📞 Kedarnath Helpline</a>
+            <a href="tel:+911364234567" class="emergency-chip">🚓 Sonprayag Police</a>
+            <a href="tel:+911352710334" class="emergency-chip">🏔️ Disaster Mgmt</a>
+            <a href="tel:+911352552620" class="emergency-chip">🏨 GMVN Tourism</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOWNLOAD MAP -->
+    <section class="download-map-section">
+      <div class="container">
+        <div class="download-card">
+          <h2 class="serif">📥 <em>Save This Map</em> Offline</h2>
+          <p>No internet on the mountain. Download or print this page before you travel.</p>
+          <div class="download-buttons">
+            <button id="printMapBtn" class="map-btn">🖨️ Print Map</button>
+            <button id="savePdfBtn" class="map-btn secondary">📄 Save as PDF</button>
+          </div>
+          <p class="download-hint">💡 Pro tip: Take a screenshot of the trek checkpoints. Save emergency numbers in your phone contacts before starting. BSNL is the only reliable network on the trek.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="brand" style="justify-content: center; margin-bottom: 14px;">
+          <span class="brand-mark"></span>
+          Yatra
+        </div>
+        <div>Your trusted pilgrimage companion · Free for everyone · © <span id="year"></span></div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="js/map.js"></script>
+  <script src="js/mobile-menu.js"></script>
+</body>
+</html>

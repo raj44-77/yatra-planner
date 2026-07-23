@@ -1,0 +1,383 @@
+/* ========================================
+   PLACES TO VISIT PAGE
+   ======================================== */
+
+/* Hero */
+.places-hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
+}
+
+.places-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/images/himalaya-hero.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  z-index: 0;
+}
+
+.places-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 27, 51, 0.3) 0%, rgba(8, 27, 51, 0.55) 60%, rgba(8, 27, 51, 0.85) 100%);
+  z-index: 1;
+}
+
+.places-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+  padding: 160px 0 80px;
+}
+
+.places-hero-title {
+  font-size: clamp(36px, 5vw, 60px);
+  line-height: 1.1;
+  font-weight: 400;
+  color: var(--snow);
+  margin-bottom: 16px;
+}
+
+.places-hero-title em { font-style: italic; color: var(--gold); }
+
+.places-hero-sub {
+  max-width: 600px;
+  margin: 0 auto 32px;
+  color: var(--ice);
+  opacity: 0.85;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Place Nav Chips */
+.places-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.place-nav-chip {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(11, 35, 69, 0.5);
+  color: var(--ice);
+  font-size: 12px;
+  text-decoration: none;
+  transition: all 0.3s;
+  backdrop-filter: blur(8px);
+}
+
+.place-nav-chip:hover {
+  border-color: var(--gold);
+  color: var(--snow);
+  background: rgba(212, 160, 23, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Places List */
+.places-list {
+  padding: 60px 0;
+}
+
+/* Place Card */
+.place-card {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 32px;
+  margin-bottom: 50px;
+  padding: 28px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(11, 35, 69, 0.5), rgba(8, 27, 51, 0.3));
+  border: 1px solid var(--line);
+  scroll-margin-top: 120px;
+  transition: border-color 0.3s;
+}
+
+.place-card:hover { border-color: rgba(212, 160, 23, 0.2); }
+
+.place-card.reverse { grid-template-columns: 1.3fr 1fr; }
+.place-card.reverse .place-image { order: 2; }
+.place-card.reverse .place-info { order: 1; }
+
+@media (max-width: 750px) {
+  .place-card, .place-card.reverse {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+  .place-card.reverse .place-image { order: -1; }
+}
+
+/* Place Image */
+.place-image {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  align-self: stretch;
+}
+
+.place-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+
+/* Make the grid rows equal height */
+.place-card {
+  align-items: stretch;
+}
+/* Place Info */
+.place-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.place-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.badge {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid var(--line);
+  color: var(--ice);
+  background: rgba(8, 27, 51, 0.5);
+}
+
+.difficulty-easy { color: #4ade80; border-color: rgba(74, 222, 128, 0.3); background: rgba(74, 222, 128, 0.06); }
+.difficulty-moderate { color: #fbbf24; border-color: rgba(251, 191, 36, 0.3); background: rgba(251, 191, 36, 0.06); }
+.difficulty-hard { color: #ef4444; border-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.06); }
+
+.place-title {
+  font-size: 28px;
+  color: var(--snow);
+  margin-bottom: 4px;
+}
+
+.place-subtitle {
+  font-size: 13px;
+  color: var(--gold);
+  opacity: 0.8;
+  margin-bottom: 14px;
+  letter-spacing: 0.03em;
+}
+
+.place-description p {
+  font-size: 13px;
+  color: var(--ice);
+  opacity: 0.8;
+  line-height: 1.75;
+  margin-bottom: 10px;
+}
+
+.place-description strong { color: var(--snow); }
+
+/* Place Details */
+.place-details {
+  margin-top: 16px;
+  padding: 18px;
+  border-radius: 12px;
+  background: rgba(8, 27, 51, 0.5);
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detail-row {
+  font-size: 12px;
+  color: var(--ice);
+  opacity: 0.85;
+  line-height: 1.5;
+}
+
+.detail-row strong { color: var(--snow); }
+.detail-icon { margin-right: 6px; }
+
+/* CTA */
+.places-cta {
+  padding: 60px 0 80px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+
+.cta-title {
+  font-size: clamp(28px, 4vw, 42px);
+  color: var(--snow);
+  margin-bottom: 12px;
+}
+
+.cta-title em { font-style: italic; color: var(--gold); }
+
+.cta-sub {
+  font-size: 15px;
+  color: var(--ice);
+  opacity: 0.75;
+  margin-bottom: 28px;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 16px 36px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold) 60%, #b58813);
+  color: #1a1305;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: transform 0.25s, box-shadow 0.25s;
+  box-shadow: 0 12px 30px -8px rgba(212, 160, 23, 0.45);
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px -10px rgba(212, 160, 23, 0.65);
+}
+
+/* Footer */
+footer {
+  padding: 40px 0 30px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  color: var(--ice);
+  opacity: 0.6;
+  font-size: 12px;
+}
+
+html { scroll-behavior: smooth; }
+/* ========================================
+   MOBILE RESPONSIVE — PLACES PAGE
+   ======================================== */
+
+@media (max-width: 820px) {
+  .places-hero {
+    min-height: 50vh;
+  }
+
+  .places-hero-content {
+    padding: 140px 0 60px;
+  }
+
+  .places-hero-title {
+    font-size: 36px;
+  }
+
+  .places-hero-sub {
+    font-size: 14px;
+  }
+
+  .places-nav {
+    gap: 8px;
+  }
+
+  .place-nav-chip {
+    padding: 8px 14px;
+    font-size: 11px;
+  }
+
+  .place-card,
+  .place-card.reverse {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 18px;
+  }
+
+  .place-card.reverse .place-image {
+    order: -1;
+  }
+
+  .place-image {
+    min-height: 220px;
+    max-height: 300px;
+  }
+
+  .place-title {
+    font-size: 24px;
+  }
+
+  .place-description p {
+    font-size: 12px;
+  }
+
+  .detail-row {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .places-hero {
+    min-height: 40vh;
+  }
+
+  .places-hero-content {
+    padding: 120px 0 40px;
+  }
+
+  .places-hero-title {
+    font-size: 28px;
+  }
+
+  .place-card,
+  .place-card.reverse {
+    padding: 14px;
+    margin-bottom: 30px;
+  }
+
+  .place-image {
+    min-height: 180px;
+    max-height: 240px;
+  }
+
+  .place-title {
+    font-size: 20px;
+  }
+
+  .place-subtitle {
+    font-size: 11px;
+  }
+
+  .badge {
+    font-size: 9px;
+    padding: 3px 10px;
+  }
+
+  .place-details {
+    padding: 14px;
+    gap: 8px;
+  }
+
+  .places-cta {
+    padding: 40px 0 60px;
+  }
+
+  .cta-title {
+    font-size: 24px;
+  }
+
+  .cta-btn {
+    padding: 14px 28px;
+    font-size: 14px;
+  }
+}

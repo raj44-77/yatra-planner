@@ -1,0 +1,805 @@
+/* ========================================
+   MAP PAGE
+   ======================================== */
+
+.map-hero {
+  padding: 160px 0 60px;
+  background: linear-gradient(180deg, #0a1f3d 0%, var(--navy) 100%);
+  text-align: center;
+}
+
+.map-hero-title {
+  font-size: clamp(36px, 5vw, 60px);
+  line-height: 1.1;
+  font-weight: 400;
+  color: var(--snow);
+  margin-bottom: 14px;
+}
+
+.map-hero-title em { font-style: italic; color: var(--gold); }
+
+.map-hero-sub {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--ice);
+  opacity: 0.8;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Route Timeline */
+.route-overview {
+  padding: 40px 0 60px;
+}
+
+.timeline-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.timeline-header h2 {
+  font-size: 28px;
+  color: var(--snow);
+  margin-bottom: 6px;
+}
+
+.timeline-header h2 em { font-style: italic; color: var(--gold); }
+
+.timeline-header p {
+  color: var(--ice);
+  opacity: 0.6;
+  font-size: 14px;
+}
+
+.route-timeline {
+  max-width: 650px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.timeline-stop {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 4px 0;
+  position: relative;
+}
+
+.stop-marker {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(11, 35, 69, 0.8);
+  border: 2px solid var(--line);
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ice);
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.trek-marker {
+  border-color: rgba(74, 222, 128, 0.4);
+  background: rgba(74, 222, 128, 0.1);
+  color: #4ade80;
+}
+
+.dest-marker {
+  border-color: rgba(212, 160, 23, 0.5);
+  background: rgba(212, 160, 23, 0.15);
+  color: var(--gold);
+  font-size: 16px;
+}
+
+.stop-content {
+  flex: 1;
+  padding-bottom: 8px;
+}
+
+.stop-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--snow);
+  margin-bottom: 4px;
+}
+
+.stop-detail {
+  font-size: 12px;
+  color: var(--ice);
+  opacity: 0.7;
+  line-height: 1.6;
+}
+
+.stop-distance {
+  font-size: 11px;
+  color: var(--gold);
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.timeline-connector {
+  width: 2px;
+  height: 24px;
+  background: var(--line);
+  margin-left: 17px;
+}
+
+.timeline-connector.trek {
+  background: linear-gradient(180deg, var(--line), rgba(74, 222, 128, 0.3));
+}
+
+.timeline-stop.destination .stop-content {
+  padding: 16px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(212, 160, 23, 0.08), transparent);
+  border: 1px solid rgba(212, 160, 23, 0.2);
+  margin-top: 8px;
+}
+
+/* Trek Profile */
+.trek-map-section {
+  padding: 40px 0;
+  border-top: 1px solid var(--line);
+}
+
+.trek-visual {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.trek-profile {
+  padding: 24px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(11, 35, 69, 0.5), rgba(8, 27, 51, 0.3));
+  border: 1px solid var(--line);
+}
+
+.profile-header {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ice);
+  margin-bottom: 20px;
+  letter-spacing: 0.04em;
+}
+
+.profile-graph {
+  position: relative;
+  height: 200px;
+  margin: 0 10px;
+}
+
+.profile-bar {
+  position: absolute;
+  bottom: 0;
+  width: 40px;
+  background: linear-gradient(180deg, rgba(212, 160, 23, 0.3), rgba(212, 160, 23, 0.05));
+  border-radius: 6px 6px 0 0;
+  border: 1px solid rgba(212, 160, 23, 0.2);
+  transform: translateX(-50%);
+}
+
+.profile-bar span {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
+  color: var(--ice);
+  text-align: center;
+  white-space: nowrap;
+  opacity: 0.8;
+}
+
+.profile-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .profile-graph { height: 150px; }
+  .profile-bar { width: 30px; }
+  .profile-bar span { font-size: 7px; top: -24px; }
+}
+
+/* Locations Grid */
+.locations-section {
+  padding: 40px 0;
+  border-top: 1px solid var(--line);
+}
+
+.locations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 700px) {
+  .locations-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 400px) {
+  .locations-grid { grid-template-columns: 1fr; max-width: 300px; margin: 0 auto; }
+}
+
+.location-card {
+  padding: 18px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(11, 35, 69, 0.4), rgba(8, 27, 51, 0.25));
+  border: 1px solid var(--line);
+  text-align: center;
+  transition: border-color 0.3s;
+}
+
+.location-card:hover { border-color: rgba(212, 160, 23, 0.25); }
+
+.loc-icon { font-size: 28px; margin-bottom: 8px; }
+
+.loc-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--snow);
+  margin-bottom: 4px;
+}
+
+.loc-detail {
+  font-size: 10px;
+  color: var(--ice);
+  opacity: 0.65;
+  line-height: 1.5;
+}
+
+/* Emergency Route */
+.emergency-route {
+  padding: 40px 0;
+}
+
+.emergency-card {
+  padding: 32px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(20, 10, 10, 0.5), rgba(8, 27, 51, 0.4));
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.emergency-card h2 {
+  font-size: 28px;
+  color: var(--snow);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.emergency-card h2 em { font-style: italic; color: #ef4444; }
+
+.emergency-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .emergency-grid { grid-template-columns: 1fr; }
+}
+
+.em-item {
+  padding: 18px;
+  border-radius: 12px;
+  background: rgba(8, 27, 51, 0.5);
+  border: 1px solid var(--line);
+}
+
+.em-item strong {
+  display: block;
+  font-size: 14px;
+  color: var(--snow);
+  margin-bottom: 8px;
+}
+
+.em-item p {
+  font-size: 12px;
+  color: var(--ice);
+  opacity: 0.75;
+  line-height: 1.6;
+}
+
+.em-item a {
+  color: #f87171;
+  text-decoration: none;
+}
+
+.em-item a:hover { text-decoration: underline; }
+
+/* Download */
+.download-map-section {
+  padding: 40px 0 60px;
+}
+
+.download-card {
+  text-align: center;
+  padding: 36px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(11, 35, 69, 0.5), rgba(8, 27, 51, 0.3));
+  border: 1px solid var(--line);
+}
+
+.download-card h2 {
+  font-size: 28px;
+  color: var(--snow);
+  margin-bottom: 10px;
+}
+
+.download-card h2 em { font-style: italic; color: var(--gold); }
+
+.download-card p {
+  color: var(--ice);
+  opacity: 0.7;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.download-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.map-btn {
+  padding: 14px 30px;
+  border-radius: 14px;
+  border: 0;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #1a1305;
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold) 60%, #b58813);
+  box-shadow: 0 10px 24px -6px rgba(212, 160, 23, 0.4);
+  transition: transform 0.25s, box-shadow 0.25s;
+  font-family: inherit;
+}
+
+.map-btn:hover { transform: translateY(-2px); box-shadow: 0 16px 32px -8px rgba(212, 160, 23, 0.55); }
+
+.map-btn.secondary {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--snow);
+  box-shadow: none;
+}
+
+.map-btn.secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+.download-hint {
+  font-size: 11px !important;
+  color: var(--ice) !important;
+  opacity: 0.5 !important;
+}
+
+/* Print styles */
+@media print {
+  .nav, .map-hero, .download-map-section, footer { display: none !important; }
+  body { background: #fff; color: #000; }
+  .route-overview, .trek-map-section, .locations-section, .emergency-route { padding: 20px 0; border: none; }
+  .yatra { background: #fff; }
+  .section-title, .section-desc, .timeline-header h2, .timeline-header p, h2 { color: #000 !important; }
+  .stop-name, .loc-name, .em-item strong { color: #000 !important; }
+  .stop-detail, .loc-detail, .em-item p { color: #333 !important; }
+  .stop-distance { color: #8a6a0f !important; }
+  .timeline-stop, .location-card, .em-item, .emergency-card { background: #f9f9f9 !important; border-color: #ddd !important; }
+  @page { margin: 1cm; }
+}
+
+/* Footer */
+footer {
+  padding: 40px 0 30px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  color: var(--ice);
+  opacity: 0.6;
+  font-size: 12px;
+}
+
+/* ========================================
+   10/10 MAP UPGRADES
+   ======================================== */
+
+/* Visual Path Line connecting all stops */
+.route-timeline::before {
+  content: '';
+  position: absolute;
+  left: 17px;
+  top: 80px;
+  bottom: 120px;
+  width: 3px;
+  background: linear-gradient(180deg, 
+    var(--line) 0%, 
+    var(--line) 60%, 
+    rgba(74, 222, 128, 0.5) 70%, 
+    rgba(74, 222, 128, 0.5) 90%, 
+    rgba(212, 160, 23, 0.6) 95%, 
+    rgba(212, 160, 23, 0.8) 100%
+  );
+  border-radius: 2px;
+  z-index: 0;
+}
+
+/* Remove individual connectors since we have the main line */
+.timeline-connector {
+  display: none;
+}
+
+/* Add spacing between stops since connectors are gone */
+.timeline-stop {
+  margin-bottom: 28px;
+  padding-left: 4px;
+}
+
+/* Connecting dots on the path */
+.stop-marker {
+  box-shadow: 0 0 0 4px rgba(8, 27, 51, 0.9), 0 0 16px rgba(184, 216, 248, 0.2);
+  transition: all 0.3s ease;
+}
+
+.stop-marker:hover {
+  transform: scale(1.2);
+  border-color: var(--gold);
+}
+
+/* Pulse animation for current location feel */
+.stop-marker.current {
+  animation: markerPulse 2s ease-in-out infinite;
+  border-color: var(--gold);
+  background: rgba(212, 160, 23, 0.2);
+}
+
+@keyframes markerPulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(8, 27, 51, 0.9), 0 0 16px rgba(212, 160, 23, 0.3); }
+  50% { box-shadow: 0 0 0 8px rgba(8, 27, 51, 0.9), 0 0 28px rgba(212, 160, 23, 0.6); }
+}
+
+/* LEGEND */
+.map-legend {
+  max-width: 650px;
+  margin: 40px auto 0;
+  padding: 20px 24px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(11, 35, 69, 0.4), rgba(8, 27, 51, 0.2));
+  border: 1px solid var(--line);
+}
+
+.legend-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ice);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.legend-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+@media (max-width: 500px) {
+  .legend-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--ice);
+  opacity: 0.75;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-dot.road { background: var(--line); border: 2px solid rgba(184, 216, 248, 0.4); }
+.legend-dot.trek { background: rgba(74, 222, 128, 0.2); border: 2px solid rgba(74, 222, 128, 0.5); }
+.legend-dot.temple { background: rgba(212, 160, 23, 0.2); border: 2px solid rgba(212, 160, 23, 0.6); }
+
+.legend-icon {
+  font-size: 14px;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* MAP ICONS for important locations */
+.locations-grid {
+  position: relative;
+}
+
+.location-card {
+  position: relative;
+  overflow: visible;
+}
+
+.location-card::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 8px rgba(212, 160, 23, 0.5);
+}
+
+/* Distance tags on the main path */
+.timeline-stop {
+  position: relative;
+}
+
+.stop-distance {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: rgba(212, 160, 23, 0.08);
+  border: 1px solid rgba(212, 160, 23, 0.15);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+}
+
+/* CHECKPOINT CARDS on trek section */
+.trek-checkpoints {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 24px;
+}
+
+@media (max-width: 700px) {
+  .trek-checkpoints {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.checkpoint-card {
+  padding: 14px 10px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(74, 222, 128, 0.06), transparent);
+  border: 1px solid rgba(74, 222, 128, 0.15);
+  text-align: center;
+}
+
+.checkpoint-km {
+  font-size: 20px;
+  font-weight: 700;
+  color: #4ade80;
+  font-family: 'Inter', sans-serif;
+}
+
+.checkpoint-name {
+  font-size: 11px;
+  color: var(--snow);
+  margin: 4px 0;
+  font-weight: 500;
+}
+
+.checkpoint-alt {
+  font-size: 9px;
+  color: var(--ice);
+  opacity: 0.5;
+}
+
+/* EMERGENCY CONTACTS footer strip */
+.emergency-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(239, 68, 68, 0.15);
+}
+
+.emergency-chip {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  font-size: 11px;
+  color: #f87171;
+  text-decoration: none;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.emergency-chip:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+/* Improved trek profile */
+.profile-graph {
+  height: 220px;
+  margin: 10px 20px 30px;
+}
+
+.profile-bar {
+  width: 48px;
+  background: linear-gradient(180deg, rgba(74, 222, 128, 0.4), rgba(74, 222, 128, 0.05));
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  border-radius: 8px 8px 0 0;
+}
+
+.profile-bar span {
+  top: -34px;
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--snow);
+  opacity: 0.9;
+}
+
+.profile-bar span::after {
+  content: '';
+  display: block;
+  font-size: 8px;
+  color: var(--ice);
+  opacity: 0.6;
+  font-weight: 400;
+}
+
+.profile-bar:nth-child(1) span::after { content: 'Start'; }
+.profile-bar:nth-child(2) span::after { content: 'Rest'; }
+.profile-bar:nth-child(3) span::after { content: 'Rest'; }
+.profile-bar:nth-child(4) span::after { content: 'Lunch'; }
+.profile-bar:nth-child(5) span::after { content: 'Rest'; }
+.profile-bar:nth-child(6) span::after { content: 'Arrive'; }
+
+.profile-line polyline {
+  stroke: #4ade80;
+  stroke-width: 2.5;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawPath 2s ease-out forwards;
+}
+
+@keyframes drawPath {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Road path in main timeline */
+.route-timeline::before {
+  animation: glowPath 3s ease-in-out infinite;
+}
+
+@keyframes glowPath {
+  0%, 100% { box-shadow: 0 0 4px rgba(184, 216, 248, 0.1); }
+  50% { box-shadow: 0 0 12px rgba(212, 160, 23, 0.2); }
+}
+/* ========================================
+   MOBILE RESPONSIVE — MAP PAGE
+   ======================================== */
+
+@media (max-width: 750px) {
+  .map-hero {
+    padding: 130px 0 40px;
+  }
+
+  .map-hero-title {
+    font-size: 28px;
+  }
+
+  .route-timeline::before {
+    left: 13px;
+  }
+
+  .stop-marker {
+    width: 28px;
+    height: 28px;
+    font-size: 11px;
+  }
+
+  .dest-marker {
+    font-size: 14px;
+  }
+
+  .stop-name {
+    font-size: 13px;
+  }
+
+  .stop-detail {
+    font-size: 11px;
+  }
+
+  .stop-distance {
+    font-size: 10px;
+  }
+
+  .locations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .profile-graph {
+    height: 150px;
+    margin: 10px 10px 25px;
+  }
+
+  .profile-bar {
+    width: 30px;
+  }
+
+  .profile-bar span {
+    font-size: 7px;
+    top: -26px;
+  }
+
+  .trek-checkpoints {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .emergency-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .legend-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .map-hero-title {
+    font-size: 24px;
+  }
+
+  .timeline-stop {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .stop-marker {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+  }
+
+  .locations-grid {
+    grid-template-columns: 1fr;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .trek-checkpoints {
+    grid-template-columns: 1fr;
+    max-width: 250px;
+    margin: 20px auto 0;
+  }
+
+  .download-buttons {
+    flex-direction: column;
+  }
+
+  .map-btn {
+    width: 100%;
+  }
+
+  .emergency-strip {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .emergency-chip {
+    text-align: center;
+  }
+}

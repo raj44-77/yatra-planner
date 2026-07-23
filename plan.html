@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Your Kedarnath Plan — Yatra | Step-by-Step Budget from Your City</title>
+  <meta name="description" content="Personalized step-by-step Kedarnath Yatra plan from your city. Exact train names, bus stops, trek landmarks, dhaba costs, and stay options. Basic, Comfort & Premium plans with real prices." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://yatraplanner.com/plan.html" />
+  
+  <meta property="og:title" content="Your Personalized Kedarnath Yatra Plan — Yatra" />
+  <meta property="og:description" content="Step-by-step Kedarnath travel plan with exact costs, train numbers, bus stops, and trek details. Free and honest." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yatraplanner.com/plan.html" />
+  <meta property="og:image" content="https://yatraplanner.com/assets/images/himalaya-hero.jpg" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="Your Personalized Kedarnath Yatra Plan — Yatra" />
+  <meta property="twitter:description" content="Step-by-step Kedarnath travel plan with exact costs, train numbers, bus stops, and trek details." />
+  <meta property="twitter:image" content="https://yatraplanner.com/assets/images/himalaya-hero.jpg" />
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Trip",
+    "name": "Kedarnath Yatra Budget Planner",
+    "description": "Personalized step-by-step Kedarnath travel plan with real costs",
+    "url": "https://yatraplanner.com/plan.html",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "INR"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/plan.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕉️</text></svg>" />
+</head>
+<body>
+  <div class="yatra">
+
+    <!-- NAV -->
+    <nav id="y-nav" class="nav scrolled">
+      <div class="container nav-inner">
+        <a href="index.html" class="brand">
+          <span class="brand-mark"></span>
+          Yatra
+        </a>
+         <div class="nav-links" id="navLinks">
+          <a href="index.html#plans">Plans</a>
+          <a href="index.html#destinations">Destinations</a>
+          <a href="index.html#safety">Safety</a>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a href="index.html" class="nav-cta">← Back</a>
+      </div>
+    </nav>
+
+    <!-- HERO SMALL -->
+    <section class="plan-hero">
+      <div class="plan-hero-overlay"></div>
+      <div class="container plan-hero-content">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          <span id="planTierLabel">BASIC</span> PLAN
+        </div>
+        <h1 class="serif plan-hero-title">
+          <span id="planOrigin">Your City</span> <em>→</em> Kedarnath
+        </h1>
+        <p class="plan-hero-sub">
+          Step-by-step itinerary with real costs · <span id="planDuration">4 days</span> minimum
+        </p>
+      </div>
+    </section>
+
+    <!-- TIER SELECTOR -->
+    <section class="tier-selector">
+      <div class="container">
+        <div class="tier-tabs">
+          <button class="tier-tab active" data-tier="basic">
+            <span class="tier-icon">🏔️</span>
+            <span class="tier-name">Basic</span>
+            <span class="tier-price">Budget</span>
+          </button>
+          <button class="tier-tab" data-tier="comfort">
+            <span class="tier-icon">🏡</span>
+            <span class="tier-name">Comfort</span>
+            <span class="tier-price">Balanced</span>
+          </button>
+          <button class="tier-tab" data-tier="premium">
+            <span class="tier-icon">✨</span>
+            <span class="tier-name">Premium</span>
+            <span class="tier-price">Luxury</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRAVELER INPUT -->
+    <section class="traveler-input-section">
+      <div class="container">
+        <div class="traveler-card">
+          <div class="traveler-field">
+            <label for="travelerCount">Number of Travelers</label>
+            <div class="traveler-control">
+              <button type="button" id="travelerMinus" class="traveler-btn">−</button>
+              <input type="number" id="travelerCount" value="1" min="1" max="12" readonly />
+              <button type="button" id="travelerPlus" class="traveler-btn">+</button>
+            </div>
+          </div>
+          <div class="traveler-info">
+            <span id="travelerLabel">1 Person</span>
+            <span class="traveler-hint">Costs update automatically</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADD-ONS SECTION -->
+    <section class="addons-section">
+      <div class="container">
+        <div class="addons-card">
+          <h3 class="addons-title serif">Customize Your Trip</h3>
+          <div class="addons-grid">
+            <div class="addon-item">
+              <div class="addon-info">
+                <span class="addon-icon">📅</span>
+                <div>
+                  <div class="addon-name">Extra Days</div>
+                  <div class="addon-desc">Add more days to explore Kedarnath</div>
+                </div>
+              </div>
+              <div class="addon-control">
+                <button type="button" class="addon-btn" id="daysMinus">−</button>
+                <span class="addon-value" id="extraDays">0</span>
+                <button type="button" class="addon-btn" id="daysPlus">+</button>
+              </div>
+            </div>
+            <div class="addon-item">
+              <div class="addon-info">
+                <span class="addon-icon">🐴</span>
+                <div>
+                  <div class="addon-name">Pony Ride (One Way)</div>
+                  <div class="addon-desc">Gaurikund → Kedarnath · ₹2,500/person</div>
+                </div>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" id="addonPony" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="addon-item">
+              <div class="addon-info">
+                <span class="addon-icon">🪑</span>
+                <div>
+                  <div class="addon-name">Palki / Doli (One Way)</div>
+                  <div class="addon-desc">Gaurikund → Kedarnath · ₹4,500/person</div>
+                </div>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" id="addonPalki" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="addon-item">
+              <div class="addon-info">
+                <span class="addon-icon">🚁</span>
+                <div>
+                  <div class="addon-name">Helicopter (One Way)</div>
+                  <div class="addon-desc">Guptkashi/Phata → Kedarnath · ₹7,500/person</div>
+                </div>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" id="addonHelicopter" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ITINERARY CONTENT -->
+    <section class="itinerary-section">
+      <div class="container">
+
+        <!-- ============================================================ -->
+        <!-- BASIC PLAN                                                      -->
+        <!-- ============================================================ -->
+        <div id="plan-basic" class="plan-content active">
+
+          <!-- Day 1 — DYNAMIC -->
+          <div class="day-card reveal" data-day="1">
+            <div class="day-header">
+              <div class="day-number">Day 1</div>
+              <div class="day-title">🔄 Loading your route...</div>
+            </div>
+            <div class="day-steps">
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">Planning your journey...</div>
+                  <div class="step-desc">Fetching the best route from your city to Haridwar. This will update automatically.</div>
+                  <div class="step-cost">—</div>
+                </div>
+              </div>
+            </div>
+            <div class="day-note">🌙 Loading travel details...</div>
+          </div>
+
+          <!-- Day 2 — BASIC -->
+          <div class="day-card reveal" data-day="2">
+            <div class="day-header">
+              <div class="day-number">Day 2</div>
+              <div class="day-title">Haridwar → Rishikesh → Sonprayag → Gaurikund → Kedarnath (The Mountain Climb)</div>
+            </div>
+            <div class="day-steps">
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🚌 Haridwar to Rishikesh — Public Bus (45-60 min, 20 km)</div>
+                  <div class="step-desc">
+                    <strong>From Haridwar Railway Station:</strong> Exit from the main gate (Platform 1 side). Walk straight for exactly 200 meters — you'll see the <strong>Haridwar Roadways Bus Depot</strong> right opposite the station. You cannot miss it.<br><br>
+                    <strong>Which bus to take:</strong> Look for buses with "Rishikesh" written on the front windshield. They leave every 15-20 minutes starting from 5:00 AM. The bus conductor will shout "Rishikesh! Rishikesh!" — just ask him to confirm.<br><br>
+                    <strong>Ticket:</strong> Buy from the conductor after boarding. ₹70-100 per person. No advance booking needed. Keep small change ready (₹100 notes work best).<br><br>
+                    <strong>Where to get down:</strong> Tell the conductor "Rishikesh Yatra Bus Stand" or "Tehri Bus Stand". This is the main bus stand where buses to Sonprayag/Kedarnath depart. Don't get down at earlier Rishikesh stops — go all the way to the last stop.<br><br>
+                    <strong>Alternative — Shared Auto:</strong> Shared auto-rickshaws wait outside Haridwar station. ₹100-150 per person, 35-40 minutes. They drop you at the same bus stand.
+                  </div>
+                  <div class="step-cost">₹70 – 100 / person</div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🚌 Rishikesh to Sonprayag — Bus (8-10 hours, ~220 km)</div>
+                  <div class="step-desc">
+                    <strong>From Rishikesh Yatra Bus Stand:</strong> Look for buses with "Sonprayag" or "Gaurikund" signboards. Two types: <strong>UTC Government Buses</strong> (green, cheaper at ₹800-900, more stops) and <strong>Private Buses</strong> (₹1,000-1,200, faster, fewer stops).<br><br>
+                    <strong>Buying tickets:</strong> At the ticket counter (open from 5 AM) or directly from the conductor. Catch a bus before 7 AM to reach Sonprayag by 3-4 PM.<br><br>
+                    <strong>The Route:</strong> Rishikesh → <strong>Devprayag</strong> (70 km, Bhagirathi+Alaknanda sangam, photo stop) → <strong>Srinagar</strong> (140 km, lunch stop, good dhabas) → <strong>Rudraprayag</strong> (180 km, Alaknanda+Mandakini sangam) → <strong>Guptkashi</strong> (210 km, last town) → <strong>Sonprayag</strong> (220 km, final stop).<br><br>
+                    <strong>Important:</strong> If you reach Sonprayag after 6 PM, shared jeeps to Gaurikund reduce. Stay overnight at Sonprayag (lodges: ₹500-800) and continue next morning.
+                  </div>
+                  <div class="step-cost">₹800 – 1,200 / person</div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🚙 Sonprayag to Gaurikund — Shared Jeep (20-25 min, 5 km)</div>
+                  <div class="step-desc">
+                    <strong>At Sonprayag:</strong> Walk to the shared jeep stand near the bus parking. Jeeps leave when full (8-10 passengers). ₹60-80/person. Pay the driver or at the small ticket counter.<br><br>
+                    <strong>Registration Check at Gaurikund:</strong> Keep your e-pass ready (phone or printed). The police check post scans your QR code. No registration = no entry.<br><br>
+                    <strong>At Gaurikund:</strong> Shops for trekking sticks (₹50-100), raincoats (₹50-200), water bottles (₹20-30). Pony/palki booking counters available. The Gauri Kund hot spring is here — many pilgrims take a dip before trekking.
+                  </div>
+                  <div class="step-cost">₹60 – 80 / person</div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🥾 Gaurikund to Kedarnath — The Sacred Trek (16 km, 5-8 hours)</div>
+                  <div class="step-desc">
+                    <strong>This is the journey you came for!</strong> Well-paved stone path, wide enough for 4-5 people. You cannot get lost — just follow the crowd.<br><br>
+                    <strong>📍 Gaurikund (0 km, 6,500 ft):</strong> Start point. Fill water bottles, buy trekking stick (₹50-80, highly recommended), use toilet (₹10). Start by 6-7 AM if you stayed overnight, or by 2-3 PM if same day.<br><br>
+                    <strong>📍 Jungle Chatti (4 km, ~1.5 hrs):</strong> First rest stop. 4-5 dhabas — hot tea (₹20), Maggi (₹50-80), biscuits. Rest 10-15 min. Toilets available (₹5-10).<br><br>
+                    <strong>📍 Bheembali (7 km, ~3 hrs):</strong> Larger dhabas. The climb gets steeper after this. Have aloo paratha (₹60-80), tea. Toilets available. Rest 20-30 min.<br><br>
+                    <strong>📍 Rambara (10 km, ~4.5 hrs):</strong> Halfway point! Best place for lunch. "Shiva Dhaba" and "Himalayan Cafe" — thali ₹150-200. Rest 30-40 min. Refill water (₹30 for Bisleri).<br><br>
+                    <strong>📍 Lincholi (13 km, ~6 hrs):</strong> Last stop before Kedarnath. Steepest section ahead. Rest 10 min, drink water. Kedarnath temple visible from here — a huge morale boost!<br><br>
+                    <strong>📍 Kedarnath Base (16 km, ~7-8 hrs):</strong> You made it! Temple surrounded by snow-capped peaks. Find your lodge, freshen up, attend evening aarti (6-7 PM).<br><br>
+                    <strong>Critical Tips:</strong> Walk slowly, take breaks every 2-3 km. Stay hydrated — dehydration worsens altitude sickness. Only BSNL mobile works after Rambara. Ponies (₹2,000-3,000) and palkis (₹4,000-5,000) available at Gaurikund if needed. Weather can change suddenly — carry a poncho.
+                  </div>
+                  <div class="step-cost">₹0 (Trek is free)</div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🍱 Food — Day 2</div>
+                  <div class="step-desc">
+                    <strong>Breakfast (Haridwar/Rishikesh):</strong> Dhabas near bus stands. Aloo-puri, chai, paratha — ₹50-80.<br>
+                    <strong>Lunch (Srinagar):</strong> Bus stops 20-30 min. Garhwali thali at local dhaba — ₹100-150.<br>
+                    <strong>Dinner (Kedarnath):</strong> After reaching, dhabas near temple. Thali ₹150-200. Try khichdi — light and warm after the trek.<br>
+                    <strong>Must carry:</strong> Dry fruits, chocolates, ORS packets (Electral ₹20), water bottles.
+                  </div>
+                  <div class="step-cost">₹360 – 400 / person</div>
+                </div>
+              </div>
+            </div>
+            <div class="day-note">🌙 <strong>Night at Kedarnath.</strong> Lodge/Tent: ₹600-1,000/person. GMVN Guest House recommended (₹800, clean, government-run). Most lodges within 200m of temple. Basic rooms with bed, blanket, shared bathroom. Hot water: ₹50-100 per bucket. Very cold at night (5-10°C) — carry thermals/warm jacket. Power bank essential — electricity can be erratic.</div>
+          </div>
+
+          <!-- Day 3 — BASIC -->
+          <div class="day-card reveal" data-day="3">
+            <div class="day-header">
+              <div class="day-number">Day 3</div>
+              <div class="day-title">Kedarnath Darshan → Return Journey to Haridwar</div>
+            </div>
+            <div class="day-steps">
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🛕 Morning Darshan at Kedarnath Temple</div>
+                  <div class="step-desc">
+                    <strong>Temple Timings:</strong> Opens 4:00 AM. <strong>Morning Aarti: 4:30 AM — do not miss this!</strong> Main darshan: 6:00 AM – 3:00 PM, then 5:00 PM – 9:00 PM (temple closes 3-5 PM for bhog).<br><br>
+                    <strong>Tips for the best experience:</strong> Wake up at 3:30 AM, freshen up (hot water available at most lodges in the morning), reach temple by 4:15 AM. The early morning aarti in the Himalayas is a divine experience — fewer crowds, the sound of chants echoing off the mountains.<br><br>
+                    <strong>After darshan:</strong> Walk 500 meters behind the main temple to <strong>Bhairavnath Temple</strong> — the guardian deity of Kedarnath. The view of the Kedarnath peak from here in the morning light is breathtaking. Best photos of your trip will be from this spot (5:30-7:00 AM golden light).<br><br>
+                    <strong>Rituals:</strong> Offer bilva patra, flowers, and water to the Jyotirlinga. Pandits available for special puja (₹500-2,000). Photography NOT allowed inside the temple.
+                  </div>
+                  <div class="step-cost">₹0 (Darshan is free)</div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🥾 Kedarnath → Gaurikund — Trek Down (16 km, 4-6 hours)</div>
+                  <div class="step-desc">
+                    <strong>Start by 7:00-8:00 AM</strong> after breakfast at your lodge or a nearby dhaba. The descent is faster and easier on the lungs, but harder on the knees — use your trekking stick!<br><br>
+                    <strong>Same route in reverse:</strong> Kedarnath → Lincholi (3 km) → Rambara (6 km, good stop for tea/snacks) → Bheembali (9 km) → Jungle Chatti (12 km, good stop for lunch) → Gaurikund (16 km).<br><br>
+                    <strong>Where to eat on the way down:</strong> Rambara has the best dhabas for a mid-morning break (tea, Maggi, paratha — ₹80-120). Jungle Chatti is perfect for lunch (thali ₹120-150) — it's the last proper food stop before Gaurikund.<br><br>
+                    <strong>Important:</strong> Go slow on steep sections — it's harder on knees going down. Trekking stick helps tremendously. Reach Gaurikund by 1:00-2:00 PM.
+                  </div>
+                  <div class="step-cost">₹0 (Trek is free)</div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🚙 Gaurikund → Sonprayag (Shared Jeep, 20 min)</div>
+                  <div class="step-desc">Shared jeeps from Gaurikund market. ₹60-80/person. 5 km, 20-25 minutes.</div>
+                  <div class="step-cost">₹60 – 80 / person</div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🚌 Sonprayag → Rishikesh (Bus, 8-10 hours)</div>
+                  <div class="step-desc">
+                    <strong>From Sonprayag bus stand:</strong> Buses to Rishikesh leave throughout the day. <strong>Last bus is around 4:00-5:00 PM</strong> — you must reach Sonprayag by 3:00 PM to catch one. Buy ticket at the counter or from conductor. ₹800-1,200/person.<br><br>
+                    <strong>If you miss the last bus:</strong> Take a shared taxi to Guptkashi (₹100-150, 30 min) — more buses available from there till 6-7 PM. Or stay overnight at Sonprayag/Guptkashi (₹500-800).<br><br>
+                    <strong>Journey:</strong> 8-10 hours back to Rishikesh. You'll reach by 11:00 PM – 1:00 AM.
+                  </div>
+                  <div class="step-cost">₹800 – 1,200 / person</div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🚌 Rishikesh → Haridwar (Bus/Shared Auto, 45 min)</div>
+                  <div class="step-desc">
+                    From Rishikesh bus stand, buses to Haridwar run even late at night. Or take shared auto (₹100-150). Reach Haridwar railway station.<br><br>
+                    <strong>Train from Haridwar:</strong> Kumbha Express (departs ~10:00 PM), Doon Express (departs ~11:00 PM). Buy general ticket at station counter (₹280-300 for Patna). Board train for overnight journey home.
+                  </div>
+                  <div class="step-cost">₹70 – 100 / person</div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🍱 Food — Day 3</div>
+                  <div class="step-desc">
+                    <strong>Breakfast at Kedarnath:</strong> Aloo-paratha, chai at lodge or dhaba — ₹80-100.<br>
+                    <strong>Lunch at Jungle Chatti:</strong> Simple thali or Maggi — ₹100-150.<br>
+                    <strong>Dinner at Haridwar:</strong> Before boarding train. Multiple restaurants near station. "Hoshiyar Puri" famous for kachori. ₹100-150.
+                  </div>
+                  <div class="step-cost">₹300 / person</div>
+                </div>
+              </div>
+            </div>
+            <div class="day-note">🌙 <strong>Night on train (Haridwar → Home).</strong> Board Kumbha Express (10 PM) or Doon Express (11 PM). General class ticket: ₹280-300. Journey: 17-18 hours. Reach your city tomorrow afternoon/evening.</div>
+          </div>
+
+          <!-- Day 4 — BASIC -->
+          <div class="day-card reveal" data-day="4">
+            <div class="day-header">
+              <div class="day-number">Day 4</div>
+              <div class="day-title">Return Home — Journey Complete</div>
+            </div>
+            <div class="day-steps">
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🚂 Haridwar → Your City (Train Arrival) + Final Leg Home</div>
+                  <div class="step-desc">
+                    <strong>Arriving at your city:</strong> The train reaches between 12:00 PM – 6:00 PM depending on which train you took and your city. Refer to Day 1 reverse for exact arrival times.<br><br>
+                    <strong>From station to home:</strong> Local auto, bus, or family pickup. Keep ₹100-200 for local transport.<br><br>
+                    <strong>If you have waiting time for connecting train:</strong> Use the waiting hall at the junction station. Most stations have general waiting rooms (free) and paid AC waiting rooms (₹30-50/hour).
+                  </div>
+                  <div class="step-cost">₹100 – 400 / person</div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🍱 Food — Day 4</div>
+                  <div class="step-desc">
+                    <strong>On the train:</strong> Pantry car or station vendors for breakfast/lunch. Packaged snacks work well. ₹100-150.<br>
+                    <strong>At your city station:</strong> Proper meal before heading home. ₹100-150.
+                  </div>
+                  <div class="step-cost">₹300 / person</div>
+                </div>
+              </div>
+            </div>
+            <div class="day-note">🏠 <strong>You're home!</strong> Total journey: 4 days, 3 nights. You've completed one of the most sacred pilgrimages in India — the Kedarnath Yatra. The memories of the Himalayas, the trek, and the divine darshan will stay with you forever. Jai Baba Kedar! 🕉️</div>
+          </div>
+
+          <!-- Basic Summary -->
+          <div class="summary-card reveal">
+            <h3 class="summary-title serif">Basic Plan — Total Estimate</h3>
+            <table class="summary-table">
+              <tr><td>🚂 Transport (round trip)</td><td>₹—</td></tr>
+              <tr><td>🍱 Food</td><td>₹—</td></tr>
+              <tr><td>🏕️ Stay (Kedarnath)</td><td>₹—</td></tr>
+              <tr><td>📦 Miscellaneous</td><td>₹—</td></tr>
+              <tr class="total-row"><td><strong>PER PERSON</strong></td><td><strong>₹—</strong></td></tr>
+            </table>
+            <div class="summary-group">
+              <div class="group-cost"><span>2 People (Total)</span> ₹—</div>
+              <div class="group-cost"><span>4 People (Total)</span> ₹—</div>
+            </div>
+            <p class="summary-note">Calculating your plan...</p>
+          </div>
+
+        </div><!-- closes plan-basic -->
+
+        <!-- ============================================================ -->
+        <!-- COMFORT PLAN                                                    -->
+        <!-- ============================================================ -->
+        <div id="plan-comfort" class="plan-content">
+
+          <!-- Day 1 — DYNAMIC -->
+          <div class="day-card reveal" data-day="1">
+            <div class="day-header">
+              <div class="day-number">Day 1</div>
+              <div class="day-title">🔄 Loading your route...</div>
+            </div>
+            <div class="day-steps">
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">Planning your journey...</div>
+                  <div class="step-desc">Fetching the best comfortable route from your city to Haridwar.</div>
+                  <div class="step-cost">—</div>
+                </div>
+              </div>
+            </div>
+            <div class="day-note">🌙 Loading travel details...</div>
+          </div>
+
+          <!-- Day 2 — COMFORT -->
+          <div class="day-card reveal" data-day="2">
+            <div class="day-header">
+              <div class="day-number">Day 2</div>
+              <div class="day-title">Haridwar → Rishikesh → Sonprayag → Gaurikund → Kedarnath (Shared Taxi + Comfort Trek)</div>
+            </div>
+            <div class="day-steps">
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🚕 Haridwar to Rishikesh — Shared Taxi (Sumo/Bolero, 35-40 min)</div>
+                  <div class="step-desc">
+                    <strong>From Haridwar Railway Station:</strong> Exit Platform 1 side. You'll see a line of shared Sumo/Bolero/Tavera taxis parked outside — drivers shout "Rishikesh! Rishikesh!". Walk up to any one. ₹60-100/person. Leaves when 7-8 passengers are seated. Much faster and more comfortable than the bus.<br><br>
+                    <strong>Drop point:</strong> Rishikesh Yatra Bus Stand (Tehri Bus Stand). Journey: 35-40 minutes.<br><br>
+                    <strong>Private taxi option:</strong> If you want dedicated cab: ₹800-1,200 for Innova/Dzire. 25 minutes. Book via Ola/Uber or negotiate with drivers.<br><br>
+                    <strong>At Rishikesh:</strong> If you have 1-2 hours before the Sonprayag taxi, visit Triveni Ghat (5 min auto, ₹50) for morning Ganga Aarti. Or breakfast at Chotiwala Restaurant near Laxman Jhula (famous, ₹200-300/person).
+                  </div>
+                  <div class="step-cost">₹60 – 100 / person</div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🚙 Rishikesh to Sonprayag — Shared Sumo/Bolero (7-8 hours, ~220 km)</div>
+                  <div class="step-desc">
+                    <strong>From Rishikesh Yatra Bus Stand:</strong> Shared Sumo/Bolero taxis to Sonprayag line up near the bus stand entrance. They leave when 8-10 passengers are seated — typically every 30-45 minutes in the morning (5 AM – 9 AM).<br><br>
+                    <strong>Cost:</strong> ₹1,200-1,600/person. Pay the driver directly. Confirm price before sitting.<br><br>
+                    <strong>Why shared taxi is better than bus:</strong> Faster (7-8 hours vs 8-10), fewer stops, more legroom, drivers know the mountain roads well, they stop at scenic viewpoints for photos (Devprayag sangam, Rudraprayag confluence). Stops only for meals and toilet breaks — not at every village.<br><br>
+                    <strong>Meal stop:</strong> The driver stops at a good dhaba in Srinagar or Rudraprayag for 30 minutes. Cleaner and better food than bus-stop dhabas. Thali ₹200-250.<br><br>
+                    <strong>Important:</strong> If you reach Sonprayag after 5-6 PM, jeeps to Gaurikund reduce. Stay at Himalayan Paradise Hotel (₹2,000-3,000/night, good rooms with hot water) and continue fresh next morning.
+                  </div>
+                  <div class="step-cost">₹1,200 – 1,600 / person</div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🚙 Sonprayag to Gaurikund — Shared Jeep (20-25 min, 5 km)</div>
+                  <div class="step-desc">Shared jeep from Sonprayag parking. ₹60-80/person. Show registration e-pass at Gaurikund check post.</div>
+                  <div class="step-cost">₹60 – 80 / person</div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🥾 Gaurikund to Kedarnath — Comfort Trek (16 km, 5-7 hours with planned breaks)</div>
+                  <div class="step-desc">
+                    <strong>Same sacred trek — but with better planned breaks:</strong><br><br>
+                    • <strong>Jungle Chatti (4 km):</strong> "Himalayan Cafe" — hot tea, Maggi, packaged snacks. ₹100-150. Rest 15 min.<br>
+                    • <strong>Bheembali (7 km):</strong> Sit-down dhaba with proper seating. Fresh paratha with curd, tea. ₹150-200. Rest 20 min.<br>
+                    • <strong>Rambara (10 km):</strong> "Shiva Dhaba" — best on the route. Clean, good thali ₹200-250. Rest 30 min.<br>
+                    • <strong>Lincholi (13 km):</strong> Final water/tea break. Steep climb ahead.<br><br>
+                    <strong>Comfort upgrades from Basic:</strong> Packaged water bottles (Bisleri ₹30 each at every stop). Energy bars, dry fruits, ORS. Good wooden trekking stick (₹80-120) instead of cheap bamboo. Reusable poncho (₹100-200) instead of plastic raincoat.<br><br>
+                    <strong>Estimated snack + water cost:</strong> ₹500/person for the entire trek.
+                  </div>
+                  <div class="step-cost">₹500 / person (snacks + water)</div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🍱 Food — Day 2</div>
+                  <div class="step-desc">
+                    <strong>Breakfast (Rishikesh):</strong> Chotiwala or Honey Hut restaurant. Proper breakfast — ₹200-300.<br>
+                    <strong>Lunch (Srinagar/Rudraprayag):</strong> Taxi stops at good dhaba. Thali ₹200-250.<br>
+                    <strong>Dinner (Kedarnath):</strong> "Kedar Restaurant" or "GMVN Canteen" — hygienic, good food. Thali ₹250-300. Try rajma-chawal — famous at this altitude!
+                  </div>
+                  <div class="step-cost">₹500 – 600 / person</div>
+                </div>
+              </div>
+            </div>
+            <div class="day-note">🌙 <strong>Night at Kedarnath — Private Room.</strong> ₹2,000-3,500/night (base for 1-2 people, +₹1,000 per extra person). <strong>Recommended:</strong> GMVN Kedarnath Guest House (₹2,500, attached bathroom, hot water), Bikaner House (₹2,000, basic but clean), Punjab Sindh Awas (₹3,000, better rooms). All provide blankets, hot water (morning/evening), charging points. Book through GMVN website or call — rooms fill fast in May-June.</div>
+          </div>
+
+          <!-- Day 3 — COMFORT -->
+          <div class="day-card reveal" data-day="3">
+            <div class="day-header">
+              <div class="day-number">Day 3</div>
+              <div class="day-title">Kedarnath Darshan → Comfortable Return</div>
+            </div>
+            <div class="day-steps">
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🛕 Morning Darshan at Kedarnath Temple</div>
+                  <div class="step-desc">
+                    <strong>Morning Aarti at 4:30 AM</strong> — don't miss this. Since you have a private room, freshen up properly with hot water before darshan. The temple is less crowded early morning. After darshan, visit Bhairavnath Temple (500m behind) — the guardian deity. View of Kedarnath peak in morning light is spectacular.<br><br>
+                    <strong>Comfort tip:</strong> Most lodges allow you to keep luggage after checkout (leave by 10-11 AM). Freshen up, have breakfast, then start the trek down.
+                  </div>
+                  <div class="step-cost">₹0 (Darshan is free)</div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🥾 Kedarnath → Gaurikund (Trek Down, 4-6 hours)</div>
+                  <div class="step-desc">Start by 7-8 AM after proper breakfast at lodge/dhaba. Stop at Rambara for tea/snacks (₹100-150), Jungle Chatti for lunch (₹200-250). Reach Gaurikund by 1-2 PM.</div>
+                  <div class="step-cost">₹500 / person (snacks + water)</div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🚙 Gaurikund → Sonprayag → Rishikesh (Shared Taxi)</div>
+                  <div class="step-desc">Shared jeep to Sonprayag (₹60-80, 20 min), then shared Sumo to Rishikesh (₹1,200-1,600, 7-8 hours). Try to get into a taxi by 2-3 PM. Reach Rishikesh by 10-11 PM.</div>
+                  <div class="step-cost">₹1,260 – 1,680 / person</div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🚕 Rishikesh → Haridwar (Shared Taxi)</div>
+                  <div class="step-desc">Shared taxis available even late at night (till 1 AM). ₹60-100/person. 35-40 min to Haridwar station. Board reserved Sleeper/3AC train home.</div>
+                  <div class="step-cost">₹60 – 100 / person</div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🍱 Food — Day 3</div>
+                  <div class="step-desc">
+                    <strong>Breakfast at Kedarnath lodge/dhaba:</strong> Aloo-paratha, toast, tea — ₹150-200.<br>
+                    <strong>Lunch at Jungle Chatti/Rambara:</strong> Proper thali — ₹200-250.<br>
+                    <strong>Dinner at Haridwar:</strong> "Hoshiyar Puri" or "Chotiwala Haridwar" — ₹250-300.
+                  </div>
+                  <div class="step-cost">₹500 – 600 / person</div>
+                </div>
+              </div>
+            </div>
+            <div class="day-note">🌙 <strong>Night in Sleeper/3AC (Haridwar → Home).</strong> Your reserved berth is waiting. Cost included in return ticket. Comfortable sleep after an amazing darshan.</div>
+          </div>
+
+          <!-- Day 4 — COMFORT -->
+          <div class="day-card reveal" data-day="4">
+            <div class="day-header">
+              <div class="day-number">Day 4</div>
+              <div class="day-title">Return Home Comfortably</div>
+            </div>
+            <div class="day-steps">
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🚂 Haridwar → Your City (Train Arrival) + Final Leg</div>
+                  <div class="step-desc">Train reaches your city between 12-6 PM. Connect to local transport. Refer to Day 1 reverse for exact details. AC waiting room at junction station if you have a gap between trains (₹50/hour with 3AC ticket).</div>
+                  <div class="step-cost">Included in return ticket</div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🍱 Food — Day 4</div>
+                  <div class="step-desc">IRCTC breakfast/lunch on train (₹200-300), meal at your city station restaurant (₹250-350).</div>
+                  <div class="step-cost">₹500 – 600 / person</div>
+                </div>
+              </div>
+            </div>
+            <div class="day-note">🏠 <strong>Welcome home — refreshed and blessed!</strong> The Comfort plan ensures you travel without the stress of general class crowds. Reserved seats, better food, and private rooms mean you enjoy the journey as much as the destination. 🕉️</div>
+          </div>
+
+          <!-- Comfort Summary -->
+          <div class="summary-card reveal">
+            <h3 class="summary-title serif">Comfort Plan — Total Estimate</h3>
+            <table class="summary-table">
+              <tr><td>🚂 Transport (round trip)</td><td>₹—</td></tr>
+              <tr><td>🥾 Trek snacks & breaks</td><td>₹—</td></tr>
+              <tr><td>🍱 Food</td><td>₹—</td></tr>
+              <tr><td>🏨 Stay (private room)</td><td>₹—</td></tr>
+              <tr><td>📦 Miscellaneous</td><td>₹—</td></tr>
+              <tr class="total-row"><td><strong>PER PERSON</strong></td><td><strong>₹—</strong></td></tr>
+            </table>
+            <div class="summary-group">
+              <div class="group-cost"><span>2 People (Total)</span> ₹—</div>
+              <div class="group-cost"><span>4 People (Total)</span> ₹—</div>
+            </div>
+            <p class="summary-note">Calculating your plan...</p>
+          </div>
+
+        </div><!-- closes plan-comfort -->
+
+        <!-- ============================================================ -->
+        <!-- PREMIUM PLAN                                                    -->
+        <!-- ============================================================ -->
+        <div id="plan-premium" class="plan-content">
+
+          <!-- Day 1 — DYNAMIC -->
+          <div class="day-card reveal" data-day="1">
+            <div class="day-header">
+              <div class="day-number">Day 1</div>
+              <div class="day-title">🔄 Loading your route...</div>
+            </div>
+            <div class="day-steps">
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">Planning your premium journey...</div>
+                  <div class="step-desc">Fetching the fastest premium route from your city to Kedarnath.</div>
+                  <div class="step-cost">—</div>
+                </div>
+              </div>
+            </div>
+            <div class="day-note">🌙 Loading travel details...</div>
+          </div>
+
+          <!-- Day 2 — PREMIUM -->
+          <div class="day-card reveal" data-day="2">
+            <div class="day-header">
+              <div class="day-number">Day 2</div>
+              <div class="day-title">Kedarnath Darshan → Return Home — All in One Day!</div>
+            </div>
+            <div class="day-steps">
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🛕 VIP Morning Darshan at Kedarnath Temple</div>
+                  <div class="step-desc">
+                    <strong>Premium darshan experience:</strong> Wake up at 3:30 AM. Your resort will arrange hot water and tea before the aarti. Reach temple by 4 AM for morning aarti (4:30 AM). With fewer people in the premium season window, the darshan feels personal and unhurried.<br><br>
+                    <strong>Special Rudrabhishek Puja:</strong> The temple priest can arrange this once-in-a-lifetime ritual — Vedic mantras chanted while bathing the Jyotirlinga with milk, ghee, and Gangajal. ₹2,000-5,000 depending on the ritual. Book through your resort the evening before.<br><br>
+                    <strong>After darshan:</strong> Visit Bhairavnath Temple. Your resort can pack a picnic breakfast to enjoy with the mountain view. Best photos between 5:30-7:00 AM.
+                  </div>
+                  <div class="step-cost">₹0 (Darshan free, puja optional)</div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🥾 Kedarnath → Gaurikund (Trek Down, 4-5 hours)</div>
+                  <div class="step-desc">Start by 8 AM after a hearty breakfast at your resort (included in stay). Stop at Rambara for fresh juice/smoothie (₹150-200). Stop at Jungle Chatti for lunch at a better dhaba (₹250-300). Reach Gaurikund by 1-2 PM.</div>
+                  <div class="step-cost">₹500 / person (snacks + water)</div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🚙 Gaurikund → Dehradun Airport — Your Private Cab Awaits</div>
+                  <div class="step-desc">
+                    <strong>Your dedicated driver has been waiting at Gaurikund parking!</strong> Just get in and relax. Journey: 250 km, 7-8 hours. Stop for a late lunch at a premium restaurant in Rudraprayag or Srinagar (₹400-500). Your driver knows the best photo stops — get sunset pictures over the Himalayas. Reach Dehradun Airport by 8-9 PM. Cost included in your round trip cab.
+                  </div>
+                  <div class="step-cost">Included in round trip cab</div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">✈️ Dehradun → Your City — Return Flight</div>
+                  <div class="step-desc">
+                    Evening flight back. ~2 hours. Book round trip tickets together for better pricing. At your city airport, pre-booked cab or Ola/Uber takes you home (₹250-500).
+                  </div>
+                  <div class="step-cost">₹4,000 – 8,000 / person</div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <div class="step-title">🍱 Food — Day 2</div>
+                  <div class="step-desc">
+                    <strong>Breakfast at resort:</strong> Included in stay. Multi-cuisine buffet — parathas, fruits, eggs, tea/coffee.<br>
+                    <strong>Lunch on the road:</strong> Premium restaurant, your driver knows the best — ₹400-500.<br>
+                    <strong>Dinner at airport:</strong> Food court before security — ₹300-500.
+                  </div>
+                  <div class="step-cost">₹600 – 800 / person</div>
+                </div>
+              </div>
+            </div>
+            <div class="day-note">🏠 <strong>You're home — in just 2 days!</strong> The Premium plan is designed for those who value time and comfort above all. You experienced the divine Kedarnath Yatra without the 4-day train exhaustion. Perfect for elderly parents, families with young kids, working professionals, and anyone who wants to focus entirely on the spiritual experience. 🕉️✨</div>
+          </div>
+
+          <!-- Premium Summary -->
+          <div class="summary-card reveal">
+            <h3 class="summary-title serif">Premium Plan — Total Estimate</h3>
+            <table class="summary-table">
+              <tr><td>✈️ Transport (flight + cab)</td><td>₹—</td></tr>
+              <tr><td>🥾 Trek snacks & breaks</td><td>₹—</td></tr>
+              <tr><td>🍱 Food</td><td>₹—</td></tr>
+              <tr><td>🏨 Stay (premium resort)</td><td>₹—</td></tr>
+              <tr><td>📦 Miscellaneous</td><td>₹—</td></tr>
+              <tr class="total-row"><td><strong>PER PERSON</strong></td><td><strong>₹—</strong></td></tr>
+            </table>
+            <div class="summary-group">
+              <div class="group-cost"><span>2 People (Total)</span> ₹—</div>
+              <div class="group-cost"><span>4 People (Total)</span> ₹—</div>
+            </div>
+            <p class="summary-note">Calculating your plan...</p>
+          </div>
+
+        </div><!-- closes plan-premium -->
+
+      </div><!-- end container -->
+    </section><!-- end itinerary-section -->
+
+    <!-- ========== TRAVEL GUIDE (HINDI) ========== -->
+    <section class="guide-section" style="padding-top: 60px;">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-eyebrow">यात्रा गाइड</div>
+          <h2 class="serif section-title" style="text-align:center;">केदारनाथ यात्रा की <em>पूरी जानकारी</em></h2>
+          <p class="section-desc" style="text-align:center;">रजिस्ट्रेशन से लेकर ठहरने तक — वो सब कुछ जो आपको यात्रा से पहले जानना चाहिए।</p>
+        </div>
+        <div class="guide-grid">
+          <div class="guide-card reveal">
+            <div class="guide-icon">📅</div>
+            <h3 class="guide-title serif">यात्रा कब शुरू होती है?</h3>
+            <p>केदारनाथ धाम के कपाट हर साल <strong>अक्षय तृतीया (अप्रैल-मई)</strong> के आसपास खुलते हैं और <strong>भाई दूज (अक्टूबर-नवंबर)</strong> के आसपास बंद होते हैं।</p>
+            <p style="margin-top:10px;"><strong>🔥 सबसे ज्यादा भीड़:</strong> मई – जून</p>
+            <p><strong>💰 सबसे सस्ता समय:</strong> सितंबर मध्य – अक्टूबर शुरुआत</p>
+            <p><strong>⚠️ बरसात:</strong> जुलाई-अगस्त में भूस्खलन का खतरा</p>
+          </div>
+          <div class="guide-card reveal">
+            <div class="guide-icon">📝</div>
+            <h3 class="guide-title serif">रजिस्ट्रेशन कैसे करें?</h3>
+            <p>केदारनाथ यात्रा के लिए <strong>रजिस्ट्रेशन अनिवार्य</strong> है।</p>
+            <p style="margin-top:10px;"><strong>🖥️ ऑनलाइन:</strong> registrationandtouristcare.uk.gov.in</p>
+            <p><strong>🏢 ऑफलाइन:</strong> हरिद्वार, ऋषिकेश, गुप्तकाशी, सोनप्रयाग के केंद्रों पर।</p>
+          </div>
+          <div class="guide-card reveal">
+            <div class="guide-icon">🆔</div>
+            <h3 class="guide-title serif">कौन-से दस्तावेज साथ रखें?</h3>
+            <ul class="guide-list">
+              <li>आधार कार्ड या वैध फोटो आईडी</li>
+              <li>रजिस्ट्रेशन ई-पास (प्रिंट और मोबाइल में)</li>
+              <li>पासपोर्ट साइज फोटो</li>
+              <li>मेडिकल फिटनेस प्रमाणपत्र (बुजुर्गों के लिए)</li>
+            </ul>
+          </div>
+          <div class="guide-card warning reveal">
+            <div class="guide-icon">⚠️</div>
+            <h3 class="guide-title serif">स्कैमर्स से कैसे बचें?</h3>
+            <ul class="guide-list">
+              <li>केवल <strong>आधिकारिक वेबसाइट</strong> से रजिस्ट्रेशन करें।</li>
+              <li>हेलीकॉप्टर टिकट केवल <strong>IRCTC</strong> से बुक करें।</li>
+              <li>"VIP दर्शन" के झांसे में न आएं।</li>
+              <li>किसी अनजान के खाते में भुगतान न करें।</li>
+            </ul>
+          </div>
+          <div class="guide-card reveal">
+            <div class="guide-icon">🎒</div>
+            <h3 class="guide-title serif">पहली बार जाने वालों की तैयारी</h3>
+            <ul class="guide-list">
+              <li>गर्म कपड़े, जैकेट, टोपी, दस्ताने</li>
+              <li>आरामदायक ट्रेकिंग जूते</li>
+              <li>रेनकोट या पोंचो</li>
+              <li>पानी की बोतल, ग्लूकोज, ORS</li>
+              <li>धीरे-धीरे चढ़ाई करें</li>
+            </ul>
+          </div>
+          <div class="guide-card reveal">
+            <div class="guide-icon">🏕️</div>
+            <h3 class="guide-title serif">ठहरने की व्यवस्था</h3>
+            <p><strong>GMVN गेस्ट हाउस</strong> — सरकारी, भरोसेमंद</p>
+            <p><strong>निजी लॉज/टेंट:</strong> ₹600-1,000/रात</p>
+            <p><strong>प्राइवेट रूम:</strong> ₹2,000-3,500/रात</p>
+            <p><strong>प्रीमियम रिसॉर्ट:</strong> ₹8,000-10,000/रात</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EMERGENCY CONTACTS -->
+    <section class="emergency-section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-eyebrow">Save These Numbers</div>
+          <h2 class="serif section-title">Emergency <em>Contacts</em></h2>
+          <p class="section-desc">Important helpline numbers for your Kedarnath Yatra.</p>
+        </div>
+        <div class="emergency-grid">
+          <div class="emergency-card"><div class="emergency-icon">📞</div><div class="emergency-name">Kedarnath Helpline</div><a href="tel:+911352255989" class="emergency-number">0135-255989</a></div>
+          <div class="emergency-card"><div class="emergency-icon">🏥</div><div class="emergency-name">Medical Emergency</div><a href="tel:108" class="emergency-number">108</a></div>
+          <div class="emergency-card"><div class="emergency-icon">🚓</div><div class="emergency-name">Police (Sonprayag)</div><a href="tel:+911364234567" class="emergency-number">01364-234567</a></div>
+          <div class="emergency-card"><div class="emergency-icon">🏔️</div><div class="emergency-name">Disaster Management</div><a href="tel:+911352710334" class="emergency-number">0135-2710334</a></div>
+          <div class="emergency-card"><div class="emergency-icon">🚌</div><div class="emergency-name">GMVN (Tourism)</div><a href="tel:+911352552620" class="emergency-number">0135-2552620</a></div>
+          <div class="emergency-card"><div class="emergency-icon">🚁</div><div class="emergency-name">Helicopter Booking</div><a href="tel:+911352744625" class="emergency-number">0135-2744625</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIRECTORY BUTTON -->
+    <section class="directory-btn-section">
+      <div class="container">
+        <a href="directory.html" class="directory-link-btn">📖 Kedarnath Directory<span>Cab Drivers · Hotels · Food · Medical</span></a>
+      </div>
+    </section>
+
+    <!-- DOWNLOAD BUTTON -->
+    <section class="download-section">
+      <div class="container">
+        <button id="downloadPdfBtn" class="download-btn">📥 Download Plan as PDF</button>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="brand" style="justify-content: center; margin-bottom: 14px;"><span class="brand-mark"></span>Yatra</div>
+        <div>Crafted for families who travel the Himalayas with heart · © <span id="year"></span></div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="js/routes.js"></script>
+  <script src="js/plan.js"></script>
+  <script src="js/mobile-menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,1188 @@
+/* ========================================
+   PLAN PAGE STYLES
+   ======================================== */
+
+/* Plan Hero (smaller than landing) */
+.plan-hero {
+  position: relative;
+  padding: 160px 0 80px;
+  background: linear-gradient(180deg, #0a1f3d 0%, var(--navy) 100%);
+  text-align: center;
+}
+
+.plan-hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.plan-hero-title {
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.1;
+  font-weight: 400;
+  color: var(--snow);
+  margin-bottom: 16px;
+}
+
+.plan-hero-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.plan-hero-sub {
+  color: var(--ice);
+  opacity: 0.8;
+  font-size: 16px;
+}
+
+/* Tier Tabs */
+.tier-selector {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(8, 27, 51, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+  padding: 16px 0;
+}
+
+.tier-tabs {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tier-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 14px 24px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ice);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  min-width: 140px;
+}
+
+.tier-tab:hover {
+  border-color: var(--gold);
+  color: var(--snow);
+}
+
+.tier-tab.active {
+  background: linear-gradient(180deg, rgba(11, 35, 69, 0.8), rgba(8, 27, 51, 0.6));
+  border-color: var(--gold);
+  color: var(--snow);
+  box-shadow: 0 0 24px rgba(212, 160, 23, 0.15);
+}
+
+.tier-tab .tier-icon {
+  font-size: 20px;
+}
+
+.tier-tab .tier-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.tier-tab .tier-price {
+  font-size: 11px;
+  opacity: 0.7;
+  letter-spacing: 0.04em;
+}
+
+/* Itinerary Section */
+.itinerary-section {
+  padding: 60px 0 100px;
+}
+
+/* Plan Content — hide by default, show when active */
+.plan-content {
+  display: none;
+}
+
+.plan-content.active {
+  display: block;
+}
+
+/* Day Cards */
+.day-card {
+  background: linear-gradient(180deg, rgba(11, 35, 69, 0.5), rgba(8, 27, 51, 0.3));
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 28px 32px;
+  margin-bottom: 20px;
+  transition: border-color 0.3s;
+}
+
+.day-card:hover {
+  border-color: rgba(184, 216, 248, 0.2);
+}
+
+.day-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.day-number {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(212, 160, 23, 0.12);
+  border: 1px solid rgba(212, 160, 23, 0.3);
+  display: grid;
+  place-items: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.day-title {
+  font-size: 18px;
+  color: var(--snow);
+  font-weight: 500;
+}
+
+/* Steps */
+.day-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.step {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  position: relative;
+}
+
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 48px;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+}
+
+.step-dot {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--navy);
+  border: 2px solid var(--line);
+  margin-top: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--snow);
+  margin-bottom: 4px;
+}
+
+.step-desc {
+  font-size: 13px;
+  color: var(--ice);
+  opacity: 0.75;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.step-cost {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold);
+  background: rgba(212, 160, 23, 0.08);
+  padding: 4px 12px;
+  border-radius: 8px;
+  margin-top: 4px;
+}
+
+.day-note {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: rgba(184, 216, 248, 0.05);
+  border: 1px dashed var(--line);
+  font-size: 13px;
+  color: var(--ice);
+  opacity: 0.8;
+}
+
+/* Summary Card */
+.summary-card {
+  background: linear-gradient(135deg, rgba(11, 35, 69, 0.7), rgba(8, 27, 51, 0.5));
+  border: 1px solid rgba(212, 160, 23, 0.3);
+  border-radius: 20px;
+  padding: 32px;
+  margin-top: 32px;
+}
+
+.summary-title {
+  font-size: 26px;
+  color: var(--snow);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.summary-table tr {
+  border-bottom: 1px solid var(--line);
+}
+
+.summary-table tr:last-child {
+  border-bottom: none;
+}
+
+.summary-table td {
+  padding: 12px 0;
+  font-size: 14px;
+  color: var(--ice);
+}
+
+.summary-table td:last-child {
+  text-align: right;
+  font-weight: 500;
+  color: var(--snow);
+}
+
+.summary-table .total-row td {
+  font-size: 16px;
+  padding-top: 16px;
+  border-top: 2px solid rgba(212, 160, 23, 0.3);
+  color: var(--gold);
+}
+
+.summary-group {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.group-cost {
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: rgba(212, 160, 23, 0.08);
+  border: 1px solid rgba(212, 160, 23, 0.2);
+  font-size: 15px;
+  color: var(--snow);
+  font-weight: 500;
+}
+
+.group-cost span {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ice);
+  margin-bottom: 4px;
+}
+
+.summary-note {
+  font-size: 12px;
+  color: var(--ice);
+  opacity: 0.65;
+  text-align: center;
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+/* Travel Guide Section */
+.guide-section {
+  margin-top: 80px;
+  padding-top: 60px;
+  border-top: 1px solid var(--line);
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .guide-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
+
+.guide-card {
+  background: linear-gradient(180deg, rgba(11, 35, 69, 0.5), rgba(8, 27, 51, 0.3));
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.guide-card:hover {
+  border-color: rgba(184, 216, 248, 0.2);
+  transform: translateY(-2px);
+}
+
+.guide-card.warning {
+  border-color: rgba(212, 160, 23, 0.25);
+  background: linear-gradient(180deg, rgba(20, 40, 60, 0.6), rgba(8, 27, 51, 0.4));
+}
+
+.guide-icon {
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+
+.guide-title {
+  font-size: 18px;
+  color: var(--snow);
+  margin-bottom: 10px;
+}
+
+.guide-card p {
+  font-size: 13px;
+  color: var(--ice);
+  opacity: 0.8;
+  line-height: 1.65;
+  margin-bottom: 8px;
+}
+
+.guide-list {
+  list-style: none;
+  padding: 0;
+}
+
+.guide-list li {
+  font-size: 13px;
+  color: var(--ice);
+  opacity: 0.8;
+  line-height: 1.6;
+  padding-left: 16px;
+  position: relative;
+  margin-bottom: 4px;
+}
+
+.guide-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+/* Reveal animation (shared with main page) */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .day-card {
+    padding: 20px 16px;
+  }
+
+  .day-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .tier-tabs {
+    gap: 8px;
+  }
+
+  .tier-tab {
+    min-width: 100px;
+    padding: 12px 16px;
+  }
+
+  .tier-tab .tier-price {
+    font-size: 10px;
+  }
+
+  .summary-card {
+    padding: 20px;
+  }
+}
+
+/* ========================================
+   TRAVELER INPUT
+   ======================================== */
+
+.traveler-input-section {
+  padding: 0 0 20px;
+}
+
+.traveler-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 20px 28px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(11, 35, 69, 0.55), rgba(8, 27, 51, 0.35));
+  border: 1px solid var(--line);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.traveler-field {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.traveler-field label {
+  font-size: 14px;
+  color: var(--ice);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.traveler-control {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.traveler-btn {
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: rgba(11, 35, 69, 0.6);
+  color: var(--snow);
+  font-size: 20px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.25s, color 0.25s;
+  display: grid;
+  place-items: center;
+}
+
+.traveler-btn:hover {
+  background: rgba(212, 160, 23, 0.2);
+  color: var(--gold);
+}
+
+.traveler-btn:active {
+  background: rgba(212, 160, 23, 0.3);
+}
+
+#travelerCount {
+  width: 60px;
+  height: 44px;
+  border: none;
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  background: rgba(8, 27, 51, 0.7);
+  color: var(--snow);
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: inherit;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+#travelerCount::-webkit-outer-spin-button,
+#travelerCount::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.traveler-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+#travelerLabel {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--snow);
+}
+
+.traveler-hint {
+  font-size: 11px;
+  color: var(--ice);
+  opacity: 0.6;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .traveler-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .traveler-info {
+    align-items: flex-start;
+  }
+}
+
+/* Dynamic cost highlight */
+.cost-dynamic {
+  transition: all 0.3s ease;
+}
+
+.cost-updated {
+  animation: costPulse 0.6s ease;
+}
+
+@keyframes costPulse {
+  0% { color: var(--gold); transform: scale(1.05); }
+  100% { color: inherit; transform: scale(1); }
+}
+
+/* ========================================
+   GUIDE SECTION - ALWAYS VISIBLE
+   ======================================== */
+
+.guide-section {
+  padding-top: 100px !important;
+  padding-bottom: 80px;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  margin-top: 60px;
+  border-top: 1px solid var(--line);
+}
+
+.guide-section .section-head {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 60px;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Override reveal animation for guide cards - make them always visible */
+.guide-section .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .guide-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
+
+.guide-card {
+  background: linear-gradient(180deg, rgba(11, 35, 69, 0.5), rgba(8, 27, 51, 0.3));
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.guide-card:hover {
+  border-color: rgba(184, 216, 248, 0.2);
+  transform: translateY(-2px);
+}
+
+.guide-card.warning {
+  border-color: rgba(212, 160, 23, 0.25);
+  background: linear-gradient(180deg, rgba(20, 40, 60, 0.6), rgba(8, 27, 51, 0.4));
+}
+
+.guide-icon {
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+
+.guide-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: var(--snow);
+  margin-bottom: 10px;
+}
+
+.guide-card p {
+  font-size: 13px;
+  color: var(--ice);
+  opacity: 0.8;
+  line-height: 1.65;
+  margin-bottom: 8px;
+}
+
+.guide-list {
+  list-style: none;
+  padding: 0;
+}
+
+.guide-list li {
+  font-size: 13px;
+  color: var(--ice);
+  opacity: 0.8;
+  line-height: 1.6;
+  padding-left: 16px;
+  position: relative;
+  margin-bottom: 4px;
+}
+
+.guide-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+/* ========================================
+   ADD-ONS SECTION
+   ======================================== */
+
+.addons-section {
+  padding: 0 0 20px;
+}
+
+.addons-card {
+  padding: 24px 28px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(11, 35, 69, 0.55), rgba(8, 27, 51, 0.35));
+  border: 1px solid var(--line);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.addons-title {
+  font-size: 20px;
+  color: var(--snow);
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.addons-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.addon-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(8, 27, 51, 0.4);
+  border: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.addon-item:hover {
+  border-color: var(--line);
+}
+
+.addon-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.addon-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.addon-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--snow);
+  margin-bottom: 2px;
+}
+
+.addon-desc {
+  font-size: 11px;
+  color: var(--ice);
+  opacity: 0.65;
+}
+
+.addon-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.addon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: rgba(11, 35, 69, 0.6);
+  color: var(--snow);
+  font-size: 16px;
+  cursor: pointer;
+  font-family: inherit;
+  display: grid;
+  place-items: center;
+  transition: all 0.25s;
+}
+
+.addon-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(212, 160, 23, 0.1);
+}
+
+.addon-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gold);
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Toggle Switch */
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: rgba(8, 27, 51, 0.6);
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  transition: all 0.3s;
+}
+
+.toggle-slider::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background: var(--ice);
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.toggle input:checked + .toggle-slider {
+  background: rgba(212, 160, 23, 0.3);
+  border-color: var(--gold);
+}
+
+.toggle input:checked + .toggle-slider::before {
+  transform: translateX(22px);
+  background: var(--gold);
+}
+
+/* ========================================
+   EMERGENCY CONTACTS
+   ======================================== */
+
+.emergency-section {
+  padding: 80px 0 40px;
+  margin-top: 40px;
+  border-top: 1px solid var(--line);
+}
+
+.emergency-section .section-head {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 50px;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.emergency-section .section-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #ff6b6b;
+  margin-bottom: 18px;
+}
+
+.emergency-section .section-title {
+  font-size: clamp(32px, 4.5vw, 52px);
+  line-height: 1.1;
+  font-weight: 400;
+  color: var(--snow);
+  margin-bottom: 18px;
+}
+
+.emergency-section .section-title em {
+  font-style: italic;
+  color: #ff6b6b;
+}
+
+.emergency-section .section-desc {
+  color: var(--ice);
+  opacity: 0.8;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.emergency-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 700px) {
+  .emergency-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .emergency-grid {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+.emergency-card {
+  text-align: center;
+  padding: 24px 16px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(20, 10, 10, 0.4), rgba(8, 27, 51, 0.3));
+  border: 1px solid rgba(255, 107, 107, 0.2);
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.emergency-card:hover {
+  border-color: rgba(255, 107, 107, 0.5);
+  transform: translateY(-2px);
+}
+
+.emergency-icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.emergency-name {
+  font-size: 13px;
+  color: var(--ice);
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+.emergency-number {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ff6b6b;
+  font-family: 'Inter', monospace;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: color 0.25s;
+}
+
+.emergency-number:hover {
+  color: #ff4444;
+  text-decoration: underline;
+}
+
+/* ========================================
+   DOWNLOAD BUTTON
+   ======================================== */
+
+.download-section {
+  padding: 0 0 80px;
+  text-align: center;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  border-radius: 16px;
+  border: 0;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #1a1305;
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold) 60%, #b58813);
+  box-shadow: 0 12px 30px -8px rgba(212, 160, 23, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  font-family: inherit;
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px -10px rgba(212, 160, 23, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.download-btn:active {
+  transform: translateY(0);
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .plan-content.active,
+  .plan-content.active * {
+    visibility: visible;
+  }
+  .plan-content.active {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+  .tier-selector,
+  .traveler-input-section,
+  .addons-section,
+  .guide-section,
+  .emergency-section,
+  .download-section,
+  .nav,
+  footer {
+    display: none !important;
+  }
+}
+  /* ========================================
+   DIRECTORY BUTTON
+   ======================================== */
+
+.directory-btn-section {
+  padding: 0 0 30px;
+  text-align: center;
+}
+
+.directory-link-btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 20px 40px;
+  border-radius: 16px;
+  border: 2px solid rgba(212, 160, 23, 0.4);
+  background: linear-gradient(180deg, rgba(11, 35, 69, 0.6), rgba(8, 27, 51, 0.4));
+  color: var(--snow);
+  font-size: 18px;
+  font-weight: 600;
+  font-family: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  letter-spacing: 0.04em;
+}
+
+.directory-link-btn span {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--ice);
+  opacity: 0.7;
+  letter-spacing: 0.06em;
+}
+
+.directory-link-btn:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px -12px rgba(212, 160, 23, 0.3);
+  background: linear-gradient(180deg, rgba(20, 40, 60, 0.7), rgba(11, 35, 69, 0.5));
+}
+/* ========================================
+   MOBILE RESPONSIVE — PLAN PAGE
+   ======================================== */
+
+@media (max-width: 820px) {
+  .tier-tabs {
+    gap: 8px;
+  }
+
+  .tier-tab {
+    min-width: 100px;
+    padding: 10px 14px;
+  }
+
+  .tier-tab .tier-name {
+    font-size: 15px;
+  }
+
+  .tier-tab .tier-price {
+    font-size: 10px;
+  }
+
+  .traveler-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .traveler-info {
+    align-items: flex-start;
+  }
+
+  .addons-grid {
+    gap: 10px;
+  }
+
+  .addon-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .day-card {
+    padding: 18px 14px;
+  }
+
+  .day-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .summary-card {
+    padding: 20px 16px;
+  }
+
+  .summary-table td {
+    font-size: 12px;
+    padding: 8px 0;
+  }
+
+  .summary-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .group-cost {
+    text-align: center;
+  }
+
+  .plan-comparison {
+    overflow-x: auto;
+  }
+
+  .comparison-table {
+    font-size: 10px;
+    min-width: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tier-tabs {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .tier-tab {
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .plan-hero {
+    padding: 120px 0 40px;
+  }
+
+  .plan-hero-title {
+    font-size: 24px;
+  }
+
+  .plan-hero-sub {
+    font-size: 13px;
+  }
+
+  .day-number {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .day-title {
+    font-size: 14px;
+  }
+
+  .step-title {
+    font-size: 13px;
+  }
+
+  .step-desc {
+    font-size: 11px;
+  }
+
+  .step-cost {
+    font-size: 11px;
+  }
+
+  .day-note {
+    font-size: 11px;
+    padding: 10px 12px;
+  }
+
+  .summary-title {
+    font-size: 20px;
+  }
+
+  .directory-link-btn {
+    padding: 14px 20px;
+    font-size: 14px;
+  }
+
+  .download-btn {
+    padding: 14px 24px;
+    font-size: 14px;
+  }
+}
