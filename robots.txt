@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yatra-planner.onrender.com/sitemap.xml

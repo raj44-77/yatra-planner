@@ -1,0 +1,5 @@
+services:
+  - type: web
+    name: yatra-planner
+    env: static
+    staticPublishPath: .
