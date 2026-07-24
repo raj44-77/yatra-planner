@@ -265,9 +265,9 @@
 
   function getAddonCosts() {
     var total = 0;
-    if (addonPony && addonPony.checked) total += 2500 * travelers;
-    if (addonPalki && addonPalki.checked) total += 4500 * travelers;
-    if (addonHelicopter && addonHelicopter.checked) total += 7500 * travelers;
+    if (addonPony && addonPony.checked) total += 10000 * travelers;
+    if (addonPalki && addonPalki.checked) total += 16000 * travelers;
+    if (addonHelicopter && addonHelicopter.checked) total += 15000 * travelers;
     return total;
   }
 
@@ -302,7 +302,6 @@
     var perPerson = Math.round(grandTotal / travelers);
     var totalDays = b.totalDays;
 
-    // Update table rows
     var rows = summaryCard.querySelectorAll('.summary-table tr');
     
     if (tier === 'basic') {
@@ -324,11 +323,9 @@
       if (rows[4]) rows[4].querySelector('td:last-child').textContent = '₹' + b.misc.toLocaleString('en-IN');
     }
 
-    // Remove old addon row
     var existingAddonRow = summaryCard.querySelector('.addon-row');
     if (existingAddonRow) existingAddonRow.remove();
 
-    // Add addon row if any selected
     if (addons > 0) {
       var addonRow = document.createElement('tr');
       addonRow.className = 'addon-row';
@@ -339,13 +336,11 @@
       }
     }
 
-    // Update total row — GROUP TOTAL
     var totalStrong = summaryCard.querySelector('.total-row strong');
     if (totalStrong) {
       totalStrong.textContent = '₹' + grandTotal.toLocaleString('en-IN') + ' total';
     }
 
-    // Update group costs
     var groupCosts = summaryCard.querySelectorAll('.group-cost');
     if (groupCosts.length >= 2) {
       var savedTravelers = travelers;
@@ -364,7 +359,6 @@
       groupCosts[1].innerHTML = '<span>4 People (Total)</span> ₹' + (result4.total + addons4).toLocaleString('en-IN');
     }
 
-    // Clean summary note — GROUP TOTAL first, then per person
     var summaryNote = summaryCard.querySelector('.summary-note');
     if (summaryNote) {
       var parts = [];
@@ -378,9 +372,9 @@
       
       if (addons > 0) {
         var addonNames = [];
-        if (addonPony && addonPony.checked) addonNames.push('Pony (₹' + (2500 * travelers).toLocaleString('en-IN') + ')');
-        if (addonPalki && addonPalki.checked) addonNames.push('Palki (₹' + (4500 * travelers).toLocaleString('en-IN') + ')');
-        if (addonHelicopter && addonHelicopter.checked) addonNames.push('Helicopter (₹' + (7500 * travelers).toLocaleString('en-IN') + ')');
+        if (addonPony && addonPony.checked) addonNames.push('Pony (₹' + (10000 * travelers).toLocaleString('en-IN') + ')');
+        if (addonPalki && addonPalki.checked) addonNames.push('Palki (₹' + (16000 * travelers).toLocaleString('en-IN') + ')');
+        if (addonHelicopter && addonHelicopter.checked) addonNames.push('Helicopter (₹' + (15000 * travelers).toLocaleString('en-IN') + ')');
         parts.push('<span style="color: var(--gold);">➕ Add-ons: ' + addonNames.join(', ') + '</span>');
       }
 
@@ -407,7 +401,7 @@
     else result = calcPremium();
 
     var addons = getAddonCosts();
-        var displayResult = {
+    var displayResult = {
       perPerson: Math.round((result.total + addons) / travelers),
       total: result.total + addons,
       breakdown: result.breakdown
@@ -538,9 +532,9 @@
       var colors = tierColors[tier];
 
       var addonDetails = [];
-      if (addonPony && addonPony.checked) addonDetails.push('🐴 Pony Ride (One Way): ₹' + (2500 * travelers).toLocaleString('en-IN'));
-      if (addonPalki && addonPalki.checked) addonDetails.push('🪑 Palki/Doli (One Way): ₹' + (4500 * travelers).toLocaleString('en-IN'));
-      if (addonHelicopter && addonHelicopter.checked) addonDetails.push('🚁 Helicopter (One Way): ₹' + (7500 * travelers).toLocaleString('en-IN'));
+      if (addonPony && addonPony.checked) addonDetails.push('🐴 Pony Ride (Round Trip): ₹' + (10000 * travelers).toLocaleString('en-IN'));
+      if (addonPalki && addonPalki.checked) addonDetails.push('🪑 Palki/Doli (Round Trip): ₹' + (16000 * travelers).toLocaleString('en-IN'));
+      if (addonHelicopter && addonHelicopter.checked) addonDetails.push('🚁 Helicopter (Round Trip): ₹' + (15000 * travelers).toLocaleString('en-IN'));
       if (extraDays > 0) addonDetails.push('📅 Extra ' + extraDays + ' day(s) included');
 
       var printWindow = window.open('', '_blank', 'width=900,height=700');
