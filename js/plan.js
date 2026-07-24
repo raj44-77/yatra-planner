@@ -407,8 +407,8 @@
     else result = calcPremium();
 
     var addons = getAddonCosts();
-    var displayResult = {
-      perPerson: Math.round(result.perPerson + (addons / travelers)),
+        var displayResult = {
+      perPerson: Math.round((result.total + addons) / travelers),
       total: result.total + addons,
       breakdown: result.breakdown
     };
