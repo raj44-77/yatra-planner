@@ -298,7 +298,7 @@
 
     var b = result.breakdown;
     var addons = getAddonCosts();
-    var grandTotal = result.total + addons;
+    var grandTotal = result.total;
     var perPerson = Math.round(grandTotal / travelers);
     var totalDays = b.totalDays;
 
@@ -521,7 +521,7 @@
       var tierName = tier.charAt(0).toUpperCase() + tier.slice(1);
       var result = tier === 'basic' ? calcBasic() : (tier === 'comfort' ? calcComfort() : calcPremium());
       var addons = getAddonCosts();
-      var grandTotal = result.total + addons;
+      var grandTotal = result.total;
       var perPerson = Math.round(grandTotal / travelers);
 
       var tierColors = {
