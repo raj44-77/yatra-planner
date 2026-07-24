@@ -147,7 +147,7 @@
     return costs[ROUTE_ORIGIN] ? costs[ROUTE_ORIGIN][tier] : costs['Bhagalpur'][tier];
   }
 
-    function calcBasic() {
+  function calcBasic() {
     var leg1 = getLeg1Cost('basic');
     var mountainTransport = 2690;
     var foodPerDay = 320;
@@ -290,9 +290,9 @@
   if (addonPony) addonPony.addEventListener('change', updateAllCosts);
   if (addonPalki) addonPalki.addEventListener('change', updateAllCosts);
   if (addonHelicopter) addonHelicopter.addEventListener('change', updateAllCosts);
-  // UPDATE SUMMARY DISPLAY
-  
-    function updateSummaryDisplay(tier, result) {
+
+  // ── UPDATE SUMMARY DISPLAY ──
+  function updateSummaryDisplay(tier, result) {
     var summaryCard = document.querySelector('#plan-' + tier + ' .summary-card');
     if (!summaryCard) return;
 
@@ -302,7 +302,7 @@
     var perPerson = Math.round(grandTotal / travelers);
     var totalDays = b.totalDays;
 
-    // Update table rows with single prices
+    // Update table rows
     var rows = summaryCard.querySelectorAll('.summary-table tr');
     
     if (tier === 'basic') {
@@ -324,10 +324,11 @@
       if (rows[4]) rows[4].querySelector('td:last-child').textContent = '₹' + b.misc.toLocaleString('en-IN');
     }
 
-    // Add-ons row (only if any addon selected)
+    // Remove old addon row
     var existingAddonRow = summaryCard.querySelector('.addon-row');
     if (existingAddonRow) existingAddonRow.remove();
 
+    // Add addon row if any selected
     if (addons > 0) {
       var addonRow = document.createElement('tr');
       addonRow.className = 'addon-row';
@@ -338,48 +339,52 @@
       }
     }
 
-    // Update total
+    // Update total row — GROUP TOTAL
     var totalStrong = summaryCard.querySelector('.total-row strong');
     if (totalStrong) {
-      totalStrong.textContent = '₹' + perPerson.toLocaleString('en-IN') + ' / person';
+      totalStrong.textContent = '₹' + grandTotal.toLocaleString('en-IN') + ' total';
     }
 
     // Update group costs
     var groupCosts = summaryCard.querySelectorAll('.group-cost');
     if (groupCosts.length >= 2) {
       var savedTravelers = travelers;
-      var savedExtraDays = extraDays;
       
       travelers = 2;
       var result2 = tier === 'basic' ? calcBasic() : (tier === 'comfort' ? calcComfort() : calcPremium());
+      var addons2 = getAddonCosts();
       
       travelers = 4;
       var result4 = tier === 'basic' ? calcBasic() : (tier === 'comfort' ? calcComfort() : calcPremium());
+      var addons4 = getAddonCosts();
       
       travelers = savedTravelers;
 
-      groupCosts[0].innerHTML = '<span>2 People (Total)</span> ₹' + result2.total.toLocaleString('en-IN');
-      groupCosts[1].innerHTML = '<span>4 People (Total)</span> ₹' + result4.total.toLocaleString('en-IN');
+      groupCosts[0].innerHTML = '<span>2 People (Total)</span> ₹' + (result2.total + addons2).toLocaleString('en-IN');
+      groupCosts[1].innerHTML = '<span>4 People (Total)</span> ₹' + (result4.total + addons4).toLocaleString('en-IN');
     }
 
-    // Clean summary note
+    // Clean summary note — GROUP TOTAL first, then per person
     var summaryNote = summaryCard.querySelector('.summary-note');
     if (summaryNote) {
       var parts = [];
       
+      parts.push('<span style="font-size: 18px; color: var(--snow); font-weight: 700;">💰 Total for ' + travelers + ' Traveler(s): ₹' + grandTotal.toLocaleString('en-IN') + '</span>');
+      parts.push('<span style="font-size: 14px; color: var(--gold);">👤 Per Person: ₹' + perPerson.toLocaleString('en-IN') + '</span>');
+      
       if (extraDays > 0) {
-        parts.push('📅 Includes ' + extraDays + ' extra day(s) · Total: ' + totalDays + ' days');
+        parts.push('<span style="color: var(--ice); opacity:0.7;">📅 ' + extraDays + ' extra day(s) · ' + totalDays + ' days total</span>');
       }
+      
       if (addons > 0) {
         var addonNames = [];
-        if (addonPony && addonPony.checked) addonNames.push('Pony');
-        if (addonPalki && addonPalki.checked) addonNames.push('Palki');
-        if (addonHelicopter && addonHelicopter.checked) addonNames.push('Helicopter');
-        parts.push('➕ Add-ons: ' + addonNames.join(', ') + ' (+₹' + addons.toLocaleString('en-IN') + ')');
+        if (addonPony && addonPony.checked) addonNames.push('Pony (₹' + (2500 * travelers).toLocaleString('en-IN') + ')');
+        if (addonPalki && addonPalki.checked) addonNames.push('Palki (₹' + (4500 * travelers).toLocaleString('en-IN') + ')');
+        if (addonHelicopter && addonHelicopter.checked) addonNames.push('Helicopter (₹' + (7500 * travelers).toLocaleString('en-IN') + ')');
+        parts.push('<span style="color: var(--gold);">➕ Add-ons: ' + addonNames.join(', ') + '</span>');
       }
-      parts.push('💰 Total: ₹' + grandTotal.toLocaleString('en-IN') + ' for ' + travelers + ' traveler(s)');
 
-      summaryNote.innerHTML = parts.join('<br>') + '<br><br>⚠️ Prices are approximate and may vary by season. All costs are round trip from ' + ROUTE_ORIGIN + '.';
+      summaryNote.innerHTML = parts.join('<br>') + '<br><br><span style="font-size:11px; opacity:0.5;">⚠️ Prices are approximate. All costs are round trip from ' + ROUTE_ORIGIN + '.</span>';
     }
   }
 
@@ -403,7 +408,7 @@
 
     var addons = getAddonCosts();
     var displayResult = {
-      perPerson: Math.round((result.total + addons) / travelers),
+      perPerson: Math.round(result.perPerson + (addons / travelers)),
       total: result.total + addons,
       breakdown: result.breakdown
     };
@@ -554,7 +559,7 @@
       
       printWindow.document.write('.pdf-header{background:linear-gradient(135deg,' + colors.primary + ',#0a1a35);color:#F8FAFC;padding:24px 36px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}');
       printWindow.document.write('.header-left{display:flex;align-items:center;gap:12px}');
-      printWindow.document.write('.logo-circle{width:40px;height:40px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#E8BE4A,#D4A017 60%,#8a6a0f);box-shadow:0 0 20px rgba(212,160,23,0.4);flex-shrink:0}');
+      printWindow.document.write('.logo-circle{width:40px;height:40px;border-radius:50%;background-image:url(assets/images/yatra-logo.png);background-size:cover;box-shadow:0 0 20px rgba(212,160,23,0.4);flex-shrink:0}');
       printWindow.document.write('.logo-text{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:500;letter-spacing:0.02em}');
       printWindow.document.write('.header-right{text-align:right}');
       printWindow.document.write('.pdf-header h1{font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:500;margin-bottom:2px}');
@@ -720,7 +725,7 @@
       
       printWindow.document.write('<div class="pdf-footer">');
       printWindow.document.write('<div class="brand"><span></span>Yatra Planner</div>');
-      printWindow.document.write('<div>India\'s Trusted Travel Budget Planner · yatraplanner.com</div>');
+      printWindow.document.write('<div>India\'s Trusted Travel Budget Planner · yatra-planner.onrender.com</div>');
       printWindow.document.write('<div>Generated: ' + new Date().toLocaleDateString('en-IN', {day: 'numeric', month: 'long', year: 'numeric'}) + ' · Prices are approximate and may vary by season</div>');
       printWindow.document.write('</div>');
       
