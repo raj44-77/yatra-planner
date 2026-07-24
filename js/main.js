@@ -184,7 +184,7 @@
         if (LIVE_DESTINATIONS.indexOf(destName) === -1) {
           showToast('🚧 ' + destName + ' is coming soon! Stay tuned.');
         }
-        destSelect.value = destName;
+                destSelect.value = destName;
         const planner = document.getElementById('planner');
         if (planner) {
           planner.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -192,31 +192,5 @@
       }
     });
   });
-     // ── Mobile menu toggle ──
-  var mobileMenuBtn = document.getElementById('mobileMenuBtn');
-  var navLinksEl = document.getElementById('navLinks');
-  
-  if (mobileMenuBtn && navLinksEl) {
-    mobileMenuBtn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      navLinksEl.classList.toggle('mobile-open');
-    });
-    
-    // Close menu when a link is clicked
-    navLinksEl.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        navLinksEl.classList.remove('mobile-open');
-      });
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', function (e) {
-      if (!navLinksEl.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-        navLinksEl.classList.remove('mobile-open');
-      }
-    });
-  }
-
 
 })();
-
