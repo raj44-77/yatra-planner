@@ -80,7 +80,9 @@ html, body {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, var(--gold-soft), var(--gold) 60%, #8a6a0f);
+  background-image: url('../assets/images/yatra-logo.png');
+  background-size: cover;
+  background-position: center;
   box-shadow: 0 0 24px rgba(212, 160, 23, 0.45);
 }
 
