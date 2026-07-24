@@ -1,5 +1,42 @@
-// Mobile Menu Toggle + Footer Injection — shared across all pages
+// Mobile Menu Toggle + Footer + Favicon Injection — shared across all pages
 (function() {
+  
+  // ── Inject Favicon & Icons ──
+  var head = document.head || document.getElementsByTagName('head')[0];
+  
+  var favicon32 = document.createElement('link');
+  favicon32.rel = 'icon';
+  favicon32.type = 'image/png';
+  favicon32.sizes = '32x32';
+  favicon32.href = 'assets/images/yatra-logo.png';
+  head.appendChild(favicon32);
+
+  var favicon192 = document.createElement('link');
+  favicon192.rel = 'icon';
+  favicon192.type = 'image/png';
+  favicon192.sizes = '192x192';
+  favicon192.href = 'assets/images/yatra-logo.png';
+  head.appendChild(favicon192);
+
+  var appleIcon = document.createElement('link');
+  appleIcon.rel = 'apple-touch-icon';
+  appleIcon.sizes = '180x180';
+  appleIcon.href = 'assets/images/yatra-logo.png';
+  head.appendChild(appleIcon);
+
+  // Google Search Logo (Schema)
+  var logoSchema = document.createElement('script');
+  logoSchema.type = 'application/ld+json';
+  logoSchema.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Yatra Planner",
+    "url": "https://yatra-planner.onrender.com",
+    "logo": "https://yatra-planner.onrender.com/assets/images/yatra-logo.png"
+  });
+  head.appendChild(logoSchema);
+
+  // ── Mobile Menu Toggle ──
   var menuBtn = document.getElementById('mobileMenuBtn');
   var menuLinks = document.getElementById('navLinks');
   
@@ -34,17 +71,5 @@
   var yearSpan = document.getElementById('year');
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
-  }
-    // ── Cookie Consent Banner ──
-  if (!localStorage.getItem('yatra-cookie-consent')) {
-    var banner = document.createElement('div');
-    banner.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(8,27,51,0.97);border-top:1px solid var(--line);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--ice);';
-    banner.innerHTML = '<span>🍪 Yatra uses only essential Google Fonts. No tracking, no ads, no data collection. <a href="privacy.html" style="color:var(--gold);">Learn more</a></span><button id="cookieAccept" style="padding:8px 18px;border-radius:8px;border:1px solid var(--gold);background:rgba(212,160,23,0.1);color:var(--gold);cursor:pointer;font-family:inherit;font-size:12px;white-space:nowrap;">Got it</button>';
-    document.body.appendChild(banner);
-    
-    document.getElementById('cookieAccept').addEventListener('click', function() {
-      localStorage.setItem('yatra-cookie-consent', 'true');
-      banner.remove();
-    });
   }
 })();
