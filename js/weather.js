@@ -63,6 +63,7 @@
     updateCurrentWeather(data);
     updateForecast(data);
     updateAdvisory(data);
+    updateTomorrowCard(data);
     updatePacking(data);
     updateAlerts(data);
     updateTimestamp();
@@ -106,7 +107,7 @@
     grid.innerHTML = html;
   }
 
-    function updateAdvisory(data) {
+  function updateAdvisory(data) {
     var current = data.current;
     var daily = data.daily;
     var temp = current.temperature_2m;
@@ -123,14 +124,12 @@
     var status = 'excellent';
     var statusLabel = 'Excellent for Trekking 🟢';
 
-    // ── Weather condition check ──
     var isRaining = (rain > 0.5 || code === 61 || code === 63 || code === 65 || code === 80 || code === 81 || code === 82 || code >= 95);
     var isDrizzle = (code === 51 || code === 53 || code === 55 || (rain > 0 && rain <= 0.5));
     var isStorm = (code >= 95);
     var isSnow = (code >= 71 && code <= 86);
     var isFog = (code === 45 || code === 48 || visibility < 1);
 
-    // ── Determine status ──
     if (isStorm || rain > 10 || wind > 35 || temp < -5) {
       status = 'avoid';
       statusLabel = 'Avoid Trekking 🔴';
@@ -146,7 +145,6 @@
       statusLabel = 'Excellent for Trekking 🟢';
     }
 
-    // ── Specific condition tips ──
     if (isStorm) {
       tips.push('⛈️ <strong>Thunderstorm expected.</strong> Do NOT trek. Stay indoors and wait for weather to clear.');
     }
@@ -176,39 +174,50 @@
       tips.push('🧥 Cool weather. Carry a warm jacket — especially for early morning and evening.');
     }
 
-    // ── Tomorrow's trek window ──
-    var tomorrowRainProb = daily.precipitation_probability_max[1] || 0;
-    var tomorrowCode = daily.weather_code[1];
-    var tomorrowTempMin = daily.temperature_2m_min[1];
-    var tomorrowTempMax = daily.temperature_2m_max[1];
-    
-    if (tomorrowRainProb < 30 && tomorrowCode < 51) {
-      tips.push('🌄 <strong>Tomorrow\'s Trek Window:</strong> Best time to start — 5:30 AM to 8:00 AM. Clear skies and cooler temperatures expected. Lower chance of rain.');
-    } else if (tomorrowRainProb < 60) {
-      tips.push('🌄 <strong>Tomorrow\'s Trek Window:</strong> Best time to start — 5:30 AM to 7:00 AM. Some chance of rain later in the day. Start early to avoid afternoon showers.');
-    } else {
-      tips.push('🌄 <strong>Tomorrow:</strong> High chance of rain (' + tomorrowRainProb + '%). If trekking, start by 5:00 AM and carry full rain protection.');
-    }
-
-    // ── Altitude advice ──
     tips.push('🏔️ <strong>Altitude Alert:</strong> At 3,583m, some visitors may experience mild altitude sickness — headache, nausea, dizziness. Drink plenty of water, avoid rushing the trek, take breaks every 2-3 km, and seek medical attention if symptoms become severe. The medical aid post is near the temple entrance.');
 
-    // ── Good conditions ──
     if (status === 'excellent') {
       tips.push('✅ <strong>Great trekking weather!</strong> Clear skies and comfortable temperatures. Still carry: water bottle, light jacket, sunscreen, and sunglasses.');
     }
 
-    // ── Update DOM ──
     statusDot.className = 'status-dot ' + status;
     statusText.textContent = statusLabel;
     tipsEl.innerHTML = tips.join('<br><br>');
   }
+
+  function updateTomorrowCard(data) {
+    var daily = data.daily;
+    var tomorrowRainProb = daily.precipitation_probability_max[1] || 0;
+    var tomorrowCode = daily.weather_code[1];
+    var tomorrowTempMin = Math.round(daily.temperature_2m_min[1]);
+    var tomorrowTempMax = Math.round(daily.temperature_2m_max[1]);
+    var weather = getWeatherInfo(tomorrowCode);
+    
+    var content = document.getElementById('tomorrowContent');
+    if (!content) return;
+
+    var html = '';
+    html += '<p><strong>' + weather.icon + ' ' + weather.condition + '</strong> · ' + tomorrowTempMin + '°C to ' + tomorrowTempMax + '°C</p>';
+    
+    if (tomorrowRainProb < 30 && tomorrowCode < 51) {
+      html += '<p class="good-news">✅ <strong>Best time to start:</strong> 5:30 AM – 8:00 AM</p>';
+      html += '<p>Clear skies and cooler temperatures. Great day for trekking!</p>';
+    } else if (tomorrowRainProb < 60) {
+      html += '<p class="caution-news">⚠️ <strong>Best time to start:</strong> 5:30 AM – 7:00 AM</p>';
+      html += '<p>' + tomorrowRainProb + '% chance of rain later. Start early, carry rain gear.</p>';
+    } else {
+      html += '<p class="bad-news">🌧️ <strong>High rain probability:</strong> ' + tomorrowRainProb + '%</p>';
+      html += '<p>Start by 5:00 AM if trekking. Full rain protection required. Consider postponing.</p>';
+    }
+    
+    content.innerHTML = html;
+  }
+
   function updatePacking(data) {
     var current = data.current;
     var temp = current.temperature_2m;
     var daily = data.daily;
     
-    // Check next 5 days for rain
     var maxRainProb = 0;
     for (var i = 0; i < Math.min(daily.time.length, 5); i++) {
       if (daily.precipitation_probability_max[i] > maxRainProb) {
@@ -216,7 +225,6 @@
       }
     }
 
-    // Check for snow
     var hasSnow = false;
     for (var j = 0; j < Math.min(daily.time.length, 5); j++) {
       if (daily.weather_code[j] >= 71 && daily.weather_code[j] <= 86) {
@@ -226,12 +234,10 @@
 
     var items = [];
 
-    // Always needed
     items.push({ icon: '🎒', title: 'Trekking Backpack (20-30L)', desc: 'Lightweight with rain cover. Enough for water, snacks, jacket, and camera.' });
     items.push({ icon: '👟', title: 'Trekking Shoes', desc: 'Waterproof, good grip. Break them in before the trip — new shoes cause blisters.' });
     items.push({ icon: '💧', title: 'Water Bottle (2L minimum)', desc: 'Stay hydrated. Refill at every stop. ORS packets recommended.' });
 
-    // Temperature-based
     if (temp < 5) {
       items.push({ icon: '🧥', title: 'Heavy Down Jacket', desc: 'Temperatures near freezing. Multiple layers: thermal → fleece → jacket.' });
       items.push({ icon: '🧤', title: 'Gloves & Woolen Cap', desc: 'Essential. Ears and fingers are most vulnerable to cold.' });
@@ -239,18 +245,15 @@
       items.push({ icon: '🧥', title: 'Warm Jacket or Fleece', desc: 'Cool temperatures. Layer with a sweater or hoodie underneath.' });
     }
 
-    // Rain-based
     if (maxRainProb > 50) {
       items.push({ icon: '🌂', title: 'Raincoat / Poncho', desc: maxRainProb + '% chance of rain. Get a reusable poncho (₹100-200) — not disposable plastic.' });
       items.push({ icon: '📱', title: 'Waterproof Phone Pouch', desc: 'Protect your phone from rain. Available at Gaurikund for ₹50-100.' });
     }
 
-    // Snow-based
     if (hasSnow) {
       items.push({ icon: '❄️', title: 'Snow Gear', desc: 'Snow expected! Waterproof pants, snow gaiters, and extra socks.' });
     }
 
-    // General
     items.push({ icon: '🔦', title: 'Headlamp / Torch', desc: 'Essential for early morning trek. Phone flashlight works but drains battery.' });
     items.push({ icon: '🔋', title: 'Power Bank (10,000+ mAh)', desc: 'No charging points on the trek. Fully charge before starting.' });
     items.push({ icon: '💊', title: 'Basic Medical Kit', desc: 'Band-aids, pain reliever, altitude sickness medicine (Diamox — consult doctor), antiseptic cream.' });

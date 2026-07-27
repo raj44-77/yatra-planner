@@ -485,3 +485,23 @@ footer {
     font-size: 18px;
   }
 }
+  
+  /* Tomorrow's Trek Window */
+.tomorrow-card {
+  padding: 24px 28px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(11, 35, 69, 0.5), rgba(8, 27, 51, 0.35));
+  border: 1px solid var(--line);
+}
+
+.tomorrow-content {
+  font-size: 14px;
+  color: var(--ice);
+  opacity: 0.85;
+  line-height: 1.8;
+}
+
+.tomorrow-content strong { color: var(--snow); }
+.tomorrow-content .good-news { color: #4ade80; }
+.tomorrow-content .caution-news { color: #fbbf24; }
+.tomorrow-content .bad-news { color: #ef4444; }
