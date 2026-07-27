@@ -167,9 +167,11 @@
   flex-shrink: 0;
 }
 
-.status-dot.good { background: #4ade80; box-shadow: 0 0 12px rgba(74, 222, 128, 0.5); }
-.status-dot.caution { background: #fbbf24; box-shadow: 0 0 12px rgba(251, 191, 36, 0.5); }
-.status-dot.bad { background: #ef4444; box-shadow: 0 0 12px rgba(239, 68, 68, 0.5); }
+.status-dot { background: #4ade80; box-shadow: 0 0 12px rgba(74, 222, 128, 0.5); }
+.status-dot.excellent { background: #4ade80; box-shadow: 0 0 12px rgba(74, 222, 128, 0.5); }
+.status-dot.good { background: #fbbf24; box-shadow: 0 0 12px rgba(251, 191, 36, 0.5); }
+.status-dot.caution { background: #f97316; box-shadow: 0 0 12px rgba(249, 115, 22, 0.5); }
+.status-dot.avoid { background: #ef4444; box-shadow: 0 0 12px rgba(239, 68, 68, 0.5); }
 
 .status-text {
   font-size: 16px;

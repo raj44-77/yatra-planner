@@ -106,63 +106,103 @@
     grid.innerHTML = html;
   }
 
-  function updateAdvisory(data) {
+    function updateAdvisory(data) {
     var current = data.current;
+    var daily = data.daily;
     var temp = current.temperature_2m;
     var rain = current.rain || 0;
     var wind = current.wind_speed_10m;
     var code = current.weather_code;
+    var visibility = current.visibility / 1000;
 
     var statusDot = document.querySelector('.status-dot');
     var statusText = document.querySelector('.status-text');
     var tipsEl = document.getElementById('advisoryTips');
 
     var tips = [];
-    var status = 'good';
+    var status = 'excellent';
+    var statusLabel = 'Excellent for Trekking 🟢';
 
-    // Rain check
-    if (rain > 5 || code === 65 || code === 82 || code >= 95) {
-      status = 'bad';
-      tips.push('🚫 <strong>Trek NOT recommended.</strong> Heavy rain/thunderstorm expected. Wait for better conditions.');
-    } else if (rain > 1 || code === 61 || code === 63 || code === 80 || code === 81) {
+    // ── Weather condition check ──
+    var isRaining = (rain > 0.5 || code === 61 || code === 63 || code === 65 || code === 80 || code === 81 || code === 82 || code >= 95);
+    var isDrizzle = (code === 51 || code === 53 || code === 55 || (rain > 0 && rain <= 0.5));
+    var isStorm = (code >= 95);
+    var isSnow = (code >= 71 && code <= 86);
+    var isFog = (code === 45 || code === 48 || visibility < 1);
+
+    // ── Determine status ──
+    if (isStorm || rain > 10 || wind > 35 || temp < -5) {
+      status = 'avoid';
+      statusLabel = 'Avoid Trekking 🔴';
+      tips.push('🚫 <strong>Trekking is NOT recommended today.</strong>');
+    } else if (isRaining || rain > 5 || wind > 25 || temp < 0 || isSnow || isFog) {
       status = 'caution';
-      tips.push('⚠️ Light rain expected. Trek possible but carry a good raincoat. Path may be slippery.');
+      statusLabel = 'Proceed with Caution 🟠';
+    } else if (isDrizzle || rain > 1 || wind > 15 || temp < 5 || visibility < 5) {
+      status = 'good';
+      statusLabel = 'Good for Trekking 🟡';
+    } else {
+      status = 'excellent';
+      statusLabel = 'Excellent for Trekking 🟢';
     }
 
-    // Temperature check
+    // ── Specific condition tips ──
+    if (isStorm) {
+      tips.push('⛈️ <strong>Thunderstorm expected.</strong> Do NOT trek. Stay indoors and wait for weather to clear.');
+    }
+    if (rain > 5) {
+      tips.push('🌧️ <strong>Heavy rain (' + rain.toFixed(1) + 'mm).</strong> Path may be slippery and dangerous. Carry full rain gear if you must go.');
+    }
+    if (isRaining && !isStorm) {
+      tips.push('🌧️ Rain expected. Carry a waterproof jacket and wear trekking shoes with good grip. Path will be slippery — use a trekking stick.');
+    }
+    if (isDrizzle) {
+      tips.push('🌦️ Light drizzle expected. Carry a raincoat or poncho. The trek is still possible but be cautious on wet sections.');
+    }
+    if (isSnow) {
+      tips.push('❄️ Snow expected! Wear waterproof boots with good traction. Multiple layers essential. Visibility may be reduced.');
+    }
+    if (isFog) {
+      tips.push('🌫️ Low visibility due to fog. Stay on the main path. Do not take shortcuts. Use a torch even during daytime.');
+    }
+    if (wind > 20) {
+      tips.push('💨 Windy conditions (' + Math.round(wind) + ' km/h). Secure loose items. Windproof jacket recommended. Be careful on exposed ridges.');
+    }
     if (temp < 0) {
-      status = 'bad';
-      tips.push('🥶 Temperature below freezing! Risk of frostbite. Wear multiple layers, gloves, and warm cap.');
+      tips.push('🥶 Temperature below freezing! Wear thermal innerwear, heavy jacket, gloves, woolen cap, and multiple layers. Risk of frostbite.');
     } else if (temp < 5) {
-      if (status !== 'bad') status = 'caution';
       tips.push('🧥 Very cold (below 5°C). Heavy jacket, thermal innerwear, gloves, and woolen cap required.');
     } else if (temp < 10) {
-      tips.push('🧥 Cool weather. Carry a warm jacket — especially for early morning/evening.');
+      tips.push('🧥 Cool weather. Carry a warm jacket — especially for early morning and evening.');
     }
 
-    // Wind check
-    if (wind > 30) {
-      status = 'bad';
-      tips.push('💨 Strong winds (>30 km/h). Dangerous on exposed ridges. Postpone trek if possible.');
-    } else if (wind > 20) {
-      if (status !== 'bad') status = 'caution';
-      tips.push('💨 Windy conditions. Secure your belongings. Windproof jacket recommended.');
-    }
-
-    // Good conditions
-    if (tips.length === 0) {
-      tips.push('✅ <strong>Great trekking weather!</strong> Clear skies and comfortable temperature.');
-      tips.push('🎒 Still carry: water bottle, light jacket, sunscreen, sunglasses.');
-    }
-
-    // Update DOM
-    statusDot.className = 'status-dot ' + status;
+    // ── Tomorrow's trek window ──
+    var tomorrowRainProb = daily.precipitation_probability_max[1] || 0;
+    var tomorrowCode = daily.weather_code[1];
+    var tomorrowTempMin = daily.temperature_2m_min[1];
+    var tomorrowTempMax = daily.temperature_2m_max[1];
     
-    var statusMessages = { good: 'Good for Trekking ✅', caution: 'Proceed with Caution ⚠️', bad: 'Not Recommended 🚫' };
-    statusText.textContent = statusMessages[status];
+    if (tomorrowRainProb < 30 && tomorrowCode < 51) {
+      tips.push('🌄 <strong>Tomorrow\'s Trek Window:</strong> Best time to start — 5:30 AM to 8:00 AM. Clear skies and cooler temperatures expected. Lower chance of rain.');
+    } else if (tomorrowRainProb < 60) {
+      tips.push('🌄 <strong>Tomorrow\'s Trek Window:</strong> Best time to start — 5:30 AM to 7:00 AM. Some chance of rain later in the day. Start early to avoid afternoon showers.');
+    } else {
+      tips.push('🌄 <strong>Tomorrow:</strong> High chance of rain (' + tomorrowRainProb + '%). If trekking, start by 5:00 AM and carry full rain protection.');
+    }
+
+    // ── Altitude advice ──
+    tips.push('🏔️ <strong>Altitude Alert:</strong> At 3,583m, some visitors may experience mild altitude sickness — headache, nausea, dizziness. Drink plenty of water, avoid rushing the trek, take breaks every 2-3 km, and seek medical attention if symptoms become severe. The medical aid post is near the temple entrance.');
+
+    // ── Good conditions ──
+    if (status === 'excellent') {
+      tips.push('✅ <strong>Great trekking weather!</strong> Clear skies and comfortable temperatures. Still carry: water bottle, light jacket, sunscreen, and sunglasses.');
+    }
+
+    // ── Update DOM ──
+    statusDot.className = 'status-dot ' + status;
+    statusText.textContent = statusLabel;
     tipsEl.innerHTML = tips.join('<br><br>');
   }
-
   function updatePacking(data) {
     var current = data.current;
     var temp = current.temperature_2m;
