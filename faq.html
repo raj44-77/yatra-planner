@@ -75,6 +75,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   
+  <style>
+    .faq-page { padding: 140px 0 80px; }
+    .faq-page .container { max-width: 800px; }
+    .faq-page h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 5vw, 48px); color: var(--snow); margin-bottom: 8px; text-align: center; }
+    .faq-page h1 em { font-style: italic; color: var(--gold); }
+    .faq-page .faq-sub { text-align: center; color: var(--ice); opacity: 0.7; font-size: 15px; margin-bottom: 50px; }
+    
+    .faq-item { margin-bottom: 12px; border-radius: 14px; background: linear-gradient(180deg, rgba(11,35,69,0.5), rgba(8,27,51,0.3)); border: 1px solid var(--line); overflow: hidden; }
+    .faq-question { width: 100%; padding: 20px 24px; background: none; border: none; color: var(--snow); font-size: 16px; font-weight: 500; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Inter', sans-serif; gap: 12px; }
+    .faq-question:hover { color: var(--gold); }
+    .faq-arrow { font-size: 12px; transition: transform 0.3s; color: var(--gold); flex-shrink: 0; }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
+    .faq-item.open .faq-answer { max-height: 800px; }
+    .faq-answer-inner { padding: 0 24px 20px; color: var(--ice); opacity: 0.8; font-size: 14px; line-height: 1.8; }
+    .faq-answer-inner strong { color: var(--snow); }
+    .faq-answer-inner a { color: var(--gold); text-decoration: underline; }
+  </style>
 </head>
 <body>
   <div class="yatra">
