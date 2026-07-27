@@ -505,3 +505,98 @@ footer {
 .tomorrow-content .good-news { color: #4ade80; }
 .tomorrow-content .caution-news { color: #fbbf24; }
 .tomorrow-content .bad-news { color: #ef4444; }
+
+/* Travel Conditions Score */
+.score-card {
+  padding: 28px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(11, 35, 69, 0.6), rgba(8, 27, 51, 0.4));
+  border: 1px solid var(--line);
+  text-align: center;
+}
+
+.score-main {
+  margin: 20px 0;
+}
+
+.score-big {
+  font-size: 64px;
+  font-weight: 800;
+  color: var(--snow);
+  line-height: 1;
+  font-family: 'Inter', sans-serif;
+}
+
+.score-label {
+  font-size: 13px;
+  color: var(--ice);
+  opacity: 0.6;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.score-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+@media (max-width: 500px) {
+  .score-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.score-item {
+  padding: 12px 10px;
+  border-radius: 10px;
+  background: rgba(8, 27, 51, 0.5);
+  border: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--ice);
+}
+
+.score-item span:first-child {
+  display: block;
+  opacity: 0.7;
+  margin-bottom: 4px;
+  font-size: 11px;
+}
+
+.score-val {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--snow);
+}
+
+.score-recommendation {
+  margin-top: 16px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.score-recommendation.great {
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  color: #4ade80;
+}
+
+.score-recommendation.good {
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  color: #fbbf24;
+}
+
+.score-recommendation.caution {
+  background: rgba(249, 115, 22, 0.1);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  color: #f97316;
+}
+
+.score-recommendation.avoid {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+}

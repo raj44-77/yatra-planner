@@ -64,6 +64,7 @@
     updateForecast(data);
     updateAdvisory(data);
     updateTomorrowCard(data);
+    updateTravelScore(data);
     updatePacking(data);
     updateAlerts(data);
     updateTimestamp();
@@ -211,6 +212,86 @@
     }
     
     content.innerHTML = html;
+  }
+
+  function updateTravelScore(data) {
+    var current = data.current;
+    var daily = data.daily;
+    var temp = current.temperature_2m;
+    var rain = current.rain || 0;
+    var wind = current.wind_speed_10m;
+    var code = current.weather_code;
+    var visibility = current.visibility / 1000;
+    var humidity = current.relative_humidity_2m;
+
+    var weatherScore = 10;
+    if (code >= 95) weatherScore = 0;
+    else if (code === 65 || code === 82) weatherScore = 2;
+    else if (code === 61 || code === 63 || code === 80 || code === 81) weatherScore = 4;
+    else if (code === 51 || code === 53 || code === 55) weatherScore = 6;
+    else if (code === 45 || code === 48) weatherScore = 7;
+    else if (code === 3) weatherScore = 8;
+    else if (code === 2) weatherScore = 9;
+    if (wind > 25) weatherScore -= 2;
+    if (visibility < 2) weatherScore -= 1;
+
+    var month = new Date().getMonth() + 1;
+    var crowdScore = 5;
+    if (month === 5 || month === 6) crowdScore = 3;
+    else if (month === 4 || month === 10) crowdScore = 6;
+    else if (month === 7 || month === 8) crowdScore = 8;
+    else if (month === 9) crowdScore = 9;
+    else crowdScore = 10;
+
+    var trekScore = 10;
+    if (rain > 5) trekScore = 3;
+    else if (rain > 1) trekScore = 5;
+    else if (rain > 0) trekScore = 7;
+    if (wind > 30) trekScore -= 2;
+    if (code >= 71 && code <= 86) trekScore -= 3;
+    if (visibility < 1) trekScore -= 2;
+
+    var roadStatus = 'Open';
+    var roadScore = 10;
+    if (code >= 95 || rain > 20) { roadStatus = 'Closed'; roadScore = 0; }
+    else if (rain > 10 || code >= 71) { roadStatus = 'Partially Open'; roadScore = 5; }
+
+    var heliStatus = 'Operating';
+    var heliScore = 10;
+    if (code >= 95 || wind > 30 || visibility < 1) { heliStatus = 'Grounded'; heliScore = 0; }
+    else if (wind > 20 || visibility < 3) { heliStatus = 'Limited'; heliScore = 5; }
+
+    var landslideRisk = 'Low';
+    var landslideScore = 9;
+    if (rain > 15) { landslideRisk = 'High'; landslideScore = 2; }
+    else if (rain > 5) { landslideRisk = 'Moderate'; landslideScore = 5; }
+
+    var overall = Math.round((weatherScore + crowdScore + trekScore + roadScore + heliScore + landslideScore) / 6 * 10) / 10;
+    if (overall < 0) overall = 0;
+    if (overall > 10) overall = 10;
+
+    document.getElementById('scoreBig').textContent = overall.toFixed(1);
+    document.getElementById('scoreWeather').textContent = weatherScore + '/10';
+    document.getElementById('scoreCrowd').textContent = crowdScore + '/10';
+    document.getElementById('scoreTrek').textContent = trekScore + '/10';
+    document.getElementById('scoreRoad').textContent = roadStatus;
+    document.getElementById('scoreHeli').textContent = heliStatus;
+    document.getElementById('scoreLandslide').textContent = landslideRisk;
+
+    var recEl = document.getElementById('scoreRecommendation');
+    if (overall >= 8) {
+      recEl.className = 'score-recommendation great';
+      recEl.textContent = '🟢 Great day for the yatra! All conditions are favorable.';
+    } else if (overall >= 6) {
+      recEl.className = 'score-recommendation good';
+      recEl.textContent = '🟡 Good day overall. Some conditions need attention — check details above.';
+    } else if (overall >= 4) {
+      recEl.className = 'score-recommendation caution';
+      recEl.textContent = '🟠 Proceed with caution. Several factors are unfavorable. Consider waiting.';
+    } else {
+      recEl.className = 'score-recommendation avoid';
+      recEl.textContent = '🔴 Not recommended today. Please postpone your trek for safety.';
+    }
   }
 
   function updatePacking(data) {
