@@ -282,4 +282,116 @@
   }
 
   updateAllCosts();
+
+    // ── PDF DOWNLOAD ──
+  var downloadBtn = document.getElementById('downloadPdfBtn');
+  if (downloadBtn) {
+    downloadBtn.addEventListener('click', function () {
+      var tier = getActiveTier();
+      var tierName = tier.charAt(0).toUpperCase() + tier.slice(1);
+      var result = tier === 'basic' ? calcBasic() : (tier === 'comfort' ? calcComfort() : calcPremium());
+      var addons = getAddonCosts();
+      var grandTotal = result.total + addons;
+      var perPerson = Math.round(grandTotal / travelers);
+
+      var tierColors = {
+        basic: { primary: '#0B2345', accent: '#D4A017', badge: '#B8D8F8' },
+        comfort: { primary: '#0B2345', accent: '#D4A017', badge: '#E8BE4A' },
+        premium: { primary: '#081B33', accent: '#D4A017', badge: '#D4A017' }
+      };
+      var colors = tierColors[tier];
+
+      var addonDetails = [];
+      if (addonCab && addonCab.checked) addonDetails.push('🚗 Private Cab (Round Trip): ₹' + (3000 * travelers).toLocaleString('en-IN'));
+      if (addonHelicopter && addonHelicopter.checked) addonDetails.push('🚁 Helicopter (Round Trip): ₹' + (12000 * travelers).toLocaleString('en-IN'));
+      if (extraDays > 0) addonDetails.push('📅 Extra ' + extraDays + ' day(s) included');
+
+      var printWindow = window.open('', '_blank', 'width=900,height=700');
+      printWindow.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Yatra — ' + tierName + ' Badrinath Plan</title>');
+      printWindow.document.write('<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">');
+      printWindow.document.write('<style>');
+      printWindow.document.write('*{margin:0;padding:0;box-sizing:border-box}');
+      printWindow.document.write('body{font-family:"Inter",sans-serif;color:#1a1a2e;background:#fff;line-height:1.5;font-size:12px}');
+      printWindow.document.write('.page{max-width:760px;margin:0 auto}');
+      printWindow.document.write('.pdf-header{background:linear-gradient(135deg,' + colors.primary + ',#0a1a35);color:#F8FAFC;padding:24px 36px;display:flex;align-items:center;justify-content:space-between;gap:20px}');
+      printWindow.document.write('.header-left{display:flex;align-items:center;gap:12px}');
+      printWindow.document.write('.logo-circle{width:40px;height:40px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#E8BE4A,#D4A017);flex-shrink:0}');
+      printWindow.document.write('.logo-text{font-family:"Cormorant Garamond",serif;font-size:26px}');
+      printWindow.document.write('.header-right{text-align:right}');
+      printWindow.document.write('.pdf-header h1{font-family:"Cormorant Garamond",serif;font-size:22px;margin-bottom:2px}');
+      printWindow.document.write('.route{font-size:13px;opacity:0.85} .route em{color:#D4A017;font-style:italic}');
+      printWindow.document.write('.tier-badge{display:inline-block;padding:4px 14px;border-radius:999px;border:1px solid ' + colors.badge + ';font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:' + colors.badge + ';margin-top:4px}');
+      printWindow.document.write('.trip-strip{display:flex;border-bottom:2px solid ' + colors.accent + ';background:#fafbfc}');
+      printWindow.document.write('.trip-strip-item{flex:1;text-align:center;padding:12px 8px;border-right:1px solid #eef0f5}');
+      printWindow.document.write('.trip-strip-item:last-child{border-right:none}');
+      printWindow.document.write('.strip-label{font-size:8px;text-transform:uppercase;letter-spacing:0.12em;color:#999}');
+      printWindow.document.write('.strip-value{font-size:13px;font-weight:600}');
+      printWindow.document.write('.pdf-content{padding:20px 36px 10px}');
+      printWindow.document.write('.day-block{margin-bottom:14px;padding:14px 18px;border-left:3px solid ' + colors.accent + ';background:#fafbfc;border-radius:0 6px 6px 0;page-break-inside:avoid}');
+      printWindow.document.write('.day-block-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}');
+      printWindow.document.write('.day-num{width:30px;height:30px;border-radius:8px;background:' + colors.primary + ';color:#fff;display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-size:15px;font-weight:600}');
+      printWindow.document.write('.day-title-text{font-size:14px;font-weight:600}');
+      printWindow.document.write('.pdf-step{padding:6px 0 6px 16px;border-left:1px solid #e0e4ea;margin-left:6px;position:relative}');
+      printWindow.document.write('.pdf-step::before{content:"";position:absolute;left:-4px;top:10px;width:7px;height:7px;border-radius:50%;background:' + colors.accent + '}');
+      printWindow.document.write('.pdf-step-title{font-size:11px;font-weight:600;margin-bottom:1px}');
+      printWindow.document.write('.pdf-step-desc{font-size:10px;color:#666;line-height:1.5}');
+      printWindow.document.write('.pdf-step-cost{display:inline-block;font-size:10px;font-weight:600;color:' + colors.accent + ';background:rgba(212,160,23,0.08);padding:1px 8px;border-radius:3px;margin-top:3px}');
+      printWindow.document.write('.day-note-pdf{margin-top:8px;padding:8px 12px;background:#fff;border-radius:4px;border:1px dashed #e0e4ea;font-size:10px;color:#666}');
+      printWindow.document.write('.total-section{background:linear-gradient(135deg,' + colors.primary + ',#0a1a35);color:#F8FAFC;padding:20px 28px;border-radius:12px;margin:20px 36px}');
+      printWindow.document.write('.total-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}');
+      printWindow.document.write('.total-left h3{font-family:"Cormorant Garamond",serif;font-size:18px;color:#D4A017}');
+      printWindow.document.write('.total-amount{font-size:36px;font-weight:700}');
+      printWindow.document.write('.total-sub{font-size:10px;color:#B8D8F8}');
+      printWindow.document.write('.total-right{font-size:11px;color:#B8D8F8;line-height:1.7;text-align:right}');
+      printWindow.document.write('.total-right span{color:#fff;font-weight:500}');
+      printWindow.document.write('.pdf-footer{padding:14px 36px 20px;text-align:center;font-size:9px;color:#aaa;border-top:1px solid #eee;margin-top:10px}');
+      printWindow.document.write('@media print{body{padding:0}.page{max-width:100%}.pdf-header{padding:18px 28px}.pdf-content{padding:14px 28px 8px}.total-section{margin:16px 28px}@page{margin:0.4cm}}');
+      printWindow.document.write('</style></head><body><div class="page">');
+
+      var routeLabel = BADRINATH_ROUTES[ROUTE_ORIGIN] ? BADRINATH_ROUTES[ROUTE_ORIGIN].label : ROUTE_ORIGIN;
+      printWindow.document.write('<div class="pdf-header"><div class="header-left"><div class="logo-circle"></div><div class="logo-text">Yatra</div></div><div class="header-right"><h1>Badrinath Yatra</h1><p class="route">' + routeLabel + ' <em>→</em> Badrinath</p><div class="tier-badge">' + tierName + ' Plan</div></div></div>');
+      
+      var tierDuration = tier === 'premium' ? '2 Days' : (3 + extraDays) + ' Days';
+      printWindow.document.write('<div class="trip-strip"><div class="trip-strip-item"><div class="strip-label">Travelers</div><div class="strip-value">' + travelers + '</div></div><div class="trip-strip-item"><div class="strip-label">Duration</div><div class="strip-value">' + tierDuration + '</div></div><div class="trip-strip-item"><div class="strip-label">From</div><div class="strip-value">' + routeLabel + '</div></div><div class="trip-strip-item"><div class="strip-label">To</div><div class="strip-value">Badrinath</div></div><div class="trip-strip-item"><div class="strip-label">Tier</div><div class="strip-value">' + tierName + '</div></div></div>');
+      
+      printWindow.document.write('<div class="pdf-content">');
+      var activePlan = document.getElementById('plan-' + tier);
+      if (activePlan) {
+        var dayCards = activePlan.querySelectorAll('.day-card');
+        dayCards.forEach(function(card, index) {
+          var dayNum = card.querySelector('.day-number');
+          var dayTitle = card.querySelector('.day-title');
+          var dayNote = card.querySelector('.day-note');
+          var steps = card.querySelectorAll('.step');
+          var dayNumber = dayNum ? dayNum.textContent.trim() : 'Day ' + (index + 1);
+          var dayTitleText = dayTitle ? dayTitle.textContent.trim() : '';
+          printWindow.document.write('<div class="day-block"><div class="day-block-header"><div class="day-num">' + dayNumber.replace('Day ', '') + '</div><div class="day-title-text">' + dayTitleText + '</div></div>');
+          steps.forEach(function(step) {
+            var title = step.querySelector('.step-title');
+            var desc = step.querySelector('.step-desc');
+            var cost = step.querySelector('.step-cost');
+            if (title) {
+              printWindow.document.write('<div class="pdf-step"><div class="pdf-step-title">' + title.textContent.trim() + '</div>');
+              if (desc) printWindow.document.write('<div class="pdf-step-desc">' + desc.innerHTML.replace(/<br\s*\/?>/gi, '<br>') + '</div>');
+              if (cost) printWindow.document.write('<div class="pdf-step-cost">' + cost.textContent.trim() + '</div>');
+              printWindow.document.write('</div>');
+            }
+          });
+          if (dayNote) printWindow.document.write('<div class="day-note-pdf">' + dayNote.innerHTML + '</div>');
+          printWindow.document.write('</div>');
+        });
+      }
+      printWindow.document.write('</div>');
+
+      if (addonDetails.length > 0) {
+        printWindow.document.write('<div style="margin:0 36px 16px;padding:10px 18px;background:rgba(212,160,23,0.04);border:1px solid rgba(212,160,23,0.15);border-radius:8px;"><h4 style="font-size:10px;color:#D4A017;">📦 Add-ons:</h4>' + addonDetails.map(function(d){return '<span style="font-size:10px;color:#555">'+d+'</span>';}).join(' · ') + '</div>');
+      }
+
+      printWindow.document.write('<div class="total-section"><div class="total-inner"><div class="total-left"><h3>Total Estimate</h3><div class="total-amount">₹' + grandTotal.toLocaleString('en-IN') + '</div><div class="total-sub">FOR ' + travelers + ' TRAVELER(S) · ' + tierName.toUpperCase() + ' PLAN</div></div><div class="total-right"><div>Per Person: <span>₹' + perPerson.toLocaleString('en-IN') + '</span></div><div>Duration: <span>' + tierDuration + '</span></div><div>Route: <span>' + routeLabel + ' → Badrinath</span></div></div></div></div>');
+      printWindow.document.write('<div class="pdf-footer"><div>Yatra Planner · yatra-planner.onrender.com</div><div>Generated: ' + new Date().toLocaleDateString('en-IN', {day:'numeric',month:'long',year:'numeric'}) + '</div></div>');
+      printWindow.document.write('</div></body></html>');
+      printWindow.document.close();
+      setTimeout(function(){printWindow.print();},600);
+    });
+  }
 })();
