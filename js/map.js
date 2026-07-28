@@ -7,35 +7,35 @@
   // Read destination from URL
   var urlParams = new URLSearchParams(window.location.search);
   var destination = urlParams.get('dest') || 'kedarnath';
-
-  // Show correct map
   function showMap(dest) {
     var kedarMap = document.getElementById('map-kedarnath');
     var badriMap = document.getElementById('map-badrinath');
-    var btns = document.querySelectorAll('.dest-toggle-btn');
+    var trekSection = document.getElementById('trekSection');
+    var locKedar = document.getElementById('locationsKedarnath');
+    var locBadri = document.getElementById('locationsBadrinath');
+    var btns = document.querySelectorAll('.map-toggle-btn');
     
     if (kedarMap) kedarMap.style.display = dest === 'kedarnath' ? 'block' : 'none';
     if (badriMap) badriMap.style.display = dest === 'badrinath' ? 'block' : 'none';
+    if (trekSection) trekSection.style.display = dest === 'kedarnath' ? 'block' : 'none';
+    if (locKedar) locKedar.style.display = dest === 'kedarnath' ? 'block' : 'none';
+    if (locBadri) locBadri.style.display = dest === 'badrinath' ? 'block' : 'none';
     
     btns.forEach(function(b) {
       b.classList.remove('active');
       if (b.getAttribute('data-dest') === dest) b.classList.add('active');
     });
     
-    // Update hero
     var heroTitle = document.querySelector('.map-hero-title');
     if (heroTitle) heroTitle.innerHTML = (dest === 'badrinath' ? 'Badrinath' : 'Kedarnath') + ' <em>Yatra Map</em>';
+    
+    var heroSub = document.querySelector('.map-hero-sub');
+    if (heroSub) heroSub.textContent = dest === 'badrinath' ? 'Complete road route from Haridwar to Badrinath Temple. Road all the way — no trekking!' : 'Complete route from Haridwar to Kedarnath Temple with every landmark. Save offline.';
     
     if (window.history && window.history.replaceState) {
       window.history.replaceState({}, '', window.location.pathname + '?dest=' + dest);
     }
   }
-
-  showMap(destination);
-
-  window.switchMapDest = function(dest) {
-    showMap(dest);
-  };
 
   // Print map
   var printBtn = document.getElementById('printMapBtn');
