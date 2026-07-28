@@ -803,3 +803,27 @@ footer {
     text-align: center;
   }
 }
+  /* Map Destination Toggle */
+.map-toggle-btn {
+  padding: 12px 28px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ice);
+  font-size: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.3s;
+}
+
+.map-toggle-btn:hover {
+  border-color: var(--gold);
+  color: var(--snow);
+}
+
+.map-toggle-btn.active {
+  background: rgba(212, 160, 23, 0.1);
+  border-color: var(--gold);
+  color: var(--gold);
+  font-weight: 600;
+}
