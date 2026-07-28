@@ -381,3 +381,14 @@ html { scroll-behavior: smooth; }
     font-size: 14px;
   }
 }
+
+  /* Destination Toggle */
+.dest-toggle-section { padding: 0 0 30px; }
+.dest-toggle { display: flex; gap: 10px; justify-content: center; }
+.dest-toggle-btn { padding: 12px 28px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--ice); font-size: 14px; cursor: pointer; font-family: inherit; transition: all 0.3s; }
+.dest-toggle-btn:hover { border-color: var(--gold); color: var(--snow); }
+.dest-toggle-btn.active { background: rgba(212,160,23,0.1); border-color: var(--gold); color: var(--gold); font-weight: 600; }
+
+/* Hide sections by default */
+.dest-section { display: none; }
+.dest-section.active { display: block; }
