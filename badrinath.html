@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Your Badrinath Plan — Step-by-Step Budget from Your City | Yatra</title>
+  <meta name="description" content="Get a personalized step-by-step Badrinath Yatra plan with exact train numbers, bus stops, road routes, dhaba costs, and stay options. Choose Basic, Comfort or Premium. 100% free with real prices." />
+  <meta name="keywords" content="Badrinath yatra plan, Badrinath itinerary, step by step Badrinath guide, Bhagalpur to Badrinath train, Delhi to Badrinath bus, Badrinath road trip, Badrinath dhaba cost, Badrinath stay price, Badrinath budget planner, Badrinath basic comfort premium plan, how to reach Badrinath, Badrinath temple, Char Dham yatra" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://yatra-planner.onrender.com/badrinath.html" />
+  
+  <meta property="og:title" content="Your Personalized Badrinath Yatra Plan — Step-by-Step Budget Guide" />
+  <meta property="og:description" content="Get exact train names, bus stops, road routes, food costs, and stay options for your Badrinath Yatra. Basic, Comfort & Premium plans with real prices." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yatra-planner.onrender.com/badrinath.html" />
+  <meta property="og:image" content="https://yatra-planner.onrender.com/assets/images/himalaya-hero.jpg" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="Your Personalized Badrinath Yatra Plan — Step-by-Step Budget Guide" />
+  <meta property="twitter:description" content="Exact train numbers, bus stops, road routes, and real costs for your Badrinath Yatra." />
+  <meta property="twitter:image" content="https://yatra-planner.onrender.com/assets/images/himalaya-hero.jpg" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/plan.css" />
+</head>
+<body>
+  <div class="yatra">
+
+    <!-- NAV -->
+    <nav id="y-nav" class="nav scrolled">
+      <div class="container nav-inner">
+        <a href="index.html" class="brand"><span class="brand-mark"></span>Yatra</a>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html#plans">Plans</a>
+          <a href="places.html">🏔️ Places</a>
+          <a href="weather.html">🌤️ Weather</a>
+          <a href="map.html">🗺️ Map</a>
+          <a href="about.html">About</a>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+        <a href="index.html" class="nav-cta">← Back</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="plan-hero">
+      <div class="plan-hero-overlay"></div>
+      <div class="container plan-hero-content">
+        <div class="eyebrow"><span class="eyebrow-dot"></span><span id="planTierLabel">BASIC</span> PLAN</div>
+        <h1 class="serif plan-hero-title"><span id="planOrigin">Your City</span> <em>→</em> Badrinath</h1>
+        <p class="plan-hero-sub">Step-by-step itinerary with real costs · <span id="planDuration">3-4 days</span> minimum</p>
+      </div>
+    </section>
+
+    <!-- TIER SELECTOR -->
+    <section class="tier-selector">
+      <div class="container">
+        <div class="tier-tabs">
+          <button class="tier-tab active" data-tier="basic"><span class="tier-icon">🏔️</span><span class="tier-name">Basic</span><span class="tier-price">Budget</span></button>
+          <button class="tier-tab" data-tier="comfort"><span class="tier-icon">🏡</span><span class="tier-name">Comfort</span><span class="tier-price">Balanced</span></button>
+          <button class="tier-tab" data-tier="premium"><span class="tier-icon">✨</span><span class="tier-name">Premium</span><span class="tier-price">Luxury</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRAVELER INPUT -->
+    <section class="traveler-input-section">
+      <div class="container">
+        <div class="traveler-card">
+          <div class="traveler-field">
+            <label for="travelerCount">Number of Travelers</label>
+            <div class="traveler-control">
+              <button type="button" id="travelerMinus" class="traveler-btn">−</button>
+              <input type="number" id="travelerCount" value="1" min="1" max="12" readonly />
+              <button type="button" id="travelerPlus" class="traveler-btn">+</button>
+            </div>
+          </div>
+          <div class="traveler-info"><span id="travelerLabel">1 Person</span><span class="traveler-hint">Costs update automatically</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADD-ONS -->
+    <section class="addons-section">
+      <div class="container">
+        <div class="addons-card">
+          <h3 class="addons-title serif">Customize Your Trip</h3>
+          <div class="addons-grid">
+            <div class="addon-item">
+              <div class="addon-info"><span class="addon-icon">📅</span><div><div class="addon-name">Extra Days</div><div class="addon-desc">Add more days to explore Badrinath</div></div></div>
+              <div class="addon-control"><button type="button" class="addon-btn" id="daysMinus">−</button><span class="addon-value" id="extraDays">0</span><button type="button" class="addon-btn" id="daysPlus">+</button></div>
+            </div>
+            <div class="addon-item">
+              <div class="addon-info"><span class="addon-icon">🚗</span><div><div class="addon-name">Private Cab Joshimath → Badrinath (Round Trip)</div><div class="addon-desc">Dedicated vehicle · ₹3,000/person</div></div></div>
+              <label class="toggle"><input type="checkbox" id="addonCab" /><span class="toggle-slider"></span></label>
+            </div>
+            <div class="addon-item">
+              <div class="addon-info"><span class="addon-icon">🚁</span><div><div class="addon-name">Helicopter Dehradun → Badrinath (Round Trip)</div><div class="addon-desc">45 min flight · ₹12,000/person</div></div></div>
+              <label class="toggle"><input type="checkbox" id="addonHelicopter" /><span class="toggle-slider"></span></label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ITINERARY -->
+    <section class="itinerary-section">
+      <div class="container">
+
+        <!-- BASIC PLAN -->
+        <div id="plan-basic" class="plan-content active">
+          <div class="day-card reveal" data-day="1">
+            <div class="day-header"><div class="day-number">Day 1</div><div class="day-title">🔄 Loading your route...</div></div>
+            <div class="day-steps"><div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">Planning your journey...</div><div class="step-desc">Fetching the best route from your city to Haridwar.</div><div class="step-cost">—</div></div></div></div>
+            <div class="day-note">🌙 Loading travel details...</div>
+          </div>
+
+          <!-- Day 2 — SHARED -->
+          <div class="day-card reveal" data-day="2">
+            <div class="day-header"><div class="day-number">Day 2</div><div class="day-title">Haridwar → Rishikesh → Joshimath → Badrinath (The Mountain Road)</div></div>
+            <div class="day-steps">
+              <div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">🚌 Haridwar to Rishikesh — Public Bus (45-60 min)</div><div class="step-desc">Take a public bus from Haridwar Roadways Bus Depot (opposite railway station) to Rishikesh Yatra Bus Stand. ₹70-100/person. Buses every 15-20 min from 5 AM.</div><div class="step-cost">₹70 – 100 / person</div></div></div>
+              <div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">🚌 Rishikesh to Joshimath — Bus (10-12 hours, ~280 km)</div><div class="step-desc"><strong>From Rishikesh Yatra Bus Stand:</strong> UTC or private buses to Joshimath leave 5-8 AM.<br><br><strong>Route:</strong> Rishikesh → Devprayag → Srinagar → Rudraprayag → Karnaprayag → Nandaprayag → Chamoli → Pipalkoti → Joshimath.<br><br><strong>Ticket:</strong> ₹600-900/person. This is a long but scenic journey through the Garhwal Himalayas. Joshimath is the gateway to Badrinath.</div><div class="step-cost">₹600 – 900 / person</div></div></div>
+              <div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">🚙 Joshimath to Badrinath — Shared Jeep (1 hour, ~45 km)</div><div class="step-desc">From Joshimath bus stand, shared jeeps to Badrinath leave every 20-30 minutes. ₹100-150/person. The road climbs from 1,890m to 3,300m through spectacular mountain scenery. You'll pass Vishnuprayag (Alaknanda + Dhauliganga sangam) on the way.</div><div class="step-cost">₹100 – 150 / person</div></div></div>
+              <div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">🍱 Food — Day 2</div><div class="step-desc">Breakfast at Haridwar/Rishikesh (₹50-80), lunch at Srinagar or Rudraprayag dhaba (₹100-150), dinner at Badrinath dhaba (₹150-200).</div><div class="step-cost">₹300 – 400 / person</div></div></div>
+            </div>
+            <div class="day-note">🌙 <strong>Night at Badrinath.</strong> Lodge/Guesthouse: ₹500-800/person. Badrinath has many budget stays near the temple. <strong>No trekking needed</strong> — the road goes all the way to the temple! 🎉</div>
+          </div>
+
+          <!-- Day 3 — SHARED -->
+          <div class="day-card reveal" data-day="3">
+            <div class="day-header"><div class="day-number">Day 3</div><div class="day-title">Badrinath Darshan → Return Journey</div></div>
+            <div class="day-steps">
+              <div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">🛕 Morning Darshan at Badrinath Temple</div><div class="step-desc">Temple opens 4:30 AM. Morning Abhishek at 7:30 AM. The temple is dedicated to Lord Vishnu. Don't miss the <strong>Tapt Kund</strong> — natural hot water spring at the temple entrance where pilgrims take a holy dip before darshan. Also visit Mana Village (3 km from Badrinath) — India's last village before the Tibet border.</div><div class="step-cost">₹0 (Darshan is free)</div></div></div>
+              <div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">🚙 Badrinath → Joshimath (Shared Jeep, 1 hour)</div><div class="step-desc">Shared jeep from Badrinath bus stand to Joshimath. ₹100-150/person.</div><div class="step-cost">₹100 – 150 / person</div></div></div>
+              <div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">🚌 Joshimath → Rishikesh (Bus, 10-12 hours)</div><div class="step-desc">Buses from Joshimath to Rishikesh. Try to leave by 10 AM to reach Rishikesh by night. ₹600-900/person.</div><div class="step-cost">₹600 – 900 / person</div></div></div>
+              <div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">🚌 Rishikesh → Haridwar (Bus, 45 min)</div><div class="step-desc">Bus or shared auto to Haridwar railway station. ₹70-100/person.</div><div class="step-cost">₹70 – 100 / person</div></div></div>
+              <div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">🍱 Food — Day 3</div><div class="step-desc">Breakfast at Badrinath (₹80-100), lunch en route (₹100-150), dinner at Haridwar (₹100-150).</div><div class="step-cost">₹300 / person</div></div></div>
+            </div>
+            <div class="day-note">🌙 <strong>Night on train (Haridwar → Home).</strong> Board your return train. Journey time varies by city.</div>
+          </div>
+
+          <!-- Day 4 — SHARED -->
+          <div class="day-card reveal" data-day="4">
+            <div class="day-header"><div class="day-number">Day 4</div><div class="day-title">Return Home</div></div>
+            <div class="day-steps">
+              <div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">🚂 Haridwar → Your City (Train Arrival)</div><div class="step-desc">Train reaches your destination. Connect to local transport for the final leg home.</div><div class="step-cost">₹100 – 400 / person</div></div></div>
+              <div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">🍱 Food — Day 4</div><div class="step-desc">On train: pantry or station vendors (₹100-150). Lunch at your city station (₹100-150).</div><div class="step-cost">₹300 / person</div></div></div>
+            </div>
+            <div class="day-note">🏠 <strong>You're home!</strong> Total journey: 3-4 days. Badrinath is more accessible than Kedarnath — no trekking, road all the way! 🕉️</div>
+          </div>
+
+          <div class="summary-card reveal">
+            <h3 class="summary-title serif">Basic Plan — Total Estimate</h3>
+            <table class="summary-table">
+              <tr><td>🚂 Transport (round trip)</td><td>₹—</td></tr>
+              <tr><td>🍱 Food</td><td>₹—</td></tr>
+              <tr><td>🏕️ Stay (Badrinath)</td><td>₹—</td></tr>
+              <tr><td>📦 Miscellaneous</td><td>₹—</td></tr>
+              <tr class="total-row"><td><strong>TOTAL (Group)</strong></td><td><strong>₹—</strong></td></tr>
+            </table>
+            <div class="summary-group"><div class="group-cost"><span>2 People (Total)</span> ₹—</div><div class="group-cost"><span>4 People (Total)</span> ₹—</div></div>
+            <p class="summary-note">Calculating your plan...</p>
+          </div>
+        </div>
+
+        <!-- COMFORT PLAN -->
+        <div id="plan-comfort" class="plan-content">
+          <div class="day-card reveal" data-day="1"><div class="day-header"><div class="day-number">Day 1</div><div class="day-title">🔄 Loading your route...</div></div><div class="day-steps"><div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">Planning your journey...</div><div class="step-desc">Fetching the best comfortable route from your city to Haridwar.</div><div class="step-cost">—</div></div></div></div><div class="day-note">🌙 Loading travel details...</div></div>
+          <div class="day-card reveal" data-day="2"><div class="day-header"><div class="day-number">Day 2</div><div class="day-title">Haridwar → Rishikesh → Joshimath → Badrinath (Shared Taxi)</div></div><div class="day-steps">
+            <div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">🚕 Haridwar to Rishikesh — Shared Taxi</div><div class="step-desc">Shared Sumo/Bolero. 35-40 min. ₹60-100/person.</div><div class="step-cost">₹60 – 100 / person</div></div></div>
+            <div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">🚙 Rishikesh to Joshimath — Shared Taxi (8-9 hours)</div><div class="step-desc">Shared Sumo/Bolero from Rishikesh Yatra Bus Stand. ₹1,000-1,400/person. Faster than bus with fewer stops. Stops at scenic viewpoints.</div><div class="step-cost">₹1,000 – 1,400 / person</div></div></div>
+            <div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">🚙 Joshimath to Badrinath — Shared Jeep</div><div class="step-desc">Shared jeep. 1 hour. ₹100-150/person.</div><div class="step-cost">₹100 – 150 / person</div></div></div>
+            <div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">🍱 Food — Day 2</div><div class="step-desc">Breakfast at Rishikesh restaurant (₹200-300), lunch en route (₹200-250), dinner at Badrinath (₹250-300).</div><div class="step-cost">₹500 – 600 / person</div></div></div>
+          </div><div class="day-note">🌙 <strong>Night at Badrinath — Private Room.</strong> ₹1,500-3,000/night. GMVN Guest House or Hotel Narayan Palace recommended.</div></div>
+          <div class="day-card reveal" data-day="3"><div class="day-header"><div class="day-number">Day 3</div><div class="day-title">Badrinath Darshan → Comfortable Return</div></div><div class="day-steps">
+            <div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">🛕 Morning Darshan + Tapt Kund</div><div class="step-desc">Morning darshan at Badrinath Temple. Take a dip in Tapt Kund hot spring. Visit Mana Village.</div><div class="step-cost">₹0</div></div></div>
+            <div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">🚙 Badrinath → Joshimath → Rishikesh (Shared Taxi)</div><div class="step-desc">Jeep to Joshimath (₹100-150), then shared Sumo to Rishikesh (₹1,000-1,400).</div><div class="step-cost">₹1,100 – 1,550 / person</div></div></div>
+            <div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">🚕 Rishikesh → Haridwar (Shared Taxi)</div><div class="step-desc">₹60-100/person. 35-40 min.</div><div class="step-cost">₹60 – 100 / person</div></div></div>
+            <div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">🍱 Food — Day 3</div><div class="step-desc">Breakfast at Badrinath (₹150-200), lunch en route (₹200-250), dinner at Haridwar (₹250-300).</div><div class="step-cost">₹500 – 600 / person</div></div></div>
+          </div><div class="day-note">🌙 <strong>Night in Sleeper/3AC (Haridwar → Home).</strong> Reserved berth. Cost included in return ticket.</div></div>
+          <div class="day-card reveal" data-day="4"><div class="day-header"><div class="day-number">Day 4</div><div class="day-title">Return Home Comfortably</div></div><div class="day-steps">
+            <div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">🚂 Haridwar → Your City</div><div class="step-desc">Reserved train home.</div><div class="step-cost">Included in return ticket</div></div></div>
+            <div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">🍱 Food — Day 4</div><div class="step-desc">IRCTC meals (₹200-300), city station meal (₹250-350).</div><div class="step-cost">₹500 – 600 / person</div></div></div>
+          </div><div class="day-note">🏠 <strong>Welcome home — refreshed!</strong> 🕉️</div></div>
+          <div class="summary-card reveal"><h3 class="summary-title serif">Comfort Plan — Total Estimate</h3><table class="summary-table"><tr><td>🚂 Transport (round trip)</td><td>₹—</td></tr><tr><td>🍱 Food</td><td>₹—</td></tr><tr><td>🏨 Stay (private room)</td><td>₹—</td></tr><tr><td>📦 Miscellaneous</td><td>₹—</td></tr><tr class="total-row"><td><strong>TOTAL (Group)</strong></td><td><strong>₹—</strong></td></tr></table><div class="summary-group"><div class="group-cost"><span>2 People (Total)</span> ₹—</div><div class="group-cost"><span>4 People (Total)</span> ₹—</div></div><p class="summary-note">Calculating your plan...</p></div>
+        </div>
+
+        <!-- PREMIUM PLAN -->
+        <div id="plan-premium" class="plan-content">
+          <div class="day-card reveal" data-day="1"><div class="day-header"><div class="day-number">Day 1</div><div class="day-title">🔄 Loading your route...</div></div><div class="day-steps"><div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">Planning your premium journey...</div><div class="step-desc">Fetching the fastest premium route from your city to Badrinath.</div><div class="step-cost">—</div></div></div></div><div class="day-note">🌙 Loading travel details...</div></div>
+          <div class="day-card reveal" data-day="2"><div class="day-header"><div class="day-number">Day 2</div><div class="day-title">Badrinath Darshan → Return Home</div></div><div class="day-steps">
+            <div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">🛕 VIP Morning Darshan + Tapt Kund + Mana Village</div><div class="step-desc">Premium darshan experience. Hot spring dip. Visit India's last village. Your private cab waits.</div><div class="step-cost">₹0</div></div></div>
+            <div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">🚙 Badrinath → Dehradun Airport — Private Cab</div><div class="step-desc">Your dedicated driver. ~340 km, 10-11 hours. Included in round trip.</div><div class="step-cost">Included in round trip cab</div></div></div>
+            <div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">✈️ Dehradun → Your City — Return Flight</div><div class="step-desc">Evening flight back. ~2 hours.</div><div class="step-cost">₹4,000 – 8,000 / person</div></div></div>
+            <div class="step"><div class="step-dot"></div><div class="step-content"><div class="step-title">🍱 Food — Day 2</div><div class="step-desc">Breakfast at Badrinath hotel (included), lunch at premium restaurant (₹400-500), dinner at airport (₹300-500).</div><div class="step-cost">₹600 – 800 / person</div></div></div>
+          </div><div class="day-note">🏠 <strong>You're home — in just 2 days!</strong> The Premium plan makes Badrinath accessible even for a weekend trip. 🕉️✨</div></div>
+          <div class="summary-card reveal"><h3 class="summary-title serif">Premium Plan — Total Estimate</h3><table class="summary-table"><tr><td>✈️ Transport (flight + cab)</td><td>₹—</td></tr><tr><td>🍱 Food</td><td>₹—</td></tr><tr><td>🏨 Stay (premium hotel)</td><td>₹—</td></tr><tr><td>📦 Miscellaneous</td><td>₹—</td></tr><tr class="total-row"><td><strong>TOTAL (Group)</strong></td><td><strong>₹—</strong></td></tr></table><div class="summary-group"><div class="group-cost"><span>2 People (Total)</span> ₹—</div><div class="group-cost"><span>4 People (Total)</span> ₹—</div></div><p class="summary-note">Calculating your plan...</p></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container"><div class="brand" style="justify-content:center;margin-bottom:14px;"><span class="brand-mark"></span>Yatra</div><div>Badrinath Yatra Planner · Free for everyone · © <span id="year"></span></div></div>
+    </footer>
+  </div>
+
+  <script src="js/routes.js"></script>
+  <script src="js/badrinath.js"></script>
+  <script src="js/mobile-menu.js"></script>
+</body>
+</html>
