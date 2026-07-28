@@ -600,3 +600,10 @@ footer {
   border: 1px solid rgba(239, 68, 68, 0.3);
   color: #ef4444;
 }
+
+/* Destination Toggle */
+.dest-toggle-section { padding: 0 0 20px; }
+.dest-toggle { display: flex; gap: 10px; justify-content: center; }
+.dest-toggle-btn { padding: 10px 24px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--ice); font-size: 13px; text-decoration: none; transition: all 0.3s; cursor: pointer; font-family: inherit; }
+.dest-toggle-btn:hover { border-color: var(--gold); color: var(--snow); }
+.dest-toggle-btn.active { background: rgba(212,160,23,0.1); border-color: var(--gold); color: var(--gold); font-weight: 600; }

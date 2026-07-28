@@ -79,8 +79,8 @@
     window.addEventListener('resize', resize);
   }
 
-  // ── Only Kedarnath is live for now ──
-  var LIVE_DESTINATIONS = ['Kedarnath'];
+  // ── Live destinations ──
+  var LIVE_DESTINATIONS = ['Kedarnath', 'Badrinath'];
 
   // ── Toast notification ──
   function showToast(message) {
@@ -136,15 +136,16 @@
       var days = document.getElementById('days').value;
 
       if (LIVE_DESTINATIONS.indexOf(destination) === -1) {
-        showToast('🚧 ' + destination + ' is coming soon! Only Kedarnath is live right now.');
+        showToast('🚧 ' + destination + ' is coming soon! Try Kedarnath or Badrinath.');
         document.getElementById('dest').value = 'Kedarnath';
         return;
       }
 
       var daysNum = parseInt(days) || 6;
-      var extraDays = Math.max(0, daysNum - 4);
+      var extraDays = Math.max(0, daysNum - (destination === 'Badrinath' ? 3 : 4));
+      var planPage = destination === 'Badrinath' ? 'badrinath.html' : 'plan.html';
 
-      window.location.href = 'plan.html?tier=basic&people=' + family + '&origin=' + encodeURIComponent(origin) + '&days=' + extraDays;
+      window.location.href = planPage + '?tier=basic&people=' + family + '&origin=' + encodeURIComponent(origin) + '&days=' + extraDays;
     });
   }
 
@@ -165,13 +166,16 @@
 
       var familyInput = document.getElementById('family');
       var originInput = document.getElementById('origin');
+      var destInput = document.getElementById('dest');
       var daysInput = document.getElementById('days');
       var people = familyInput ? familyInput.value : 1;
       var origin = originInput ? originInput.value : 'Bhagalpur';
+      var destination = destInput ? destInput.value : 'Kedarnath';
       var daysNum = daysInput ? parseInt(daysInput.value) : 6;
-      var extraDays = Math.max(0, daysNum - (tier === 'premium' ? 2 : 4));
+      var extraDays = Math.max(0, daysNum - (destination === 'Badrinath' ? (tier === 'premium' ? 2 : 3) : (tier === 'premium' ? 2 : 4)));
+      var planPage = destination === 'Badrinath' ? 'badrinath.html' : 'plan.html';
 
-      window.location.href = 'plan.html?tier=' + tier + '&people=' + people + '&origin=' + encodeURIComponent(origin) + '&days=' + extraDays;
+      window.location.href = planPage + '?tier=' + tier + '&people=' + people + '&origin=' + encodeURIComponent(origin) + '&days=' + extraDays;
     });
   });
 
@@ -184,7 +188,7 @@
         if (LIVE_DESTINATIONS.indexOf(destName) === -1) {
           showToast('🚧 ' + destName + ' is coming soon! Stay tuned.');
         }
-                destSelect.value = destName;
+        destSelect.value = destName;
         const planner = document.getElementById('planner');
         if (planner) {
           planner.scrollIntoView({ behavior: 'smooth', block: 'center' });
