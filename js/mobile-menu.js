@@ -85,7 +85,7 @@
     + '<strong style="color:var(--snow);font-size:12px;'
     + 'letter-spacing:0.06em;text-transform:uppercase;">Explore</strong>'
     + '<div style="margin-top:8px;display:flex;flex-direction:column;gap:6px;">'
-    + F('blog/patna-to-kedarnath.html', '📝 Travel Guides')
+    +  F('blog/', '📝 Travel Guides')
     + F('plan.html', '🧮 Budget Planner')
     + F('weather.html', '🌦️ Weather')
     + F('directory.html', '🏨 Directory')
