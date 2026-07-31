@@ -97,6 +97,9 @@
     + 'letter-spacing:0.06em;text-transform:uppercase;">Support</strong>'
     + '<div style="margin-top:8px;display:flex;flex-direction:column;gap:6px;">'
     + F('https://www.reddit.com/user/Substantial_Use470/', '🤝 Reddit')
+    + '<a href="https://www.facebook.com/profile.php?id=61592118287403" target="_blank" rel="noopener" style="color:var(--ice);opacity:0.65;font-size:11px;text-decoration:none;">📘 Facebook</a>'
+    + '<a href="https://www.reddit.com/user/Substantial_Use470/" target="_blank" rel="noopener" style="color:var(--ice);opacity:0.65;font-size:11px;text-decoration:none;">🤝 Reddit</a>'
+    + '</div></div>'
     + F('faq.html', '❓ FAQ')
     + F('about.html', '📖 About')
     + F('contact.html', '📧 Contact')
