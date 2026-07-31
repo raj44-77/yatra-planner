@@ -96,6 +96,7 @@
     + '<strong style="color:var(--snow);font-size:12px;'
     + 'letter-spacing:0.06em;text-transform:uppercase;">Support</strong>'
     + '<div style="margin-top:8px;display:flex;flex-direction:column;gap:6px;">'
+    + F('https://www.reddit.com/user/Substantial_Use470/', '🤝 Reddit')
     + F('faq.html', '❓ FAQ')
     + F('about.html', '📖 About')
     + F('contact.html', '📧 Contact')
