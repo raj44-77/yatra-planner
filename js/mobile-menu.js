@@ -24,7 +24,6 @@
   appleIcon.href = 'assets/images/yatra-logo.png';
   head.appendChild(appleIcon);
 
-  // Google Search Logo (Schema)
   var logoSchema = document.createElement('script');
   logoSchema.type = 'application/ld+json';
   logoSchema.textContent = JSON.stringify({
@@ -61,68 +60,98 @@
   }
 
   // ── Shared Footer Injection ──
-  var F = function(href, text) {
-    return '<a href="/' + href + '"'
-      + ' style="color:var(--ice);opacity:0.65;font-size:11px;text-decoration:none;">'
-      + text + '</a>';
+  var FL = function(href, text) {
+    return '<li><a href="' + href + '">' + text + '</a></li>';
+  };
+  var FX = function(href, text) {
+    return '<li><a href="' + href + '" target="_blank" rel="noopener">' + text + '</a></li>';
   };
 
   var footerHTML = ''
-    + '<footer>'
+    + '<footer class="site-footer">'
     + '<div class="container">'
     
-    // Brand
-    + '<div class="brand" style="justify-content:center;margin-bottom:14px;">'
-    + '<span class="brand-mark"></span>Yatra'
+    // Brand row
+    + '<div class="footer-brand">'
+    + '<span class="brand-mark"></span>'
+    + '<span class="brand-name">Yatra Planner</span>'
     + '</div>'
     
-    // Footer columns
-    + '<div class="footer-resources" style="display:flex;flex-wrap:wrap;'
-    + 'justify-content:center;gap:28px;margin-bottom:18px;text-align:center;">'
+    // Columns
+    + '<div class="footer-columns">'
     
-    // Column 1: Explore
-    + '<div style="min-width:120px;">'
-    + '<strong style="color:var(--snow);font-size:12px;'
-    + 'letter-spacing:0.06em;text-transform:uppercase;">Explore</strong>'
-    + '<div style="margin-top:8px;display:flex;flex-direction:column;gap:6px;">'
-    +  F('blog/', '📝 Travel Guides')
-    + F('plan.html', '🧮 Budget Planner')
-    + F('weather.html', '🌦️ Weather')
-    + F('directory.html', '🏨 Directory')
-    + '</div></div>'
-    
-    // Column 2: Support
-    + '<div style="min-width:120px;">'
-    + '<strong style="color:var(--snow);font-size:12px;'
-    + 'letter-spacing:0.06em;text-transform:uppercase;">Support</strong>'
-    + '<div style="margin-top:8px;display:flex;flex-direction:column;gap:6px;">'
-    + F('https://www.reddit.com/user/Substantial_Use470/', '🤝 Reddit')
-    + '<a href="https://www.facebook.com/profile.php?id=61592118287403" target="_blank" rel="noopener" style="color:var(--ice);opacity:0.65;font-size:11px;text-decoration:none;">📘 Facebook</a>'
-    + '<a href="https://www.reddit.com/user/Substantial_Use470/" target="_blank" rel="noopener" style="color:var(--ice);opacity:0.65;font-size:11px;text-decoration:none;">🤝 Reddit</a>'
-    + '</div></div>'
-    + F('faq.html', '❓ FAQ')
-    + F('about.html', '📖 About')
-    + F('contact.html', '📧 Contact')
-    + F('privacy.html', '🔒 Privacy')
-    + '</div></div>'
-    
-    // Column 3: Destinations
-    + '<div style="min-width:120px;">'
-    + '<strong style="color:var(--snow);font-size:12px;'
-    + 'letter-spacing:0.06em;text-transform:uppercase;">Destinations</strong>'
-    + '<div style="margin-top:8px;display:flex;flex-direction:column;gap:6px;">'
-    + F('plan.html', '🕉️ Kedarnath')
-    + F('badrinath.html', '🛕 Badrinath')
-    + '<span style="color:var(--ice);opacity:0.35;font-size:10px;">More coming soon</span>'
-    + '</div></div>'
-    
-    + '</div>' // close footer-resources
-    
-    // Copyright
-    + '<div style="margin-top:12px;font-size:11px;opacity:0.5;">'
-    + 'Crafted for families who travel the Himalayas with heart · © '
-    + '<span id="year"></span>'
+    // Column 1: COMPANY
+    + '<div class="footer-col">'
+    + '<h4>COMPANY</h4>'
+    + '<ul>'
+    + FL('/about.html', 'About Us')
+    + FL('/contact.html', 'Contact')
+    + FL('/blog/', 'Blog')
+    + FL('/blog/', 'Travel Guides')
+    + '</ul>'
     + '</div>'
+    
+    // Column 2: DESTINATIONS
+    + '<div class="footer-col">'
+    + '<h4>DESTINATIONS</h4>'
+    + '<ul>'
+    + FL('/plan.html', '🕉️ Kedarnath')
+    + FL('/badrinath.html', '🛕 Badrinath')
+    + FL('/weather.html', '🌤️ Weather')
+    + FL('/plan.html', '🧮 Budget Planner')
+    + '</ul>'
+    + '</div>'
+    
+    // Column 3: RESOURCES
+    + '<div class="footer-col">'
+    + '<h4>RESOURCES</h4>'
+    + '<ul>'
+    + FL('/faq.html', 'FAQ')
+    + FL('/blog/kedarnath-registration-guide.html', 'Registration Guide')
+    + FL('/directory.html', 'Hotels & Directory')
+    + FL('/map.html', 'Emergency Contacts')
+    + '</ul>'
+    + '</div>'
+    
+    // Column 4: LEGAL
+    + '<div class="footer-col">'
+    + '<h4>LEGAL</h4>'
+    + '<ul>'
+    + FL('/privacy.html', 'Privacy Policy')
+    + FL('/terms.html', 'Terms & Conditions')
+    + FL('/terms.html', 'Disclaimer')
+    + FL('/sitemap.xml', 'Sitemap')
+    + '</ul>'
+    + '</div>'
+    
+    + '</div>' // close footer-columns
+    
+    // Divider
+    + '<hr class="footer-divider" />'
+    
+    // Bottom row
+    + '<div class="footer-bottom">'
+    + '<div class="footer-left">'
+    + '<p class="footer-copy">© 2026 YatraPlanner. All Rights Reserved.</p>'
+    + '<p class="footer-tagline">Helping travelers plan smarter, not costlier.</p>'
+    + '</div>'
+    + '<div class="footer-right">'
+    + '<div class="social-icons">'
+    + '<a href="https://www.facebook.com/profile.php?id=61592118287403" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">'
+    + '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>'
+    + '</a>'
+    + '<a href="#" class="social-icon" aria-label="Instagram">'
+    + '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>'
+    + '</a>'
+    + '<a href="#" class="social-icon" aria-label="X (Twitter)">'
+    + '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>'
+    + '</a>'
+    + '<a href="#" class="social-icon" aria-label="YouTube">'
+    + '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>'
+    + '</a>'
+    + '</div>'
+    + '</div>'
+    + '</div>' // close footer-bottom
     
     + '</div>' // close container
     + '</footer>';
