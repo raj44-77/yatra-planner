@@ -142,7 +142,7 @@
   function calcPremium() {
     var leg1 = getLeg1Cost('premium');
     var flightRoundTrip = 14000;
-    var dehradunCab = travelers <= 3 ? 30000 : (travelers <= 6 ? 48000 : 48000 + (travelers - 6) * 2000);
+    var dehradunCab = travelers <= 3 ? 15000 : (travelers <= 6 ? 20000 : 20000 + (travelers - 6) * 2000);
     var foodPerDay = 700;
     var stayBase = 6500;
     var misc = 8000;

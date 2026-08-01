@@ -69,9 +69,9 @@ var YATRA_ROUTES = {
           cost: '₹6,000 – 8,000 / person'
         },
         {
-          title: '🚙 Dehradun Airport → Gaurikund — Private SUV',
-          desc: '250 km, 7-8 hours. Dedicated vehicle for round trip. ₹25,000 (1-3 people), ₹40,000 (4-6 people).',
-          cost: '₹25,000 (1-3 people, round trip)'
+          title: '🚙 Dehradun Airport → Kedarnath — Private SUV',
+          desc: '250 km, 7-8 hours. Dedicated vehicle for round trip. ₹15,000 (1-3 people), ₹20,000 (4-6 people), +₹2,000 per extra person above 6.',
+          cost: '₹15,000 (1-3 people, round trip)'
         }
       ],
       day1Note: '🌙 <strong>Premium Private Room at Kedarnath:</strong> ₹8,000-10,000/night. Book 1-2 months ahead.',
@@ -92,7 +92,7 @@ var YATRA_ROUTES = {
       steps: [
         {
           title: '🚂 Patna Junction (PNBE) to Haridwar (HW) — General Class',
-          desc: '<strong>Direct train — no need to change!</strong><br><br><strong>Best trains:</strong> Kumbha Express (12369, departs 5:45 PM, reaches 10:30 AM next day), Doon Express (13009, departs 11:25 PM), Gangasutlej Express (13307, departs 11:30 PM).<br><br><strong>Journey:</strong> 17-18 hours. <strong>Ticket:</strong> General counter at Patna Junction. ₹280-300/person.<br><br><strong>Pro tip:</strong> Reach Patna Junction by 4 PM. Get a general class ticket and board Kumbha Express — it\'s the fastest option.',
+          desc: '<strong>Direct train — no need to change!</strong><br><br><strong>Best trains:</strong> Kumbha Express (12369, departs 5:45 PM, reaches 10:30 AM next day), Doon Express (13009, departs 11:25 PM), Gangasutlej Express (13307, departs 11:30 PM).<br><br><strong>Journey:</strong> 17-18 hours. <strong>Ticket:</strong> General counter at Patna Junction. ₹280-300/person.',
           cost: '₹280 – 300 / person'
         }
       ],
@@ -129,9 +129,9 @@ var YATRA_ROUTES = {
           cost: '₹6,000 – 8,000 / person'
         },
         {
-          title: '🚙 Dehradun Airport → Gaurikund — Private SUV',
-          desc: '250 km, 7-8 hours. Dedicated round trip vehicle. ₹25,000 (1-3 people), ₹40,000 (4-6 people).',
-          cost: '₹25,000 (1-3 people, round trip)'
+          title: '🚙 Dehradun Airport → Kedarnath — Private SUV',
+          desc: '250 km, 7-8 hours. Dedicated round trip vehicle. ₹15,000 (1-3 people), ₹20,000 (4-6 people), +₹2,000 per extra person above 6.',
+          cost: '₹15,000 (1-3 people, round trip)'
         }
       ],
       day1Note: '🌙 <strong>Premium Private Room at Kedarnath:</strong> ₹8,000-10,000/night.',
@@ -152,12 +152,12 @@ var YATRA_ROUTES = {
       steps: [
         {
           title: '🚂 Delhi (NDLS/DLI/HNZ) to Haridwar (HW) — General Class',
-          desc: '<strong>Multiple daily trains — only 4-6 hours!</strong><br><br><strong>Best trains:</strong> Jan Shatabdi (12055, departs 3:20 PM from NDLS, reaches 7:40 PM), Mussoorie Express (14041, departs 10:15 PM from DLI, reaches 6:00 AM), Yoga Express (19031, departs 7:25 AM from DLI, reaches 2:00 PM).<br><br><strong>Ticket:</strong> ₹150-200/person (general class). Buy at Delhi station. Much shorter journey than from Bihar!',
+          desc: '<strong>Multiple daily trains — only 4-6 hours!</strong><br><br><strong>Best trains:</strong> Jan Shatabdi (12055, departs 3:20 PM from NDLS, reaches 7:40 PM), Mussoorie Express (14041, departs 10:15 PM from DLI, reaches 6:00 AM), Yoga Express (19031, departs 7:25 AM from DLI, reaches 2:00 PM).<br><br><strong>Ticket:</strong> ₹150-200/person (general class). Buy at Delhi station.',
           cost: '₹150 – 200 / person'
         }
       ],
-      day1Note: '🌙 <strong>Short overnight journey or evening arrival.</strong> From Delhi, Haridwar is just 200 km away. You can reach by evening and start fresh next morning, or take an overnight train.',
-      day1Food: 'Pack snacks from Delhi or buy at station. Vendors available. <strong>Budget:</strong> ₹200-300/person for the day.',
+      day1Note: '🌙 <strong>Short overnight journey or evening arrival.</strong> From Delhi, Haridwar is just 200 km away.',
+      day1Food: 'Pack snacks from Delhi or buy at station. <strong>Budget:</strong> ₹200-300/person for the day.',
       day1FoodCost: '₹200 – 300 / person'
     },
 
@@ -166,11 +166,11 @@ var YATRA_ROUTES = {
       steps: [
         {
           title: '🚂 Delhi to Haridwar — AC Chair Car / 3AC',
-          desc: '<strong>Fast and comfortable!</strong><br><br><strong>Best trains:</strong> Jan Shatabdi (12055, CC ₹450-550, 4 hrs), Shatabdi Express (12017, CC ₹650-750, 3.5 hrs — fastest!).<br><br><strong>Book:</strong> IRCTC 1-2 weeks ahead. AC comfort, short journey.',
+          desc: '<strong>Fast and comfortable!</strong><br><br><strong>Best trains:</strong> Jan Shatabdi (12055, CC ₹450-550, 4 hrs), Shatabdi Express (12017, CC ₹650-750, 3.5 hrs — fastest!).<br><br><strong>Book:</strong> IRCTC 1-2 weeks ahead.',
           cost: '₹450 – 750 / person'
         }
       ],
-      day1Note: '🌙 <strong>Reach Haridwar by evening.</strong> Stay at a hotel in Haridwar (₹1,500-2,500/night) and start the mountain journey fresh next morning.',
+      day1Note: '🌙 <strong>Reach Haridwar by evening.</strong> Stay at a hotel (₹1,500-2,500/night) and start fresh next morning.',
       day1Food: 'Breakfast/snacks on train (₹150-200), dinner at Haridwar (₹200-300). <strong>Budget:</strong> ₹500-600/person.',
       day1FoodCost: '₹500 – 600 / person'
     },
@@ -180,16 +180,16 @@ var YATRA_ROUTES = {
       steps: [
         {
           title: '✈️ Delhi (DEL) to Dehradun (DED) — Flight',
-          desc: '<strong>Just 45 minutes!</strong> Multiple airlines: IndiGo, SpiceJet, Alliance Air, Vistara. ₹3,000-5,000/person one way. 5-6 flights daily.<br><br><strong>Book:</strong> 1-2 weeks ahead on any booking site.',
+          desc: '<strong>Just 45 minutes!</strong> Multiple airlines: IndiGo, SpiceJet, Alliance Air, Vistara. ₹3,000-5,000/person one way. 5-6 flights daily.',
           cost: '₹3,000 – 5,000 / person'
         },
         {
-          title: '🚙 Dehradun Airport → Gaurikund — Private SUV',
-          desc: '250 km, 7-8 hours. Dedicated round trip vehicle. ₹25,000 (1-3 people), ₹40,000 (4-6 people).',
-          cost: '₹25,000 (1-3 people, round trip)'
+          title: '🚙 Dehradun Airport → Kedarnath — Private SUV',
+          desc: '250 km, 7-8 hours. Dedicated round trip vehicle. ₹15,000 (1-3 people), ₹20,000 (4-6 people), +₹2,000 per extra person above 6.',
+          cost: '₹15,000 (1-3 people, round trip)'
         }
       ],
-      day1Note: '🌙 <strong>Fastest from Delhi!</strong> Fly in the morning, reach Kedarnath by evening. Total travel: ~10 hours door-to-temple.',
+      day1Note: '🌙 <strong>Fastest from Delhi!</strong> Fly in the morning, reach Kedarnath by evening.',
       day1Food: 'Breakfast at Delhi Airport (₹300-400), lunch/dinner en route (₹400-600). <strong>Budget:</strong> ₹600-800/person.',
       day1FoodCost: '₹600 – 800 / person'
     }
@@ -239,9 +239,9 @@ var YATRA_ROUTES = {
           cost: '₹5,000 – 8,000 / person'
         },
         {
-          title: '🚙 Dehradun → Gaurikund — Private SUV',
-          desc: '₹25,000 (1-3 people) or ₹40,000 (4-6 people) round trip.',
-          cost: '₹25,000 (1-3 people, round trip)'
+          title: '🚙 Dehradun → Kedarnath — Private SUV',
+          desc: '₹15,000 (1-3 people), ₹20,000 (4-6 people), +₹2,000 per extra person above 6. Round trip.',
+          cost: '₹15,000 (1-3 people, round trip)'
         }
       ],
       day1Note: '🌙 <strong>Premium stay at Kedarnath.</strong>',
@@ -266,7 +266,7 @@ var YATRA_ROUTES = {
           cost: '₹350 – 400 / person'
         }
       ],
-      day1Note: '🌙 <strong>Long journey — 2 nights on train.</strong> Plan for 5-6 days total trip from Kolkata.',
+      day1Note: '🌙 <strong>Long journey — 2 nights on train.</strong> Plan for 5-6 days total trip.',
       day1Food: 'Carry food for 2 days or buy at stations. <strong>Budget:</strong> ₹400-500/person for Day 1.',
       day1FoodCost: '₹400 – 500 / person'
     },
@@ -276,11 +276,11 @@ var YATRA_ROUTES = {
       steps: [
         {
           title: '🚂 Kolkata (HWH) to Haridwar — 3AC',
-          desc: '<strong>Book 3AC for 30+ hour journey.</strong> Doon Express (13009, 3AC ₹1,600-2,000), Kumbha Express (12369, 3AC ₹1,800-2,200).<br><br><strong>Book:</strong> IRCTC 1-2 months ahead — these trains fill fast.',
+          desc: '<strong>Book 3AC for 30+ hour journey.</strong> Doon Express (13009, 3AC ₹1,600-2,000), Kumbha Express (12369, 3AC ₹1,800-2,200).<br><br><strong>Book:</strong> IRCTC 1-2 months ahead.',
           cost: '₹1,600 – 2,200 / person'
         }
       ],
-      day1Note: '🌙 <strong>2 nights in 3AC.</strong> Comfortable for the long journey from Kolkata.',
+      day1Note: '🌙 <strong>2 nights in 3AC.</strong> Comfortable for the long journey.',
       day1Food: 'IRCTC e-catering. <strong>Budget:</strong> ₹600-800/person for Day 1.',
       day1FoodCost: '₹600 – 800 / person'
     },
@@ -290,13 +290,13 @@ var YATRA_ROUTES = {
       steps: [
         {
           title: '✈️ Kolkata (CCU) to Dehradun (DED) — Flight',
-          desc: '<strong>Direct or via Delhi.</strong> ~2.5-4 hours. ₹7,000-10,000/person. Multiple airlines.',
+          desc: '<strong>Direct or via Delhi.</strong> ~2.5-4 hours. ₹7,000-10,000/person.',
           cost: '₹7,000 – 10,000 / person'
         },
         {
-          title: '🚙 Dehradun → Gaurikund — Private SUV',
-          desc: '₹25,000 (1-3 people) or ₹40,000 (4-6 people) round trip.',
-          cost: '₹25,000 (1-3 people, round trip)'
+          title: '🚙 Dehradun → Kedarnath — Private SUV',
+          desc: '₹15,000 (1-3 people), ₹20,000 (4-6 people), +₹2,000 per extra person above 6. Round trip.',
+          cost: '₹15,000 (1-3 people, round trip)'
         }
       ],
       day1Note: '🌙 <strong>Fly from Kolkata in 2.5 hours!</strong> Skip the 30-hour train.',
@@ -317,11 +317,11 @@ var YATRA_ROUTES = {
       steps: [
         {
           title: '🚂 Mumbai (BCT/BDTS/LTT) to Haridwar (HW) — General Class',
-          desc: '<strong>Direct trains:</strong> Dehradun Express (19019, departs Bandra 12:25 AM, 30+ hrs), Haridwar Express (22917, departs Bandra 12:45 PM, 24 hrs).<br><br><strong>Ticket:</strong> ₹400-500/person (general class). Long journey — carry supplies.',
+          desc: '<strong>Direct trains:</strong> Dehradun Express (19019, departs Bandra 12:25 AM, 30+ hrs), Haridwar Express (22917, departs Bandra 12:45 PM, 24 hrs).<br><br><strong>Ticket:</strong> ₹400-500/person (general class).',
           cost: '₹400 – 500 / person'
         }
       ],
-      day1Note: '🌙 <strong>Very long journey.</strong> 5-6 days total trip. Better to choose Comfort/Premium from Mumbai.',
+      day1Note: '🌙 <strong>Very long journey.</strong> 5-6 days total trip.',
       day1Food: 'Carry or buy. <strong>Budget:</strong> ₹400-500/person for Day 1.',
       day1FoodCost: '₹400 – 500 / person'
     },
@@ -335,7 +335,7 @@ var YATRA_ROUTES = {
           cost: '₹2,000 – 3,200 / person'
         }
       ],
-      day1Note: '🌙 <strong>24 hours in AC comfort.</strong> Worth the upgrade from Mumbai.',
+      day1Note: '🌙 <strong>24 hours in AC comfort.</strong>',
       day1Food: 'IRCTC catering + pantry. <strong>Budget:</strong> ₹600-800/person.',
       day1FoodCost: '₹600 – 800 / person'
     },
@@ -345,16 +345,16 @@ var YATRA_ROUTES = {
       steps: [
         {
           title: '✈️ Mumbai (BOM) to Dehradun (DED) — Flight',
-          desc: '<strong>Direct flights!</strong> ~2 hours. ₹5,000-8,000/person. IndiGo, SpiceJet, Vistara. Multiple daily flights.',
+          desc: '<strong>Direct flights!</strong> ~2 hours. ₹5,000-8,000/person.',
           cost: '₹5,000 – 8,000 / person'
         },
         {
-          title: '🚙 Dehradun → Gaurikund — Private SUV',
-          desc: '₹25,000 (1-3 people) or ₹40,000 (4-6 people) round trip.',
-          cost: '₹25,000 (1-3 people, round trip)'
+          title: '🚙 Dehradun → Kedarnath — Private SUV',
+          desc: '₹15,000 (1-3 people), ₹20,000 (4-6 people), +₹2,000 per extra person above 6. Round trip.',
+          cost: '₹15,000 (1-3 people, round trip)'
         }
       ],
-      day1Note: '🌙 <strong>Fly from Mumbai!</strong> 2-hour flight beats 30-hour train. Same-day arrival at Kedarnath possible.',
+      day1Note: '🌙 <strong>Fly from Mumbai!</strong> 2-hour flight beats 30-hour train.',
       day1Food: 'Airport meals + restaurant. <strong>Budget:</strong> ₹600-800/person.',
       day1FoodCost: '₹600 – 800 / person'
     }
@@ -372,7 +372,7 @@ var YATRA_ROUTES = {
       steps: [
         {
           title: '🚂 Lucknow (LKO) to Haridwar (HW) — General Class',
-          desc: '<strong>Direct trains:</strong> Doon Express (13009, via Lucknow), Gangasutlej Express (13307). Many trains pass through Lucknow.<br><br><strong>Journey:</strong> 10-12 hours. <strong>Ticket:</strong> ₹200-250/person.',
+          desc: '<strong>Direct trains:</strong> Doon Express (13009, via Lucknow), Gangasutlej Express (13307).<br><br><strong>Journey:</strong> 10-12 hours. <strong>Ticket:</strong> ₹200-250/person.',
           cost: '₹200 – 250 / person'
         }
       ],
@@ -404,9 +404,9 @@ var YATRA_ROUTES = {
           cost: '₹4,000 – 6,000 / person'
         },
         {
-          title: '🚙 Dehradun → Gaurikund — Private SUV',
-          desc: '₹25,000 (1-3 people) or ₹40,000 (4-6 people) round trip.',
-          cost: '₹25,000 (1-3 people, round trip)'
+          title: '🚙 Dehradun → Kedarnath — Private SUV',
+          desc: '₹15,000 (1-3 people), ₹20,000 (4-6 people), +₹2,000 per extra person above 6. Round trip.',
+          cost: '₹15,000 (1-3 people, round trip)'
         }
       ],
       day1Note: '🌙 <strong>Premium stay at Kedarnath.</strong>',
@@ -459,9 +459,9 @@ var YATRA_ROUTES = {
           cost: '₹4,000 – 7,000 / person'
         },
         {
-          title: '🚙 Dehradun → Gaurikund — Private SUV',
-          desc: '₹25,000 (1-3 people) or ₹40,000 (4-6 people) round trip.',
-          cost: '₹25,000 (1-3 people, round trip)'
+          title: '🚙 Dehradun → Kedarnath — Private SUV',
+          desc: '₹15,000 (1-3 people), ₹20,000 (4-6 people), +₹2,000 per extra person above 6. Round trip.',
+          cost: '₹15,000 (1-3 people, round trip)'
         }
       ],
       day1Note: '🌙 <strong>Premium stay at Kedarnath.</strong>',
@@ -520,7 +520,7 @@ badrinathRoute(
     { title: '🚂 Bhagalpur → Patna (AC Chair Car)', desc: 'Intercity Express (13235), AC Chair Car. ₹500/person.', cost: '₹500 / person' },
     { title: '🚕 Patna Jn → Patna Airport', desc: '25-35 min. ₹250-300 (1-3 people).', cost: '₹250 – 300' },
     { title: '✈️ Patna → Dehradun', desc: 'IndiGo/SpiceJet. 2 hrs. ₹6,000-8,000/person.', cost: '₹6,000 – 8,000 / person' },
-    { title: '🚙 Dehradun → Joshimath → Badrinath (Private SUV)', desc: '~340 km, 10-11 hrs. Round trip: ₹30,000 (1-3 people), ₹48,000 (4-6 people).', cost: '₹30,000 (1-3 people, round trip)' }
+    { title: '🚙 Dehradun → Joshimath → Badrinath (Private SUV)', desc: '~340 km, 10-11 hrs. Round trip: ₹15,000 (1-3 people), ₹20,000 (4-6 people), +₹2,000 per extra person above 6.', cost: '₹15,000 (1-3 people, round trip)' }
   ],
   'Bhagalpur → Patna → Haridwar (Train Journey)',
   'Bhagalpur → Patna → Haridwar (Sleeper/3AC)',
@@ -546,7 +546,7 @@ badrinathRoute(
   [
     { title: '🚕 Patna Home → Airport', desc: '₹250-500 depending on location.', cost: '₹250 – 500' },
     { title: '✈️ Patna → Dehradun', desc: 'IndiGo/SpiceJet. 2 hrs. ₹6,000-8,000/person.', cost: '₹6,000 – 8,000 / person' },
-    { title: '🚙 Dehradun → Badrinath (Private SUV)', desc: '~340 km. Round trip: ₹30,000 (1-3), ₹48,000 (4-6).', cost: '₹30,000 (1-3 people)' }
+    { title: '🚙 Dehradun → Badrinath (Private SUV)', desc: '~340 km. Round trip: ₹15,000 (1-3), ₹20,000 (4-6), +₹2,000 per extra person above 6.', cost: '₹15,000 (1-3 people)' }
   ],
   'Patna → Haridwar (Direct Train)',
   'Patna → Haridwar (Sleeper/3AC — Direct)',
@@ -571,7 +571,7 @@ badrinathRoute(
   ],
   [
     { title: '✈️ Delhi (DEL) → Dehradun (DED)', desc: '<strong>45 minutes!</strong> ₹3,000-5,000/person. Multiple flights daily.', cost: '₹3,000 – 5,000 / person' },
-    { title: '🚙 Dehradun → Badrinath (Private SUV)', desc: '~340 km. Round trip: ₹30,000 (1-3), ₹48,000 (4-6).', cost: '₹30,000 (1-3 people)' }
+    { title: '🚙 Dehradun → Badrinath (Private SUV)', desc: '~340 km. Round trip: ₹15,000 (1-3), ₹20,000 (4-6), +₹2,000 per extra person above 6.', cost: '₹15,000 (1-3 people)' }
   ],
   'Delhi → Haridwar (Short Train Journey)',
   'Delhi → Haridwar (AC Train — 4-6 Hours)',
@@ -608,7 +608,7 @@ function quickBadrinath(city, basicCost, comfortCost, premiumCost) {
       day1Title: key + ' → Dehradun (Flight) → Badrinath',
       steps: [
         { title: '✈️ ' + key + ' to Dehradun — Flight', desc: '<strong>Direct or via Delhi.</strong> ₹' + premiumCost + '/person.', cost: '₹' + premiumCost + ' / person' },
-        { title: '🚙 Dehradun → Badrinath (Private SUV)', desc: '~340 km. Round trip: ₹30,000 (1-3), ₹48,000 (4-6).', cost: '₹30,000 (1-3 people)' }
+        { title: '🚙 Dehradun → Badrinath (Private SUV)', desc: '~340 km. Round trip: ₹15,000 (1-3), ₹20,000 (4-6), +₹2,000 per extra person above 6.', cost: '₹15,000 (1-3 people)' }
       ],
       day1Note: '🌙 <strong>Premium stay at Badrinath.</strong>',
       day1Food: 'Airport + restaurant. <strong>Budget:</strong> ₹600-800/person.',
