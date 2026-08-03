@@ -80,7 +80,7 @@
   }
 
   // ── Live destinations ──
-  var LIVE_DESTINATIONS = ['Kedarnath', 'Badrinath'];
+  var LIVE_DESTINATIONS = ['Kedarnath', 'Badrinath', 'Manali'];
 
   // ── Toast notification ──
   function showToast(message) {
@@ -124,6 +124,19 @@
     setTimeout(function () { if (toast.parentNode) toast.remove(); }, 3500);
   }
 
+  // ── Helper: get plan page and base days for a destination ──
+  function getPlanPage(destination) {
+    if (destination === 'Badrinath') return 'badrinath.html';
+    if (destination === 'Manali') return 'manali.html';
+    return 'plan.html';
+  }
+
+  function getBaseDays(destination, tier) {
+    if (destination === 'Badrinath') return tier === 'premium' ? 2 : 3;
+    if (destination === 'Manali') return tier === 'premium' ? 2 : 3;
+    return tier === 'premium' ? 2 : 4;
+  }
+
   // ── Planner form submit ──
   var plannerForm = document.getElementById('planner');
   if (plannerForm) {
@@ -136,14 +149,14 @@
       var days = document.getElementById('days').value;
 
       if (LIVE_DESTINATIONS.indexOf(destination) === -1) {
-        showToast('🚧 ' + destination + ' is coming soon! Try Kedarnath or Badrinath.');
+        showToast('🚧 ' + destination + ' is coming soon! Try Kedarnath, Badrinath, or Manali.');
         document.getElementById('dest').value = 'Kedarnath';
         return;
       }
 
       var daysNum = parseInt(days) || 6;
-      var extraDays = Math.max(0, daysNum - (destination === 'Badrinath' ? 3 : 4));
-      var planPage = destination === 'Badrinath' ? 'badrinath.html' : 'plan.html';
+      var extraDays = Math.max(0, daysNum - getBaseDays(destination, 'basic'));
+      var planPage = getPlanPage(destination);
 
       window.location.href = planPage + '?tier=basic&people=' + family + '&origin=' + encodeURIComponent(origin) + '&days=' + extraDays;
     });
@@ -172,8 +185,8 @@
       var origin = originInput ? originInput.value : 'Bhagalpur';
       var destination = destInput ? destInput.value : 'Kedarnath';
       var daysNum = daysInput ? parseInt(daysInput.value) : 6;
-      var extraDays = Math.max(0, daysNum - (destination === 'Badrinath' ? (tier === 'premium' ? 2 : 3) : (tier === 'premium' ? 2 : 4)));
-      var planPage = destination === 'Badrinath' ? 'badrinath.html' : 'plan.html';
+      var extraDays = Math.max(0, daysNum - getBaseDays(destination, tier));
+      var planPage = getPlanPage(destination);
 
       window.location.href = planPage + '?tier=' + tier + '&people=' + people + '&origin=' + encodeURIComponent(origin) + '&days=' + extraDays;
     });
