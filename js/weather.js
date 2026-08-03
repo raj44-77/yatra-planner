@@ -403,4 +403,14 @@
   fetchWeather();
   setInterval(fetchWeather, 30 * 60 * 1000);
 
+  var MANALI_LAT = 32.2396, MANALI_LON = 77.1887;
+
+var urlParams = new URLSearchParams(window.location.search);
+var destination = urlParams.get('dest') || 'kedarnath';
+
+var LAT = destination === 'badrinath' ? BADRINATH_LAT : (destination === 'manali' ? MANALI_LAT : KEDARNATH_LAT);
+var LON = destination === 'badrinath' ? BADRINATH_LON : (destination === 'manali' ? MANALI_LON : KEDARNATH_LON);
+var LOCATION_NAME = destination === 'badrinath' ? 'Badrinath' : (destination === 'manali' ? 'Manali' : 'Kedarnath');
+var ALTITUDE = destination === 'badrinath' ? '3,300m' : (destination === 'manali' ? '2,050m' : '3,583m');
+
 })();
