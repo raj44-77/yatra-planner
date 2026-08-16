@@ -1,23 +1,18 @@
 (function () {
   'use strict';
-
   // Set year
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
-
   // Destination from URL
   var urlParams = new URLSearchParams(window.location.search);
-  
-  
+  var destination = urlParams.get('dest') || 'kedarnath';
   var KEDARNATH_LAT = 30.7352, KEDARNATH_LON = 79.0669;
   var BADRINATH_LAT = 30.7433, BADRINATH_LON = 79.4938;
-  
   var MANALI_LAT = 32.2396, MANALI_LON = 77.1887;
   var LAT = destination === 'badrinath' ? BADRINATH_LAT : (destination === 'manali' ? MANALI_LAT : KEDARNATH_LAT);
   var LON = destination === 'badrinath' ? BADRINATH_LON : (destination === 'manali' ? MANALI_LON : KEDARNATH_LON);
   var LOCATION_NAME = destination === 'badrinath' ? 'Badrinath' : (destination === 'manali' ? 'Manali' : 'Kedarnath');
   var ALTITUDE = destination === 'badrinath' ? '3,300m' : (destination === 'manali' ? '2,050m' : '3,583m');
-
   // Weather codes to icons and conditions
   var weatherCodes = {
     0: { icon: '☀️', condition: 'Clear Sky' },
@@ -400,6 +395,14 @@
     window.location.href = 'weather.html?dest=' + dest;
   };
 
+  // Toggle buttons
+  document.querySelectorAll('.dest-toggle-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var dest = this.getAttribute('data-dest');
+      window.location.href = 'weather.html?dest=' + dest;
+    });
+  });
+
   // Initial fetch
   fetchWeather();
   setInterval(fetchWeather, 30 * 60 * 1000);
@@ -414,4 +417,9 @@ var LON = destination === 'badrinath' ? BADRINATH_LON : (destination === 'manali
 var LOCATION_NAME = destination === 'badrinath' ? 'Badrinath' : (destination === 'manali' ? 'Manali' : 'Kedarnath');
 var ALTITUDE = destination === 'badrinath' ? '3,300m' : (destination === 'manali' ? '2,050m' : '3,583m');
 
-})();
+  // Destination toggle
+  window.switchWeatherDest = function(dest) {
+    window.location.href = 'weather.html?dest=' + dest;
+  };})();
+
+
