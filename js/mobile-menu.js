@@ -8,20 +8,20 @@
   favicon32.rel = 'icon';
   favicon32.type = 'image/png';
   favicon32.sizes = '32x32';
-  favicon32.href = 'assets/images/yatra-logo.png';
+  favicon32.href = 'https://yatra-planner.onrender.com/assets/images/yatra-logo.png';
   head.appendChild(favicon32);
 
   var favicon192 = document.createElement('link');
   favicon192.rel = 'icon';
   favicon192.type = 'image/png';
   favicon192.sizes = '192x192';
-  favicon192.href = 'assets/images/yatra-logo.png';
+  favicon192.href = 'https://yatra-planner.onrender.com/assets/images/yatra-logo.png';
   head.appendChild(favicon192);
 
   var appleIcon = document.createElement('link');
   appleIcon.rel = 'apple-touch-icon';
   appleIcon.sizes = '180x180';
-  appleIcon.href = 'assets/images/yatra-logo.png';
+  appleIcon.href = 'https://yatra-planner.onrender.com/assets/images/yatra-logo.png';
   head.appendChild(appleIcon);
 
   var logoSchema = document.createElement('script');
@@ -31,7 +31,7 @@
     "@type": "Organization",
     "name": "Yatra Planner",
     "url": "https://yatra-planner.onrender.com",
-    "logo": "https://yatra-planner.onrender.com/assets/images/yatra-logo.png"
+    "logo": "https://yatra-planner.onrender.com/https://yatra-planner.onrender.com/assets/images/yatra-logo.png"
   });
   head.appendChild(logoSchema);
 
