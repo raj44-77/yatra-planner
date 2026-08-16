@@ -96,7 +96,7 @@
     document.getElementById('currentVis').textContent = (current.visibility / 1000).toFixed(1) + ' km';
     
     var locEl = document.querySelector('.current-location');
-    if (locEl) locEl.textContent = '📍 ' + LOCATION_NAME + ', Uttarakhand';
+    if (locEl) locEl.textContent = '📍 ' + LOCATION_NAME + ', ' + (destination === 'manali' ? 'Himachal Pradesh' : 'Uttarakhand')';
     
     var heroTitle = document.querySelector('.weather-hero-title');
     if (heroTitle) heroTitle.innerHTML = LOCATION_NAME + ' <em>Weather</em>';
