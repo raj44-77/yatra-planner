@@ -31,7 +31,7 @@
     "@type": "Organization",
     "name": "Yatra Planner",
     "url": "https://yatra-planner.onrender.com",
-    "logo": "https://yatra-planner.onrender.com/https://yatra-planner.onrender.com/assets/images/yatra-logo.png"
+    "logo": "https://yatra-planner.onrender.com/assets/images/yatra-logo.png"
   });
   head.appendChild(logoSchema);
 
