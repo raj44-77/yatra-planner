@@ -234,5 +234,65 @@
         document.getElementById('liveDesc').textContent = 'Live weather temporarily unavailable';
       });
   </script>
+  <script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Live weather fetch
+(function() {
+  var tempEl = document.getElementById('liveTemp');
+  var descEl = document.getElementById('liveDesc');
+  var updatedEl = document.getElementById('liveUpdated');
+  
+  if (!tempEl || !descEl) return;
+  
+  function getWeatherDescription(code) {
+    if (code === 0) return 'Clear sky';
+    if (code === 1) return 'Mostly clear';
+    if (code === 2) return 'Partly cloudy';
+    if (code === 3) return 'Overcast';
+    if (code >= 45 && code <= 48) return 'Foggy';
+    if (code >= 51 && code <= 57) return 'Drizzle';
+    if (code >= 61 && code <= 67) return 'Rain';
+    if (code >= 71 && code <= 77) return 'Snow';
+    if (code >= 80 && code <= 82) return 'Rain showers';
+    if (code >= 95) return 'Thunderstorm';
+    return 'Partly cloudy';
+  }
+  
+  fetch('https://api.open-meteo.com/v1/forecast?latitude=30.7352&longitude=79.0669&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&timezone=Asia/Kolkata')
+    .then(function(response) {
+      if (!response.ok) throw new Error('HTTP error ' + response.status);
+      return response.json();
+    })
+    .then(function(data) {
+      if (!data.current) throw new Error('No current data');
+      
+      var temp = Math.round(data.current.temperature_2m);
+      var code = data.current.weather_code;
+      var humidity = data.current.relative_humidity_2m;
+      var wind = Math.round(data.current.wind_speed_10m);
+      var desc = getWeatherDescription(code);
+      
+      if (tempEl) tempEl.textContent = temp + '°C';
+      if (descEl) descEl.textContent = desc + ' · Humidity ' + humidity + '% · Wind ' + wind + ' km/h';
+      if (updatedEl) updatedEl.textContent = '✅ Live from Open-Meteo · Auto-updates every 30 minutes';
+      
+      // Update title with live temperature
+      var newTitle = 'Kedarnath Weather Today: ' + temp + '°C ' + desc + ' — 10-Day Forecast | Yatra';
+      document.title = newTitle;
+      
+      var titleTag = document.getElementById('dynamicTitle');
+      if (titleTag) titleTag.textContent = newTitle;
+      
+      console.log('✅ Live weather loaded: ' + temp + '°C, ' + desc);
+    })
+    .catch(function(error) {
+      console.error('❌ Weather fetch failed:', error);
+      if (tempEl) tempEl.textContent = '🌤️';
+      if (descEl) descEl.textContent = 'Live weather temporarily unavailable. Click below for full dashboard.';
+      if (updatedEl) updatedEl.textContent = 'Please check your internet connection';
+    });
+})();
+</script>
 </body>
 </html>
